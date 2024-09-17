@@ -6,7 +6,7 @@
 
 
         \centering
-        \pgfplotstableread{drawings/xxz_magnetization.dat}{\dtable}
+        \pgfplotstableread{data/xxz_magnetization.dat}{\dtable}
         \pgfplotstablegetrowsof{\dtable}
         \pgfmathtruncatemacro{\rownum}{\pgfplotsretval}
         \begin{tikzpicture}

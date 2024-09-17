@@ -28,7 +28,7 @@
                 ylabel = {$\expect{\sigma_z^{(1)}}$},
         ]
         \nextgroupplot[title={$N=6$}]
-        \pgfplotstableread{drawings/central6.dat}{\dtable}
+        \pgfplotstableread{data/central6.dat}{\dtable}
         \addplot[blue!20!red, thick] table [x = {t}, y = {x}] {\dtable};
         \addplot[blue!40!red, thick, densely dashed] table [x ={t}, y = {y}] {\dtable};
         \addplot[blue!60!red, very thick, densely dotted] table [x ={t}, y = {z}] {\dtable};
@@ -39,7 +39,7 @@
         \addplot[blue!60!red, mark=o, mark repeat=10, thick, only marks] table [x ={t}, y = {z}] {\dtable};
         \addplot[blue!80!red, mark=o, mark repeat=10, thick, only marks] table [x ={t}, y = {w}] {\dtable};
         \nextgroupplot[title={$N=7$}]
-        \pgfplotstableread{drawings/central7.dat}{\dtable}
+        \pgfplotstableread{data/central7.dat}{\dtable}
         \addplot[blue!20!red, thick] table [x = {t}, y = {x}] {\dtable};
         \addplot[blue!40!red, thick, densely dashed] table [x ={t}, y = {y}] {\dtable};
         \addplot[blue!60!red, very thick, densely dotted] table [x ={t}, y = {z}] {\dtable};
@@ -50,13 +50,13 @@
         \addplot[blue!60!red, mark=o, mark repeat=10, thick, only marks] table [x ={t}, y = {z}] {\dtable};
         \addplot[blue!80!red, mark=o, mark repeat=10, thick, only marks] table [x ={t}, y = {w}] {\dtable};
         \nextgroupplot[title={$N=30$}]
-        \pgfplotstableread{drawings/central30.dat}{\dtable}
+        \pgfplotstableread{data/central30.dat}{\dtable}
         \addplot[blue!20!red, thick] table [x = {t}, y = {x}] {\dtable};
         \addplot[blue!40!red, thick, densely dashed] table [x ={t}, y = {y}] {\dtable};
         \addplot[blue!60!red, very thick, densely dotted] table [x ={t}, y = {z}] {\dtable};
         \addplot[blue!80!red, thick] table [x ={t}, y = {w}] {\dtable};
         \nextgroupplot[title={$N=31$}]
-        \pgfplotstableread{drawings/central31.dat}{\dtable}
+        \pgfplotstableread{data/central31.dat}{\dtable}
         \addplot[blue!20!red, thick] table [x = {t}, y = {x}] {\dtable};
         \addplot[blue!40!red, thick, densely dashed] table [x ={t}, y = {y}] {\dtable};
         \addplot[blue!60!red, very thick, densely dotted] table [x ={t}, y = {z}] {\dtable};
