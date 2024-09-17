@@ -1,0 +1,24 @@
+\documentclass{standalone}[12pt]
+
+\input{commands}
+
+\begin{document}
+        \centering
+        \pgfplotstableread{drawings/xxz_magnetization.dat}{\dtable}
+            \begin{tikzpicture}
+            \begin{axis}[
+                width=0.8\textwidth,
+                ymin=1,ymax=4,
+                grid=major,
+                ytick={1,2,...,4}, 
+                xtick={0,1,2,...,5},
+                xlabel={$t [\text{s}]$}, ylabel={$j$}, zlabel={$\expect{J_j}$}, 
+                ]
+            
+                \addplot3[blue!20!red, thick, mark=o, mark repeat=5, smooth] table [y expr= 1, x = {t}, z={j0}] {\dtable};
+                \addplot3[blue!40!red, thick, mark=o, mark repeat=5, smooth] table [y expr= 2, x = {t}, z={j1}] {\dtable};
+                \addplot3[blue!60!red, thick, mark=o, mark repeat=5, smooth] table [y expr= 3, x = {t}, z={j2}] {\dtable};
+                \addplot3[blue!80!red, thick, mark=o, mark repeat=5, smooth] table [y expr= 4, x = {t}, z={j3}] {\dtable};
+            \end{axis}
+            \end{tikzpicture}
+\end{document}

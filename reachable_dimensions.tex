@@ -1,0 +1,108 @@
+\documentclass{standalone}
+
+\usepackage{siunitx}
+
+\input{commands}
+
+\begin{document}
+
+\begin{tikzpicture}
+
+\begin{axis}[
+xtick distance=1,
+ymode=log,
+grid = both,
+xmin = 1.5, xmax = 10.5,
+ymin = 0, ymax = 400,
+xtick distance = 1,
+ytick distance = 10,
+grid = both,
+minor tick num = 1,
+major grid style = {lightgray},
+minor grid style = {lightgray!25},
+width = 12cm,
+height = 8cm,
+legend pos = north west,
+xlabel=$N$,
+]
+
+\addlegendimage{color = green, thick, mark=*} \addlegendentry{$\dim(\Bf(\Hc_{F,j^*}))$}
+\addlegendimage{color = black, solid} \addlegendentry{$\dim(\Rs)$}
+\addlegendimage{color = black, dashed} \addlegendentry{$\dim(\alg(\Rs))$}
+\addlegendimage{color = black, dotted} \addlegendentry{$\dim(\Ds)$}
+
+\addplot [domain=2:10, samples=9, color=green, thick, mark = *]{4*x^2};
+
+
+%%%%%%%%% Reachable spaces 
+
+%%%%% a)
+% \addplot[color=red!80!blue, thick, solid] coordinates {
+% (2,4)(3,4)(4,4)(5,4)(6,4)(7,4)(8,4)(9,4)(10,4)};
+
+%%%%% b)
+\addplot[color=red!90!blue, thick, solid] coordinates {
+(2,5)(3,5)(4,5)(5,5)(6,5)(7,5)(8,5)(9,5)(10,5)};
+
+%%%%% c)
+\addplot[color=red!50!blue, thick, solid] coordinates {
+(2,3)(3,7)(4,9)(5,21)(6,25)(7,27)(8,30)(9,30)};
+
+%%%%% d)
+\addplot[color=red!10!blue, thick, solid] coordinates {
+(2,13)(3,28)(4,34)(5,37)(6,37)};
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Algebras
+
+%%%%% a)
+% \addplot[color=red!80!blue, thick, dashed] coordinates {
+% (2,3.8)(3,3.8)(4,3.8)(5,3.8)(6,3.8)(7,3.8)(8,3.8)(9,3.8)(10,3.8)};
+
+%%%%% b)
+\addplot[color=red!90!blue, thick, dashed] coordinates {
+(2,4.8)(3,4.8)(4,4.8)(5,4.8)(6,4.8)(7,4.8)(8,4.8)(9,4.8)(10,4.8)};
+
+%%%%%% c) 
+\addplot[color=red!50!blue, thick, dashed] coordinates {(2,4)(3,9)(4,16)(5,25)(6,35)(7,39)(8,39)(9,66)};
+
+%%%%%% d)
+\addplot[color=red!10!blue, thick, dashed] coordinates {(2,16)(3,34)(4,59)(5,45)(6,44)};
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Distorted algebras
+
+%%%%% a)
+% \addplot[color=red!80!blue, thick, dotted] coordinates {
+% (2,4.2)(3,4.2)(4,4.2)(5,4.2)(6,4.2)(7,4.2)(8,4.2)(9,4.2)(10,4.2)};
+
+%%%%% b)
+\addplot[color=red!90!blue, thick, dotted] coordinates {
+(2,5.2)(3,5.2)(4,5.2)(5,5.2)(6,5.2)(7,5.2)(8,5.2)(9,5.2)(10,5.2)};
+
+%%%%% c)
+\addplot[color=red!50!blue, thick, dotted] coordinates {
+(2,4)(3,9)(4,16)(5,25)(6,34)(7,36)(8,37)(9,55)};
+
+%%%%% d)
+\addplot[color=red!10!blue, thick, dotted] coordinates {
+(2,16)(3,31)(4,37)(5,38)(6,40)};
+
+\end{axis}
+
+\begin{axis}[%
+hide axis,
+xmin=10,
+xmax=50,
+ymin=0,
+ymax=0.4,
+legend style={draw=white!15!black,legend cell align=left, at={(0.8,-0.22)},anchor=north,legend columns=-1}
+]
+
+%\addlegendimage{color = red!80!blue, no marks, very thick} \addlegendentry{a)}
+\addlegendimage{color = red!90!blue, no marks, very thick} \addlegendentry{a)}
+\addlegendimage{color = red!50!blue, no marks, very thick} \addlegendentry{b)}
+\addlegendimage{color = red!10!blue, no marks, very thick} \addlegendentry{c)}
+\end{axis}
+
+
+\end{tikzpicture}
+\end{document}

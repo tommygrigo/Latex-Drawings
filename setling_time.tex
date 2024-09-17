@@ -1,0 +1,50 @@
+\documentclass{standalone}
+
+\input{commands}
+
+\begin{document}
+
+\pgfplotstableread{drawings/settling_time.dat}{\dtable}
+
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+        	xmin = 0, xmax = 5.5,
+        	ymin = 0, ymax = 20,
+                domain = 0:5,
+        	xtick distance = .5,
+        	ytick distance = 2,
+        	grid = both,
+        	minor tick num = 1,
+        	major grid style = {lightgray},
+        	minor grid style = {lightgray!25},
+        	width = 10cm,
+        	height = 6.5cm,
+        	legend cell align = {left},
+        	legend pos = north east,
+                xlabel = {$\Lambda$},
+                ylabel = {$t_s[{\rm s}]$},
+        ]
+
+        %\addplot [domain=2:10, samples=9, color=green, thick]{4^x};
+
+        %\addplot[green, mark = *] table [x ={N}, y = {z}] {\dtable};
+
+        %\addplot[color=red!60, thick]coordinates {
+        %(2,16)(3,40)(4,80)(5,140)(6,224)(7,336)(8,480)(9,660)(10,880)};
+        
+        \addplot[blue!40, mark = o,thick, only marks] table [x = {t}, y = {x}] {\dtable};
+        \addplot[blue!40, no marks,thick, smooth] table [x = {t}, y = {y}] {\dtable};
+        
+        %\addplot[orange!60, mark = *, dashed, thick, only marks] table [x ={N}, y = {y}] {\dtable};
+
+        %\addplot [domain=2:10, samples=9, color=purple, thick]{4*x^2};
+
+        \legend{
+        Numerical,
+        Approximate}
+        
+        \end{axis}
+        
+    \end{tikzpicture}
+\end{document}

@@ -1,0 +1,61 @@
+\documentclass{standalone}
+
+\input{commands}
+
+\begin{document}
+
+\pgfplotstableread{drawings/collective.dat}{\dtable}
+
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+        	xmin = 0, xmax = 10,
+        	ymin = -1.1, ymax = 1.1,
+        	xtick distance = 2.5,
+        	ytick distance = .2,
+        	grid = both,
+        	minor tick num = 1,
+        	major grid style = {lightgray},
+        	minor grid style = {lightgray!25},
+        	width = 10cm,
+        	height = 6.5cm,
+                smooth,
+                xlabel = {$t[{\rm s}]$},
+                ylabel = {$\left\langle\sigma_z^{(1)}\right\rangle$},
+                legend pos = south east,
+        ]
+
+        %\pgfplotsset{every axis legend/.append style={ at={(1.05,0.7)}, anchor=north west}}
+
+
+        \fill[blue!40, opacity=0.2] (0,0.95) rectangle (15,1);
+        
+        \addplot[red!20!yellow, mark = o,thick, mark repeat=10] table [x = {t}, y = {x}] {\dtable};
+        %\addlegendentry{Pure Altruism}
+        \addplot[red!40!yellow, mark = o,thick, mark repeat=10] table [x = {t}, y = {y}] {\dtable};
+        \addplot[red!65!yellow, mark = o,thick, mark repeat=10] table [x = {t}, y = {z}] {\dtable};
+        %\addplot[red!90!yellow, mark = o,thick, mark repeat=10] table [x = {t}, y = {w}] {\dtable};
+        \addplot[red!100!yellow, mark = o,thick, mark repeat=10] table [x = {t}, y = {q}] {\dtable};
+
+        \addplot[color=red!30!yellow,dashed,thick]coordinates{(16.52,-1.1)(16.52,0.95)};
+        \addplot[color=red!50!yellow,dashed,thick]coordinates{(4.28,-1.1)(4.28,0.95)};
+        \addplot[color=red!70!yellow,dashed,thick]coordinates{(1.72,-1.1)(1.72,0.95)};
+        %\addplot[color=red!90!yellow,dashed,thick]coordinates{(3.04,-1.1)(3.04,0.95)};
+        \addplot[color=red!100!yellow,dashed,thick]coordinates{(5.88,-1.1)(5.88,0.95)};
+
+        
+        %\addplot[orange!60, mark = *, dashed, thick, only marks] table [x ={N}, y = {y}] {\dtable};
+
+        %\addplot [domain=2:10, samples=9, color=purple, thick]{4*x^2};
+
+        \legend{$\Lambda = 0.5$,
+        $\Lambda = 1.0$,
+        $\Lambda = 2.0$,
+        %$\Lambda = 3.5$,
+        $\Lambda = 5.0$,}
+
+        
+        \end{axis}
+        
+    \end{tikzpicture}
+\end{document}

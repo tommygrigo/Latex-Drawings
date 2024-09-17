@@ -1,0 +1,31 @@
+\documentclass{standalone}
+
+\input{commands}
+
+\begin{document}
+
+
+        \centering
+        \pgfplotstableread{drawings/xxz_magnetization.dat}{\dtable}
+        \pgfplotstablegetrowsof{\dtable}
+        \pgfmathtruncatemacro{\rownum}{\pgfplotsretval}
+        \begin{tikzpicture}
+            \begin{axis}[
+                width=0.8\textwidth,
+                ymin=1,ymax=5,
+                grid=major,
+                ytick={0,1,2,...,5}, 
+                xtick={1,2,...,5}, 
+                xlabel={$t [\text{s}]$}, ylabel={$j$}, zlabel={$\expect{\sigma_z^{(j)}}$}, 
+                ]
+            
+                \addplot3[blue!20!red, thick, mark=o, mark repeat=5, smooth] table [y expr= 1, x = {t}, z={z0}] {\dtable};
+                \addplot3[blue!40!red, thick, mark=o, mark repeat=5, smooth] table [y expr= 2, x = {t}, z={z1}] {\dtable};
+                \addplot3[blue!60!red, thick, mark=o, mark repeat=5, smooth] table [y expr= 3, x = {t}, z={z2}] {\dtable};
+                \addplot3[blue!80!red, thick, mark=o, mark repeat=5, smooth] table [y expr= 4, x = {t}, z={z3}] {\dtable};
+                \addplot3[blue!100!red, thick, mark=o, mark repeat=5, smooth] table [y expr= 5, x = {t}, z={z4}] {\dtable};
+                \addplot3[orange!50!yellow, mark=o, thick] coordinates {(5,1,-0.0327) (5,2,-0.0080) (5,3,0.0011) (5,4,0.0079) (5,5,0.0331)};
+            \end{axis}
+            \end{tikzpicture}
+
+\end{document}

@@ -1,0 +1,120 @@
+\documentclass{standalone}
+
+\input{commands}
+
+\begin{document}
+
+	\centering
+        \tdplotsetmaincoords{120}{70}
+	\begin{tikzpicture}[ scale = 0.36,
+                            line cap=round, 
+                            line join=round, 
+                            decoration ={snake,   
+                                        pre length=3pt,post length=7pt,},
+                            tdplot_main_coords,
+                            ]
+	%\clip(-2.19,-2.49) rectangle (2.66,2.58);
+ 
+ %        \draw[thick] (0,0,0) -- (3,0,0) node[anchor=west]{$x$};
+	% \draw[thick] (0,0,0) -- (0,3,0) node[anchor=west]{$y$};
+	% \draw[thick] (0,0,0) -- (0,0,3) node[anchor=west]{$z$};
+	
+        \pgfmathsetmacro{\R}{8}
+        \pgfmathsetmacro{\l}{4}
+        \pgfmathsetmacro{\rp}{3}
+	\pgfmathsetmacro{\X}{\R}
+	\pgfmathsetmacro{\Y}{\R}
+	
+	\draw[very thick,color=blue!40] (-\X,-\Y) -- (\X,-\Y);
+        \draw[very thick,color=blue!40] (-\X,0) -- (\X,0);
+        \draw[very thick,color=blue!40] (-\X,\Y) -- (\X,\Y);
+        \draw[very thick,color=blue!40] (-\X,-\Y) -- (-\X,\Y);
+        \draw[very thick,color=blue!40] (0,-\Y) -- (0,\Y);
+        \draw[very thick,color=blue!40] (\X,-\Y) -- (\X,\Y);
+
+	
+	\pgfmathsetmacro{\r}{1}
+	\pgfmathsetmacro{\xc}{0}
+	\pgfmathsetmacro{\yc}{0}
+        \draw[color=orange,thick,fill=orange!30] (\xc,\yc) circle  (\r cm);
+	\draw [dash pattern=on 3pt off 3pt,color=orange,thick] (\xc,\yc) ellipse (\r cm and 0.45*\r cm);
+	\draw [-stealth, thick] (\xc,\yc)-- (\xc-\r/2*0.70,\yc+\r/2*1.07,\r);
+
+	
+	\pgfmathsetmacro{\xc}{-\X}
+	\pgfmathsetmacro{\yc}{\Y}
+	\draw[color=orange,thick,fill=orange!30] (\xc,\yc) circle  (\r cm);
+	\draw [dash pattern=on 3pt off 3pt,color=orange,thick] (\xc,\yc) ellipse (\r cm and 0.45*\r cm);
+	\draw [-stealth, thick] (\xc,\yc)-- (\xc-\r/2*0.70,\yc+\r/2*1.07,\r);
+	%\draw (\xc-2,\yc-1) node[anchor=north west] {$2$};
+	
+	\pgfmathsetmacro{\xc}{0}
+	\pgfmathsetmacro{\yc}{\Y}
+	\draw[color=orange,thick,fill=orange!30] (\xc,\yc) circle  (\r cm);
+	\draw [dash pattern=on 3pt off 3pt,color=orange,thick] (\xc,\yc) ellipse (\r cm and 0.45*\r cm);
+	\draw [-stealth, thick] (\xc,\yc)-- (\xc+\r/2*0.70,\yc-\r/2*1.07,-\r);
+	%\draw (\xc,\yc-1) node[anchor=north west] {$\ket{\psi_3}$};
+
+        
+	
+	\pgfmathsetmacro{\xc}{\X}
+	\pgfmathsetmacro{\yc}{\Y}
+	\draw[color=orange,thick,fill=orange!30] (\xc,\yc) circle  (\r cm);
+	\draw [dash pattern=on 3pt off 3pt,color=orange,thick] (\xc,\yc) ellipse (\r cm and 0.45*\r cm);
+	\draw [-stealth, thick] (\xc,\yc)-- (\xc-\r/2*0.70,\yc-\r/2*1.07,0.5\r);
+	%\draw (\xc,\yc-1) node[anchor=north west] {$\ket{\psi_4}$};
+
+ %        \path[draw=green!60, very thick, decorate, -stealth] (\xc+\rp+\l,\yc+\rp*0.5+\l*0.5) --  node[below]{} (\xc+\rp,\yc+\rp*0.5);
+	
+	\pgfmathsetmacro{\xc}{\X}
+	\pgfmathsetmacro{\yc}{-\Y}
+	\draw[color=orange,thick,fill=orange!30] (\xc,\yc) circle  (\r cm);
+	\draw [dash pattern=on 3pt off 3pt,color=orange,thick] (\xc,\yc) ellipse (\r cm and 0.45*\r cm);
+	\draw [-stealth, thick] (\xc,\yc)-- (\xc+\r/2*0.70,\yc+\r/2*1.07,-0.5\r);
+	%\draw (\xc-0.8,\yc-1) node[anchor=north west] {$\ket{\psi_5}$};
+
+ %        \path[draw=green!60, very thick, decorate, -stealth] (\xc+\rp+\l,\yc-\rp*0.5-\l*0.5) --  node[below]{} (\xc+\rp,\yc-\rp*0.5);
+	
+	\pgfmathsetmacro{\xc}{0}
+	\pgfmathsetmacro{\yc}{-\R}
+	\draw[color=orange,thick,fill=orange!30] (\xc,\yc) circle  (\r cm);
+	\draw [dash pattern=on 3pt off 3pt,color=orange,thick] (\xc,\yc) ellipse (\r cm and 0.45*\r cm);
+	\draw [-stealth, thick] (\xc,\yc)-- (\xc+\r/2*0.70,\yc-\r/2*1.07,\r);
+	%\draw (\xc+0.1,\yc-1) node[anchor=north west] {$\ket{\psi_6}$};
+        
+ %        \path[draw=green!60, very thick, decorate, -stealth] (0,\yc-\rp-\l) --  node[left]{} (0,\yc-\rp);
+	
+	\pgfmathsetmacro{\xc}{\X}
+	\pgfmathsetmacro{\yc}{0}
+	\draw[color=orange,thick,fill=orange!30] (\xc,\yc) circle  (\r cm);
+	\draw [dash pattern=on 3pt off 3pt,color=orange,thick] (\xc,\yc) ellipse (\r cm and 0.45*\r cm);
+	\draw [-stealth, thick] (\xc,\yc)-- (\xc-\r/2*0.70,\yc-\r/2*1.07);
+	%\draw (\xc-0.8,\yc-1) node[anchor=north west] {$\ket{\psi_7}$};
+
+
+        \pgfmathsetmacro{\xc}{-\X}
+	\pgfmathsetmacro{\yc}{0}
+	\draw[color=orange,thick,fill=orange!30] (\xc,\yc) circle  (\r cm);
+	\draw [dash pattern=on 3pt off 3pt,color=orange,thick] (\xc,\yc) ellipse (\r cm and 0.45*\r cm);
+	\draw [-stealth, thick] (\xc,\yc)-- (\xc-\r/2*0.70,\yc-\r/2*1.07);
+
+        \pgfmathsetmacro{\xc}{-\X}
+	\pgfmathsetmacro{\yc}{-\Y}
+	\draw[color=orange,thick,fill=orange!30] (\xc,\yc) circle  (\r cm);
+	\draw [dash pattern=on 3pt off 3pt,color=orange,thick] (\xc,\yc) ellipse (\r cm and 0.45*\r cm);
+	\draw [-stealth, thick] (\xc,\yc)-- (\xc-\r/2*0.70,\yc-\r/2*1.07);
+
+ %        \path[draw=green!60, very thick, decorate, -stealth] (\xc-\rp-\l,\yc-\rp*0.5-\l*0.5) --  node[below]{} (\xc-\rp,\yc-\rp*0.5);
+ %        % \path[draw=green!60, very thick, decorate, -stealth] (\xc-\rp,\rp*0.5+\yc) --  node[above]{$\beta$} (\xc-\rp-\l,\rp*0.5+\l*0.5+\yc);
+
+ \path[draw=green!60, very thick, decorate, -stealth] (-\X,\Y+\rp+\l) --  node[left]{} (-\X,\Y+\rp);
+ \path[draw=green!60, very thick, decorate, -stealth] (0,\Y+\rp+\l) --  node[left]{} (0,\Y+\rp);
+ \path[draw=green!60, very thick, decorate, -stealth] (\X,\Y+\rp+\l) --  node[left]{} (\X,\Y+\rp);
+ 
+ \path[draw=green!60, very thick, decorate, -stealth] (-\X,-\Y-\rp-\l) --  node[left]{} (-\X,-\Y-\rp);
+ \path[draw=green!60, very thick, decorate, -stealth] (0,-\Y-\rp-\l) --  node[left]{} (0,-\Y-\rp);
+ \path[draw=green!60, very thick, decorate, -stealth] (\X,-\Y-\rp-\l) --  node[left]{} (\X,-\Y-\rp);
+
+	\end{tikzpicture}
+
+\end{document}

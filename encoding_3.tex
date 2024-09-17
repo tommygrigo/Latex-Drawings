@@ -1,0 +1,45 @@
+\documentclass{standalone}
+
+\input{commands}
+
+\begin{document}
+        \centering
+        \pgfplotstableread{drawings/encoding3.dat}{\dtable}
+    \pgfplotstablegetrowsof{\dtable}
+    \begin{tikzpicture}
+        \begin{axis}[%
+            axis equal,
+            width=7cm,
+            height=7cm,
+            axis lines = center,
+            xlabel = {},
+            ylabel = {},
+            zlabel = {},
+            ticks=none,
+            enlargelimits=0,
+            view/h=135,
+            scale uniformly strategy=units only,
+        ]
+        \addplot3[%
+            mesh,
+            color=gray!80,
+            opacity = 0.1,
+            z buffer = sort,
+            samples = 21,
+            variable = \u,
+            variable y = \v,
+            domain = 0:180,
+            y domain = 0:360,
+            %shader=interp,
+        ]
+        ({cos(u)*sin(v)}, {sin(u)*sin(v)}, {cos(v)});
+        \addplot3[black, domain=0:360,samples=72] ({cos(x)},{sin(x)},{0});
+
+        \addplot3[blue!20!red, thick, mark=o, mark repeat=5] table [x = {x}, y={y},  z={z}] {\dtable};
+        \node[] at (1.3,0,0) {$\ket{+}$};
+        \node[] at (0,1.3,0) {$\ket{i}$};
+        \node[] at (0,0,1.3) {$\ket{0}$};
+        \node[] at (0,0,-1.3) {$\ket{1}$};
+        \end{axis}
+    \end{tikzpicture}
+\end{document}
