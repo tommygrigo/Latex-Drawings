@@ -18,43 +18,43 @@ To convert all the pdf files into png images one shall run the command
 
 ### [block_figure.tex](block_figure.tex)
 
-![]()
+![](drawings/block_figure-1.png)
 
 ### [central_spin_block_reduced.tex](central_spin_block_reduced.tex)
 
-![]()
+![](drawings/central_spin_block_reduced-1.png)
 
 ### [central_spin_blocks.tex](central_spin_blocks.tex)
 
-![]()
+![](drawings/central_spin_blocks-1.png)
 
 ### [central_spin_dimensions.tex](central_spin_dimensions.tex)
 
-![]()
+![](drawings/central_spin_dimensions-1.png)
 
 ### [central_spin_figure.tex](central_spin_figure.tex)
 
-![]()
+![](drawings/central_spin_figure-1.png)
 
 ### [central_spin_ising_entropy.tex](central_spin_ising_entropy.tex)
 
-![]()
+![](drawings/central_spin_ising_entropy-1.png)
 
 ### [central_spin_ising.tex](central_spin_ising.tex)
 
-![]()
+![](drawings/central_spin_ising-1.png)
 
 ### [collectiive_blocks.tex](collectiive_blocks.tex)
 
-![]()
+![](drawings/collectiive_blocks-1.png)
 
 ### [collective.tex](collective.tex)
 
-![]()
+![](drawings/collective-1.png)
 
 ### [diagonals.tex](diagonals.tex)
 
-![]()
+![](drawings/diagonals-1.png)
 
 ### [encoding_1.tex](encoding_1.tex)
 
@@ -80,18 +80,34 @@ To convert all the pdf files into png images one shall run the command
 
 ![](drawings/encoding_6-1.png)
 
-### []()
+### [reachable_dimensions.tex](reachable_dimensions.tex)
 
-![]()
+![](drawings/reachable_dimensions-1.png)
 
-### []()
+### [setling_time.tex](setling_time.tex)
 
-![]()
+![](drawings/setling_time-1.png)
 
-### []()
+### [spin_grid.tex](spin_grid.tex)
 
-![]()
+![](drawings/spin_grid-1.png)
 
-### []()
+### [xxz_blocks.tex](xxz_blocks.tex)
 
-![]()
+![](drawings/xxz_blocks-1.png)
+
+### [xxz_currents.tex](xxz_currents.tex)
+
+![](drawings/xxz_currents-1.png)
+
+### [xxz_dimensions.tex](xxz_dimensions.tex)
+
+![](drawings/xxz_dimensions-1.png)
+
+### [xxz_drawing.tex](xxz_drawing.tex)
+
+![](drawings/xxz_drawing-1.png)
+
+### [xxz_magnetization.tex](xxz_magnetization.tex)
+
+![](drawings/xxz_magnetization-1.png)
