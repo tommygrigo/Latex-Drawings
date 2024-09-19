@@ -9,8 +9,8 @@
     \centering
     \begin{tikzpicture}
         \begin{axis}[
-        	xmin = 1.5, xmax = 10.5,
-        	ymin = 0, ymax = 1000000,
+        	xmin = 1.5, xmax = 7.5,
+        	ymin = 0, ymax = 10000,
         	xtick distance = 1,
         	ytick distance = 10,
         	grid = both,
@@ -38,14 +38,25 @@
 
         \addplot [domain=2:10, samples=9, color=purple, thick]{4*x^2};
 
-        \addplot[blue!40, mark = *,thick] table [x = {N}, y = {x}] {\dtable};
+        % \addplot[blue!40, mark = *,thick] table [x = {N}, y = {x}] {\dtable};
+
+        \addplot[color=blue!40, thick, mark=*]coordinates 
+        {(2,14)(3,34)(4,57)(5,64)};
+
+        \addplot[color=blue!20!red, thick, mark=*]coordinates 
+        {(2,12)(3,24)(4,42)(5,56)};
+
+        \addplot[color=blue, thick, mark=*]coordinates 
+        {(2,12)(3,24)(4,38)(5,50)};
         
         \legend{
                 $\dim(\Bf(\Hc))$,
                 $\dim(\Cb\Gs_N')$,
                 $\dim(\Os)$,
                 $\max_j \dim(\Bf(\Hc_{F,j}))$,
-                $\dim(\Ns^\perp)$
+                $\dim(\Ns^\perp)$  - generic,
+                $\dim(\Ns^\perp)$  - XXZ,
+                $\dim(\Ns^\perp)$ - Heis.,
         }
         
         \end{axis}
