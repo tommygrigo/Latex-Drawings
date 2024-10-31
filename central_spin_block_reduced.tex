@@ -5,10 +5,12 @@
 \begin{document}
 
     \centering
-\pgfplotstableread{data/central_spin_blocks_reduced.dat}{\table}
+\pgfplotstableread{data/central_spin_blocks_reduced.dat}
+{\table}
+\pgfplotstableread{data/collective_spin_blocks_reduced.dat}{\colltable}
 \begin{tikzpicture}
 \begin{groupplot}[group style = {
-                    group size = 4 by 1,
+                    group size = 5 by 1,
                     horizontal sep = 0.5cm,},
                     colormap/viridis,
                     %axis lines = none,
@@ -28,7 +30,14 @@
         \addplot[black, thick, domain=-0.5:17.5] (7.5,x);
         \addplot[black, thick, domain=-0.5:17.5] (x,1.5);
         \addplot[black, thick, domain=-0.5:17.5] (x,7.5);
-        
+
+        \nextgroupplot[title= $\check{L}_B^{\text{coll}}$, 
+        axis lines = none,]
+        \addplot[matrix plot,point meta=explicit] table [x = {i}, y={j}, meta={L}] {\colltable};
+        \addplot[black, thick, domain=-0.5:17.5] (1.5,x);
+        \addplot[black, thick, domain=-0.5:17.5] (7.5,x);
+        \addplot[black, thick, domain=-0.5:17.5] (x,1.5);
+        \addplot[black, thick, domain=-0.5:17.5] (x,7.5);
         
         \nextgroupplot[title= $\check{L}_1$, axis lines = none,]
         \addplot[matrix plot,point meta=explicit] table [x = {i}, y={j}, meta={L0}] {\table};
@@ -57,7 +66,8 @@
                             fixed,
                             fixed zerofill
                     }
-               },]
+               },
+               ]
         \addplot[matrix plot,point meta=explicit] table [x = {i}, y={j}, meta={L2}] {\table};
         \addplot[black, thick, domain=-0.5:17.5] (1.5,x);
         \addplot[black, thick, domain=-0.5:17.5] (7.5,x);

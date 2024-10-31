@@ -12,13 +12,18 @@
                 grid=major,
                 ytick={1,2,...,4}, 
                 xtick={0,1,2,...,5},
-                xlabel={$t [\text{s}]$}, ylabel={$j$}, zlabel={$\expect{J_j}$}, 
+                xlabel={$\Gamma t$}, ylabel={$j$}, zlabel={$\expect{J_j}$}, 
                 ]
             
-                \addplot3[blue!20!red, thick, mark=o, mark repeat=5, smooth] table [y expr= 1, x = {t}, z={j0}] {\dtable};
-                \addplot3[blue!40!red, thick, mark=o, mark repeat=5, smooth] table [y expr= 2, x = {t}, z={j1}] {\dtable};
-                \addplot3[blue!60!red, thick, mark=o, mark repeat=5, smooth] table [y expr= 3, x = {t}, z={j2}] {\dtable};
-                \addplot3[blue!80!red, thick, mark=o, mark repeat=5, smooth] table [y expr= 4, x = {t}, z={j3}] {\dtable};
+                \addplot3[blue!20!red, thick, mark=o, mark repeat=5, smooth, only marks] table [y expr= 1, x = {t}, z={j0}] {\dtable};
+                \addplot3[blue!40!red, thick, mark=o, mark repeat=5, smooth, only marks] table [y expr= 2, x = {t}, z={j1}] {\dtable};
+                \addplot3[blue!60!red, thick, mark=o, mark repeat=5, smooth, only marks] table [y expr= 3, x = {t}, z={j2}] {\dtable};
+                \addplot3[blue!80!red, thick, mark=o, mark repeat=5, smooth, only marks] table [y expr= 4, x = {t}, z={j3}] {\dtable};
+
+                \addplot3[blue!20!red, thick, smooth] table [y expr= 1, x = {t}, z={j0}] {\dtable};
+                \addplot3[blue!40!red, very thick, smooth, dashed] table [y expr= 2, x = {t}, z={j1}] {\dtable};
+                \addplot3[blue!60!red, very thick, smooth, densely dotted] table [y expr= 3, x = {t}, z={j2}] {\dtable};
+                \addplot3[blue!80!red, very thick, smooth, dashdotted] table [y expr= 4, x = {t}, z={j3}] {\dtable};
             \end{axis}
             \end{tikzpicture}
 \end{document}

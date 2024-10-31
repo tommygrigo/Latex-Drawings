@@ -6,16 +6,17 @@
 
     \centering
 \pgfplotstableread{data/central_spin_blocks.dat}{\table}
+\pgfplotstableread{data/collective_spin_blocks.dat}{\colltable}
 \begin{tikzpicture}
 \begin{groupplot}[group style = {
-                    group size = 5 by 1,
+                    group size = 6 by 1,
                     horizontal sep = 0.5cm,},
                     colormap/viridis,
                     %axis lines = none,
                     enlargelimits=false,
                     axis on top,
-                    point meta min=-1.05,
-                    point meta max=1.05,
+                    point meta min=-1.25,
+                    point meta max=1.25,
                     width = 4cm,
                     height = 4cm,
                     xmin = -0.5, xmax=31.5,
@@ -28,7 +29,13 @@
         \addplot[black, thick, domain=-0.5:31.5] (21.5,x);
         \addplot[black, thick, domain=-0.5:31.5] (x,3.5);
         \addplot[black, thick, domain=-0.5:31.5] (x,21.5);
-        
+
+        \nextgroupplot[title= $U^\dag L_B^{\text{coll}} U$, axis lines = none, xmin = -0.5, xmax=31.5,ymin = -0.5, ymax=31.5]
+        \addplot[matrix plot,point meta=explicit] table [x = {i}, y={j}, meta={L}] {\colltable};
+        \addplot[black, thick, domain=-0.5:31.5] (3.5,x);
+        \addplot[black, thick, domain=-0.5:31.5] (21.5,x);
+        \addplot[black, thick, domain=-0.5:31.5] (x,3.5);
+        \addplot[black, thick, domain=-0.5:31.5] (x,21.5);
         
         \nextgroupplot[title= $U^\dag \sigma_+^{(2)} U$, axis lines = none,]
         \addplot[matrix plot,point meta=explicit] table [x = {i}, y={j}, meta={L0}] {\table};

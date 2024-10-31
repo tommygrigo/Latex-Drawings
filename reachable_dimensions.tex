@@ -12,10 +12,10 @@
 xtick distance=1,
 ymode=log,
 grid = both,
-xmin = 1.5, xmax = 10.5,
-ymin = 0, ymax = 400,
+xmin = 1.5, xmax = 9.5,
+ymin = , ymax = 324,
 xtick distance = 1,
-ytick distance = 10,
+ytick distance = 4,
 grid = both,
 minor tick num = 1,
 major grid style = {lightgray},
@@ -24,14 +24,20 @@ width = 12cm,
 height = 8cm,
 legend pos = north west,
 xlabel=$N$,
+log basis y={4},
+legend style={at={(0.5,0.13)},anchor=north, column sep = 10pt, legend columns = 3},
 ]
 
-\addlegendimage{color = green, thick, mark=*} \addlegendentry{$\dim(\Bf(\Hc_{F,j^*}))$}
-\addlegendimage{color = black, solid} \addlegendentry{$\dim(\Rs)$}
-\addlegendimage{color = black, dashed} \addlegendentry{$\dim(\alg(\Rs))$}
-\addlegendimage{color = black, dotted} \addlegendentry{$\dim(\Ds)$}
 
-\addplot [domain=2:10, samples=9, color=green, thick, mark = *]{4*x^2};
+\addlegendimage{color = black, solid, thick} \addlegendentry{$\dim(\Rs)$}
+\addlegendimage{color = black, dashed, thick} \addlegendentry{$\dim(\alg(\Rs))$}
+\addlegendimage{color = black, densely dotted, very thick} \addlegendentry{$\dim(\Ds)$}
+% \addlegendimage{color = red!90!blue, no marks, very thick} \addlegendentry{i)}
+% \addlegendimage{color = red!50!blue, no marks, very thick} \addlegendentry{ii)}
+% \addlegendimage{color = red!10!blue, no marks, very thick} \addlegendentry{iii)}
+% \addlegendimage{color = green, thick} \addlegendentry{$\dim(\Bf(\Hc_{F,j^*}))$}
+
+\addplot [domain=2:10, samples=9, color=green, thick]{4*x^2};
 
 
 %%%%%%%%% Reachable spaces 
@@ -42,7 +48,7 @@ xlabel=$N$,
 
 %%%%% b)
 \addplot[color=red!90!blue, thick, solid] coordinates {
-(2,5)(3,5)(4,5)(5,5)(6,5)(7,5)(8,5)(9,5)(10,5)};
+(2,5)(3,5)(4,5)(5,5)(6,5)(7,5)(8,5)(9,5)};%(10,5)};
 
 %%%%% c)
 \addplot[color=red!50!blue, thick, solid] coordinates {
@@ -60,7 +66,7 @@ xlabel=$N$,
 
 %%%%% b)
 \addplot[color=red!90!blue, thick, dashed] coordinates {
-(2,4.8)(3,4.8)(4,4.8)(5,4.8)(6,4.8)(7,4.8)(8,4.8)(9,4.8)(10,4.8)};
+(2,4.8)(3,4.8)(4,4.8)(5,4.8)(6,4.8)(7,4.8)(8,4.8)(9,4.8)};%(10,4.8)};
 
 %%%%%% c) 
 \addplot[color=red!50!blue, thick, dashed] coordinates {(2,4)(3,9)(4,16)(5,25)(6,35)(7,39)(8,39)(9,66)};
@@ -75,33 +81,38 @@ xlabel=$N$,
 % (2,4.2)(3,4.2)(4,4.2)(5,4.2)(6,4.2)(7,4.2)(8,4.2)(9,4.2)(10,4.2)};
 
 %%%%% b)
-\addplot[color=red!90!blue, thick, dotted] coordinates {
-(2,5.2)(3,5.2)(4,5.2)(5,5.2)(6,5.2)(7,5.2)(8,5.2)(9,5.2)(10,5.2)};
+\addplot[color=red!90!blue, very thick, densely dotted] coordinates {
+(2,5.2)(3,5.2)(4,5.2)(5,5.2)(6,5.2)(7,5.2)(8,5.2)(9,5.2)};%(10,5.2)};
 
 %%%%% c)
-\addplot[color=red!50!blue, thick, dotted] coordinates {
+\addplot[color=red!50!blue, very thick, densely dotted] coordinates {
 (2,4)(3,9)(4,16)(5,25)(6,34)(7,36)(8,37)(9,55)};
 
 %%%%% d)
-\addplot[color=red!10!blue, thick, dotted] coordinates {
+\addplot[color=red!10!blue, very thick, densely dotted] coordinates {
 (2,16)(3,31)(4,37)(5,38)(6,40)};
 
+\node[] at (8.8,6.5) {i)};
+\node[] at (8.8,37) {ii)};
+\node[] at (5.8,60) {iii)};
+\node[] at (8.5,200) {$\dim(\Bf(\Hc_{F,j^*}))$};
+
 \end{axis}
 
-\begin{axis}[%
-hide axis,
-xmin=10,
-xmax=50,
-ymin=0,
-ymax=0.4,
-legend style={draw=white!15!black,legend cell align=left, at={(0.8,-0.22)},anchor=north,legend columns=-1}
-]
+% \begin{axis}[%
+% hide axis,
+% xmin=10,
+% xmax=50,
+% ymin=0,
+% ymax=0.4,
+% %legend pos= east,
+% legend style={%draw=white!15!black,legend cell align=left, at={(0.8,-0.22)},anchor=north,legend columns=-1
+% at={(1.5,0.5)}}
+% ]
 
-%\addlegendimage{color = red!80!blue, no marks, very thick} \addlegendentry{a)}
-\addlegendimage{color = red!90!blue, no marks, very thick} \addlegendentry{a)}
-\addlegendimage{color = red!50!blue, no marks, very thick} \addlegendentry{b)}
-\addlegendimage{color = red!10!blue, no marks, very thick} \addlegendentry{c)}
-\end{axis}
+% %\addlegendimage{color = red!80!blue, no marks, very thick} \addlegendentry{a)}
+
+% \end{axis}
 
 
 \end{tikzpicture}

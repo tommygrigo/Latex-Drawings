@@ -1,0 +1,51 @@
+\documentclass{standalone}[12pt]
+
+\input{commands}
+
+\begin{document}
+    \begin{tikzpicture}[line cap=round, line join=round,]
+    
+    \draw [gray] (0,0) circle (3cm);
+    \draw [rotate around={0.:(0.,0.)},dash pattern=on 3pt off 3pt, gray] (0,0) ellipse (3cm and 1.1cm);
+      
+      \draw (0,3) node[anchor=south, gray] {$\bm{z},\ket{0}$};
+      \draw (0,-3) node[anchor=north, gray] {$-\bm{z},\ket{1}$};
+      \draw (3,0) node[anchor=west, gray] {$\bm{x},\ket{+}$};
+      \draw (-1,-1) node[anchor=north east, gray] {$\bm{y},\ket{i}$};
+      \draw [->, gray] (0,0) -- (0,3);
+      \draw [->, gray] (0,0) -- (3,0);
+      \draw [->, gray] (0,0) -- (-1,-1);
+      \draw [-, gray, dashed] (0,0) -- (0,-3);
+      \draw [-, gray] (0,0) -- (-3,0);
+      \draw [-, gray] (0,0) -- (1,1);
+      
+      \draw [->] (0,0) -- (0,2);
+      \draw [->] (0,0) -- (2,0);
+      \draw (2,0) node[anchor=north] {$\vec{n}_H$};
+      \draw (0,2) node[anchor=east] {$\vec{n}_G$};
+      \draw [->] (0,0) -- (0,1);
+      \draw (0,1) node[anchor=east] {$f(j)\vec{n}_G$};
+      
+      \draw [dotted] (0,1)-- (2,1);
+      \draw [dotted] (2,0)-- (2,1);
+      \draw [->] (0,0) -- (2,1);
+      \draw (2,1) node[anchor=south west] {$\vec{n}_j$};
+      
+      \draw [->, orange] (0,0) -- (-0.7,-0.7);
+      \draw [->, orange] (0,0) -- (0.7,0.7);
+      \draw [->, orange] (0,0) -- (-1,2);
+      \draw [->, orange] (0,0) -- (1,-2);
+      \draw [rotate around={-60:(0.,0.)},orange,dash pattern=on 3pt off 3pt, fill, fill opacity=0.1] (0,0) ellipse (2.3cm and 0.9cm);
+      \draw (-0.7,-0.7) node[anchor=east, orange] {$\vec{n}_j\times\vec{n}_G$};
+      %\draw (0.7,0.7) node[anchor=south, orange] {$\ad_{M(j)}^3(C_1)$};
+      \draw (-1,2) node[anchor=south east, orange] {$\ad_{M(j)}^2(C_1)$};
+      \draw (1,-2) node[anchor=north west, orange] {$\ad_{M(j)}^4(C_1)$};
+     
+      %\draw [dotted, ->] (0,0)-- (-0.2,-0.2);
+      %\draw [dotted, ->] (0,0)-- (-0.2,0.4);
+      \draw [dotted] (0.4,0.2)-- (0.6,-0.2);
+      \draw [dotted] (0.2,-0.4)-- (0.6,-0.2);
+      \draw [dotted] (-0.2,-0.2)-- (-0.4,0.2);
+      \draw [dotted] (-0.2,0.4)-- (-0.4,0.2);
+    \end{tikzpicture}
+\end{document}

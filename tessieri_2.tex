@@ -1,0 +1,68 @@
+\documentclass{standalone}
+
+\input{commands}
+
+\begin{document}
+
+\pgfplotstableread{data/tessieri_multiple_N_even.dat}{\dtable}
+\pgfplotstableread{data/tessieri_multiple_N_odd.dat}{\dtableODD}
+    \centering
+    \begin{tikzpicture}
+
+        \begin{groupplot}[
+            group style={
+                {group size=1 by 2}, 
+                horizontal sep = 1.5cm, 
+                vertical sep = .8cm,},
+        	xmin = 0, xmax = 5,
+        	ymin = 0, ymax = 1,
+        	xtick distance = 1,
+        	ytick distance = .1,
+        	grid = both,
+        	minor tick num = 1,
+        	major grid style = {lightgray},
+        	minor grid style = {lightgray!25},
+        	width = 12cm,
+        	height = 8cm,
+                ylabel = {$\expect{\sigma_z^{(1)}}$},
+                %axis x line*=bottom,
+                legend pos = south east,
+        ]
+
+        
+
+        \nextgroupplot[
+        	xmin = 0, xmax = 5,
+        	ymin = .7, ymax = 1,
+        	xtick distance = 1,
+        	ytick distance = .1,
+        	grid = both,
+        	minor tick num = 1,
+        	major grid style = {lightgray},
+        	minor grid style = {lightgray!25},
+        	width = 12cm,
+        	height = 5cm,
+        	%legend cell align = {left},
+        	legend pos = south east,
+                %legend style={at={(0.5,-0.3)},anchor=north, column sep = 10pt, legend columns = 4},
+                ylabel = {$\expect{\sigma_z^{(1)}}$},
+        ]
+
+        \addplot[black!0!orange, very thick, densely dotted] table [x = {t}, y = {a}] {\dtableODD};\addlegendentry{$N=15$}
+        \addplot[black!30!orange, very thick, densely dashed] table [x ={t}, y = {b}] {\dtableODD};\addlegendentry{$N=25$}
+        \addplot[black!60!orange, very thick, densely dashdotted] table [x ={t}, y = {c}] {\dtableODD};\addlegendentry{$N=35$}
+        \addplot[black!90!orange, very thick] table [x ={t}, y = {d}] {\dtableODD};\addlegendentry{$N=45$}
+        
+
+        \nextgroupplot[ xlabel = {$\overline{\omega}t$}, ]
+        
+        \addplot[black!0!blue, very thick, densely dotted] table [x = {t}, y = {a}] {\dtable};\addlegendentry{$N=16$}
+        \addplot[black!30!blue, very thick, densely dashed] table [x ={t}, y = {b}] {\dtable};\addlegendentry{$N=26$}
+        \addplot[black!60!blue, very thick, densely dashdotted] table [x ={t}, y = {c}] {\dtable};\addlegendentry{$N=36$}
+        \addplot[black!90!blue, very thick] table [x ={t}, y = {d}] {\dtable};\addlegendentry{$N=46$}
+        
+
+        \end{groupplot}
+        
+    \end{tikzpicture}
+\end{document}

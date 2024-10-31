@@ -1,0 +1,32 @@
+\documentclass{standalone}
+
+\input{commands}
+
+\begin{document}
+
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+        	xmin = 0, xmax = 1,
+        	ymin = 0, ymax = 0.4,
+         %        domain = 0:5,
+        	% xtick distance = .1,
+        	% ytick distance = 5,
+        	grid = both,
+        	% minor tick num = 1,
+        	% major grid style = {lightgray},
+        	% minor grid style = {lightgray!25},
+        	% width = 10cm,
+        	% height = 6.5cm,
+        	% legend cell align = {left},
+        	% legend pos = north east,
+                xlabel = {$t$},
+                ylabel = {$\Fs(\check{\rho}_t,\check{\rho}_t^e)-\Fs(\rho_t,\rho_t^e)$},
+        ]
+
+        \addplot[blue!40,no marks, smooth, thick] table [x=a, y=b, col sep = comma] {data/fidelity.csv};
+        
+        \end{axis}
+        
+    \end{tikzpicture}
+\end{document}

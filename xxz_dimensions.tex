@@ -9,9 +9,9 @@
     \begin{tikzpicture}
         \begin{axis}[
         	xmin = 1.5, xmax = 10.5,
-        	ymin = 0, ymax = 1000000,
+        	ymin = 1, ymax = 1048576,
         	xtick distance = 1,
-        	ytick distance = 10,
+        	ytick distance = 4,
         	grid = both,
         	minor tick num = 1,
         	major grid style = {lightgray},
@@ -21,7 +21,8 @@
         	legend cell align = {left},
         	legend pos = north west,
                 xlabel = {$N$},
-                ymode=log
+                ymode=log,
+                log basis y={4},
         ]
         \addplot[green, domain = 2:10, samples = 9,thick] {4^x};
         \addplot[red!60, domain = 2:10, samples = 9,thick] {factorial(2*x)/(factorial(x)*factorial(x))};

@@ -1,0 +1,120 @@
+\documentclass{standalone}
+
+\input{commands}
+
+\begin{document}
+
+    \centering
+    \begin{tikzpicture}
+        \begin{groupplot}[
+            group style={
+            {group size=2 by 1}, 
+            horizontal sep = 2.5cm, 
+            vertical sep = 1.5cm,},
+          %legend to name=grouplegend,
+        	xmin = 0, xmax = 10,
+        	ymin = 0, ymax = 0.75,
+        	xtick distance = 1,
+        	ytick distance = .1,
+        	grid = both,
+        	minor tick num = 1,
+        	major grid style = {lightgray},
+        	minor grid style = {lightgray!25},
+        	width = 11cm,
+        	height = 6cm,
+        	%legend cell align = {left},
+        	legend pos = south east,
+                ylabel = {$\mathscr{H}[\rho_S(t)]$},
+                xlabel = {$\overline{\omega}t$},
+        ]
+        % \nextgroupplot[title={$N=6$},
+        % ylabel = {$\expect{\sigma_z^{(1)}}$},
+        % ymin = -1, ymax = 1,
+        % ytick distance = .2,]
+        % \pgfplotstableread{data/central6.dat}{\dtable}
+        % \addplot[blue!10!red, thick] table [x = {t}, y = {x}] {\dtable};
+        % \addplot[blue!50!red, thick, densely dashed] table [x ={t}, y = {y}] {\dtable};
+        % \addplot[blue!90!red, very thick, densely dotted] table [x ={t}, y = {z}] {\dtable};
+        % %\addplot[blue!80!red, thick] table [x ={t}, y = {w}] {\dtable};
+
+        % \addplot[blue!10!red, mark=o, mark repeat=10, thick, only marks] table [x = {t}, y = {x}] {\dtable};
+        % \addplot[blue!50!red, mark=o, mark repeat=10, thick, only marks] table [x ={t}, y = {y}] {\dtable};
+        % \addplot[blue!90!red, mark=o, mark repeat=10, thick, only marks] table [x ={t}, y = {z}] {\dtable};
+        % %\addplot[blue!80!red, mark=o, mark repeat=10, thick, only marks] table [x ={t}, y = {w}] {\dtable};
+        
+        % \nextgroupplot[title={$N=6$}]
+        % \pgfplotstableread{data/central6_entropy.dat}{\dtable}
+        % \addplot[blue!10!red, thick] table [x = {t}, y = {x}] {\dtable};
+        % \addplot[blue!50!red, thick, densely dashed] table [x ={t}, y = {y}] {\dtable};
+        % \addplot[blue!90!red, very thick, densely dotted] table [x ={t}, y = {z}] {\dtable};
+        % %\addplot[blue!80!red, thick] table [x ={t}, y = {w}] {\dtable};
+        
+        % \addplot[blue!10!red, mark=o, mark repeat=10, thick, only marks] table [x = {t}, y = {x}] {\dtable};
+        % \addplot[blue!50!red, mark=o, mark repeat=10, thick, only marks] table [x ={t}, y = {y}] {\dtable};
+        % \addplot[blue!90!red, mark=o, mark repeat=10, thick, only marks] table [x ={t}, y = {z}] {\dtable};
+        % %\addplot[blue!80!red, mark=o, mark repeat=10, thick, only marks] table [x ={t}, y = {w}] {\dtable};
+
+        \nextgroupplot[
+        ylabel = {$\expect{\sigma_z^{(1)}}$},
+        ymin = -1, ymax = 1,
+        ytick distance = .2,]
+        \pgfplotstableread{data/central7_eta_ising.dat}{\dtable}
+        \addplot[blue!10!red, thick] table [x = {t}, y = {x}] {\dtable};
+        \addplot[blue!50!red, thick, densely dashed] table [x ={t}, y = {y}] {\dtable};
+        \addplot[blue!90!red, very thick, densely dotted] table [x ={t}, y = {z}] {\dtable};
+        %\addplot[blue!80!red, thick] table [x ={t}, y = {w}] {\dtable};
+
+        \addplot[blue!10!red, mark=o, mark repeat=10, thick, only marks] table [x = {t}, y = {x}] {\dtable};
+        \addplot[blue!50!red, mark=o, mark repeat=10, thick, only marks] table [x ={t}, y = {y}] {\dtable};
+        \addplot[blue!90!red, mark=o, mark repeat=10, thick, only marks] table [x ={t}, y = {z}] {\dtable};
+        %\addplot[blue!80!red, mark=o, mark repeat=10, thick, only marks] table [x ={t}, y = {w}] {\dtable};
+
+        \legend{
+                $\lambda/\overline{\omega}=0$,
+                $\lambda/\overline{\omega}=5$,
+        	$\lambda/\overline{\omega}=10$,
+                %$\lambda=15$,
+        }
+
+        
+        \nextgroupplot[]
+        \pgfplotstableread{data/central7_eta_ising_entropy.dat}{\dtable}
+        \addplot[blue!10!red, thick] table [x = {t}, y = {x}] {\dtable};
+        \addplot[blue!50!red, densely dashed, thick] table [x ={t}, y = {y}] {\dtable};
+        \addplot[blue!90!red, densely dotted, very thick] table [x ={t}, y = {z}] {\dtable};
+        %\addplot[blue!80!red, thick] table [x ={t}, y = {w}] {\dtable};
+
+        \addplot[blue!10!red, mark=o, mark repeat=10, thick, only marks] table [x = {t}, y = {x}] {\dtable};
+        \addplot[blue!50!red, mark=o, mark repeat=10, thick, only marks] table [x ={t}, y = {y}] {\dtable};
+        \addplot[blue!90!red, mark=o, mark repeat=10, thick, only marks] table [x ={t}, y = {z}] {\dtable};
+        %\addplot[blue!80!red, mark=o, mark repeat=10, thick, only marks] table [x ={t}, y = {w}] {\dtable};
+
+        % \nextgroupplot[title={$N=31$},
+        % ylabel = {$\expect{\sigma_z^{(1)}}$},
+        % ymin = -1, ymax = 1,
+        % ytick distance = .2,xlabel = {$t$},]
+        % \pgfplotstableread{data/central31.dat}{\dtable}
+        % \addplot[blue!10!red, thick] table [x = {t}, y = {x}] {\dtable};
+        % \addplot[blue!50!red, thick, densely dashed] table [x ={t}, y = {y}] {\dtable};
+        % \addplot[blue!90!red, very thick, densely dotted] table [x ={t}, y = {z}] {\dtable};
+        % %\addplot[blue!80!red, thick] table [x ={t}, y = {w}] {\dtable};
+
+
+        
+        % \nextgroupplot[title={$N=31$}, xlabel = {$t$},]
+        % \pgfplotstableread{data/central31_entropy.dat}{\dtable}
+        % \addplot[blue!10!red, thick] table [x = {t}, y = {x}] {\dtable};
+        % \addplot[blue!50!red, thick, densely dashed] table [x ={t}, y = {y}] {\dtable};
+        % \addplot[blue!90!red, very thick, densely dotted] table [x ={t}, y = {z}] {\dtable};
+        % %\addplot[blue!80!red, thick] table [x ={t}, y = {w}] {\dtable};
+        
+        \end{groupplot}
+
+
+      %   \node (l1) at ($(group c1r1.south)!0.5!(group c2r1.south)$)
+      % [below, yshift=-0.5\pgfkeysvalueof{/pgfplots/every axis title shift}]
+      % {\ref{grouplegend} 
+      % };
+        
+    \end{tikzpicture}
+\end{document}
