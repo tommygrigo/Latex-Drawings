@@ -1,0 +1,65 @@
+\documentclass{standalone}
+
+\input{commands}
+
+\begin{document}
+
+\centering
+\pgfplotstableread{data/states.dat}{\table}
+\begin{tikzpicture}
+\begin{groupplot}[group style = {
+                    group size = 5 by 1,
+                    horizontal sep = 0.5cm,},
+                    colormap/viridis,
+                    %axis lines = none,
+                    enlargelimits=false,
+                    axis on top,
+                    point meta min=-0.1,
+                    point meta max=0.8,
+                    width = 0.45\textwidth,
+                    height = 0.45\textwidth,
+                    xmin = -0.5, xmax=15.5,
+                    ymin = -0.5, ymax=15.5
+                    ]
+        \nextgroupplot[title= $\Re(\check{\rho}_0)$, axis lines = none,]
+        \addplot[matrix plot,point meta=explicit] table [x = {i}, y={j}, meta={a}] {\table};
+        \addplot[black, thick, domain=-0.5:15.5] (7.5,x);
+        \addplot[black, thick, domain=-0.5:15.5] (x,7.5);
+
+        \nextgroupplot[title= $\Re(\check{\rho}_{0.25})$, axis lines = none,]
+        \addplot[matrix plot,point meta=explicit] table [x = {i}, y={j}, meta={b}] {\table};
+        \addplot[black, thick, domain=-0.5:15.5] (7.5,x);
+        \addplot[black, thick, domain=-0.5:15.5] (x,7.5);
+
+        \nextgroupplot[title= $\Re(\check{\rho}_{0.5})$, axis lines = none,]
+        \addplot[matrix plot,point meta=explicit] table [x = {i}, y={j}, meta={c}] {\table};
+        \addplot[black, thick, domain=-0.5:15.5] (7.5,x);
+        \addplot[black, thick, domain=-0.5:15.5] (x,7.5);
+
+        \nextgroupplot[title= $\Re(\check{\rho}_{0.75})$, axis lines = none,]
+        \addplot[matrix plot,point meta=explicit] table [x = {i}, y={j}, meta={d}] {\table};
+        \addplot[black, thick, domain=-0.5:15.5] (7.5,x);
+        \addplot[black, thick, domain=-0.5:15.5] (x,7.5);
+
+        
+        \nextgroupplot[title= $\Re(\check{\rho}_1)$, 
+        colorbar, 
+        axis lines*=left, 
+        hide y axis, 
+        hide x axis,
+               colorbar style={
+               ytick={-.2,-.1,0,.1,.2, .3,.4,.5,.6,.7,.8},
+                    yticklabel style={
+                        /pgf/number format/.cd,
+                            fixed,
+                            fixed zerofill
+                    }
+               },]
+        \addplot[matrix plot,point meta=explicit] table [x = {i}, y={j}, meta={e}] {\table};
+        \addplot[black, thick, domain=-0.5:15.5] (7.5,x);
+        \addplot[black, thick, domain=-0.5:15.5] (x,7.5);
+
+       
+\end{groupplot}
+\end{tikzpicture}
+\end{document}

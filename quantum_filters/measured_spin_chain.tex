@@ -25,14 +25,14 @@
 	\draw [dash pattern=on 3pt off 3pt,color=orange,thick] (\xc,\yc) ellipse (\r cm and 0.45*\r cm);
 	\draw [-stealth, thick] (\xc,\yc)-- (\xc+\r/2*0.70,\yc+\r/2*1.07);
 	\draw (\xc,\yc-1) node[anchor=north] {$1$};
-        \path[draw=red!60, very thick, decorate, -stealth] (\xc,\rp) --  node[right]{$\gamma$} (\xc,\l+\rp);
+        %\path[draw=red!60, very thick, decorate, -stealth] (\xc,\rp) --  node[right]{$\gamma$} (\xc,\l+\rp);
 	
 	\pgfmathsetmacro{\xc}{4}
 	\draw[color=orange,thick,fill=orange!30] (\xc,\yc) circle  (\r cm);
 	\draw [dash pattern=on 3pt off 3pt,color=orange,thick] (\xc,\yc) ellipse (\r cm and 0.45*\r cm);
 	\draw [-stealth, thick] (\xc,\yc)-- (\xc-\r/2*0.70,\yc+\r/2*1.07);
 	\draw (\xc,\yc-1) node[anchor=north] {$2$};
-        \path[draw=red!60, very thick, decorate, -stealth] (\xc,\rp) --  node[right]{$\gamma$} (\xc,\l+\rp);
+        %\path[draw=red!60, very thick, decorate, -stealth] (\xc,\rp) --  node[right]{$\gamma$} (\xc,\l+\rp);
 
         \pgfmathsetmacro{\xc}{8}
 	\draw (\xc,\yc) node {$\dots$};
@@ -42,7 +42,7 @@
 	\draw [dash pattern=on 3pt off 3pt,color=orange,thick] (\xc,\yc) ellipse (\r cm and 0.45*\r cm);
 	\draw [-stealth, thick] (\xc,\yc)-- (\xc-\r/2*0.70,\yc-\r/2*1.07);
 	\draw (\xc,\yc-1) node[anchor=north] {$N$};
-        \path[draw=red!60, very thick, decorate, -stealth] (\xc,\rp) --  node[right]{$\gamma$} (\xc,\l+\rp);
+        %\path[draw=red!60, very thick, decorate, -stealth] (\xc,\rp) --  node[right]{$\gamma$} (\xc,\l+\rp);
 
         
         \pgfmathsetmacro{\xc}{0}
@@ -51,6 +51,8 @@
         \pgfmathsetmacro{\xc}{12}
         \path[draw=green!60, very thick, decorate, -stealth] (\xc+\rp+\l,-\rp*0.5-\l*0.5) --  node[below]{$\beta_N$} (\xc+\rp,-\rp*0.5);
         \path[draw=green!60, very thick, decorate, -stealth] (\xc+\rp,\rp*0.5) --  node[above]{$\alpha_N$} (\xc+\rp+\l,\rp*0.5+\l*0.5);
+
+        % \path[draw=red!60, very thick, decorate, -stealth] (4,5) --  node[right]{$\gamma$} (7,7);
  
  \end{tikzpicture}
 

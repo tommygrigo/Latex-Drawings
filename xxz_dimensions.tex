@@ -1,6 +1,9 @@
 \documentclass{standalone}
 
+\usepackage[dvipsnames]{xcolor}
+
 \input{commands}
+
 
 \begin{document}
 \pgfplotstableread{data/xxz_dimensions.dat}{\dtable}
@@ -25,13 +28,17 @@
                 log basis y={4},
         ]
         \addplot[green, domain = 2:10, samples = 9,thick] {4^x};
-        \addplot[red!60, domain = 2:10, samples = 9,thick] {factorial(2*x)/(factorial(x)*factorial(x))};
-        \addplot[blue!40, mark = *, thick] table [x = {N}, y = {x}] {\dtable};
+        \addplot[red!60, domain = 2:10, samples = 9, very thick, densely dashed] {factorial(2*x)/(factorial(x)*factorial(x))};
+        %\addplot[Turquoise, mark = *, thick] table [x = {N}, y = {x}] {\dtable};
+        \addplot[color=Turquoise, thick, solid, mark=*] coordinates {
+            (2,4)(3,18)(4,59)(5,108)(6,121)};
         
         \addplot[orange!60, mark = *, only marks, thick] table [x ={N}, y = {y}] {\dtable};
 
-        \addplot[purple!60, domain = 2:10, samples = 9,thick] {factorial(x)/(factorial(floor(x/2))*factorial(x-floor(x/2)))};
-        \addplot[blue!40, mark = *, thick] table [x = {N}, y = {x}] {\dtable};
+        \addplot[purple!60, domain = 2:10, samples = 9, very thick, densely dotted] {factorial(x)/(factorial(floor(x/2))*factorial(x-floor(x/2)))};
+        %\addplot[Turquoise, mark = *, thick] table [x = {N}, y = {x}] {\dtable};
+        \addplot[color=Turquoise, thick, solid, mark=*] coordinates {
+            (2,4)(3,18)(4,59)(5,108)(6,121)};
         
         \legend{
                 $\dim(\Bf(\Hc))$,

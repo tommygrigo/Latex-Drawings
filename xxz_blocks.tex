@@ -4,13 +4,35 @@
 
 \begin{document}
 
+% Define inferno colormap
+\pgfplotsset{%
+    colormap={inferno}{%
+        rgb255=(0, 0, 4)
+        rgb255=(12, 8, 38)
+        rgb255=(36, 12, 79)
+        rgb255=(66, 10, 104)
+        rgb255=(93, 18, 110)
+        rgb255=(120, 28, 109)
+        rgb255=(147, 38, 103)
+        rgb255=(174, 48, 92)
+        rgb255=(199, 62, 76)
+        rgb255=(221, 81, 58)
+        rgb255=(237, 105, 37)
+        rgb255=(248, 133, 15)
+        rgb255=(252, 165, 10)
+        rgb255=(250, 198, 45)
+        rgb255=(242, 230, 97)
+        rgb255=(252, 255, 164)
+    }
+}
+
     \centering
 \pgfplotstableread{data/xxz_blocks.dat}{\table}
 \begin{tikzpicture}
 \begin{groupplot}[group style = {
                     group size = 5 by 3,
                     horizontal sep = 0.5cm,},
-                    colormap/viridis,
+                    colormap name = inferno,
                     %axis lines = none,
                     enlargelimits=false,
                     axis on top,

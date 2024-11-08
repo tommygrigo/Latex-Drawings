@@ -2,28 +2,55 @@
 
 \input{commands}
 
+% Define inferno colormap
+\pgfplotsset{%
+    colormap={inferno}{%
+        %rgb255=(0, 0, 4)
+        %rgb255=(12, 8, 38)
+        %rgb255=(36, 12, 79)
+        %rgb255=(66, 10, 104)
+        rgb255=(93, 18, 110)
+        %rgb255=(120, 28, 109)
+        rgb255=(147, 38, 103)
+        %rgb255=(174, 48, 92)
+        rgb255=(199, 62, 76)
+        %rgb255=(221, 81, 58)
+        rgb255=(237, 105, 37)
+        %rgb255=(248, 133, 15)
+        rgb255=(252, 165, 10)
+        %rgb255=(250, 198, 45)
+        %rgb255=(242, 230, 97)
+        %rgb255=(252, 255, 164)
+    }
+}
+
 \begin{document}
         \centering
         \pgfplotstableread{data/xxz_magnetization.dat}{\dtable}
             \begin{tikzpicture}
             \begin{axis}[
                 width=0.8\textwidth,
-                ymin=1,ymax=4,
+                ymin=1,ymax=5,
                 grid=major,
-                ytick={1,2,...,4}, 
-                xtick={0,1,2,...,5},
+                ytick={1,2,...,5}, 
+                xtick={0,1,2,...,10},
+                colormap name=inferno,
+                cycle list={[of colormap]},
                 xlabel={$\Gamma t$}, ylabel={$j$}, zlabel={$\expect{J_j}$}, 
                 ]
-            
-                \addplot3[blue!20!red, thick, mark=o, mark repeat=5, smooth, only marks] table [y expr= 1, x = {t}, z={j0}] {\dtable};
-                \addplot3[blue!40!red, thick, mark=o, mark repeat=5, smooth, only marks] table [y expr= 2, x = {t}, z={j1}] {\dtable};
-                \addplot3[blue!60!red, thick, mark=o, mark repeat=5, smooth, only marks] table [y expr= 3, x = {t}, z={j2}] {\dtable};
-                \addplot3[blue!80!red, thick, mark=o, mark repeat=5, smooth, only marks] table [y expr= 4, x = {t}, z={j3}] {\dtable};
 
-                \addplot3[blue!20!red, thick, smooth] table [y expr= 1, x = {t}, z={j0}] {\dtable};
-                \addplot3[blue!40!red, very thick, smooth, dashed] table [y expr= 2, x = {t}, z={j1}] {\dtable};
-                \addplot3[blue!60!red, very thick, smooth, densely dotted] table [y expr= 3, x = {t}, z={j2}] {\dtable};
-                \addplot3[blue!80!red, very thick, smooth, dashdotted] table [y expr= 4, x = {t}, z={j3}] {\dtable};
+                \addplot3+[thick, mark=o, mark repeat=5, smooth, only marks] table [y expr= 5, x = {t}, z={j4}] {\dtable};
+                \addplot3+[thick, mark=o, mark repeat=5, smooth, only marks] table [y expr= 4, x = {t}, z={j3}] {\dtable};
+                \addplot3+[thick, mark=o, mark repeat=5, smooth, only marks] table [y expr= 3, x = {t}, z={j2}] {\dtable};
+                \addplot3+[thick, mark=o, mark repeat=5, smooth, only marks] table [y expr= 2, x = {t}, z={j1}] {\dtable};
+                \addplot3+[thick, mark=o, mark repeat=5, smooth, only marks] table [y expr= 1, x = {t}, z={j0}] {\dtable};
+
+                \addplot3+[thick, smooth] table [y expr= 5, x = {t}, z={j4}] {\dtable};
+                \addplot3+[very thick, smooth, dashdotted] table [y expr= 4, x = {t}, z={j3}] {\dtable};
+                \addplot3+[very thick, smooth, densely dotted] table [y expr= 3, x = {t}, z={j2}] {\dtable};
+                \addplot3+[very thick, smooth, dashed] table [y expr= 2, x = {t}, z={j1}] {\dtable};
+                \addplot3+[thick, smooth] table [y expr= 1, x = {t}, z={j0}] {\dtable};    
+                
             \end{axis}
             \end{tikzpicture}
 \end{document}

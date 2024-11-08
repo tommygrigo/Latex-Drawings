@@ -1,5 +1,7 @@
 \documentclass{standalone}
 
+\usepackage[dvipsnames]{xcolor}
+
 \input{commands}
 
 \begin{document}
@@ -31,14 +33,14 @@
 
         %\addplot[green, mark = *] table [x ={N}, y = {z}] {\dtable};
 
-        \addplot[color=red!60, thick]coordinates {
+        \addplot[color=red!60, very thick, densely dashed]coordinates {
         (2,16)(3,40)(4,80)(5,140)(6,224)(7,336)(8,480)(9,660)(10,880)};
 
-        \addplot [domain=2:10, samples=9, color=purple, thick]{4*x^2};
+        \addplot [domain=2:10, samples=9, color=purple,  very thick, densely dotted]{4*x^2};
 
         % \addplot[blue!40, mark = *,thick] table [x = {N}, y = {x}] {\dtable};
 
-        \addplot[color=blue!40, thick, mark=*]coordinates 
+        \addplot[color=Turquoise, thick, mark=*]coordinates 
         {(2,14)(3,34)(4,57)(5,64)};
 
         %\addplot[color=blue!20!red, thick, mark=*]coordinates 
