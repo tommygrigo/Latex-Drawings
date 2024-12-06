@@ -1,0 +1,90 @@
+\documentclass{standalone}
+
+\input{commands}
+
+\begin{document}
+
+
+\centering
+% \pgfplotstableread{data/xxznetization.dat}{\dtable}
+% \pgfplotstablegetrowsof{\dtable}
+% \pgfmathtruncatemacro{\rownum}{\pgfplotsretval}
+\begin{tikzpicture}
+    \begin{axis}[
+        width=0.8\textwidth,
+        ymin=1,ymax=4,
+        grid=both,
+        ytick={0,1,2,...,5,6}, 
+        width = 10cm,
+        % xtick={1,2,...,5}, 
+        xlabel={$t$}, ylabel={$j$}, zlabel={$\expect{\sigma_z^{(j)}}$}, 
+        ]
+
+        \addplot3[blue!100!red,no marks, ] table [x=t, y expr=16, z=d, col sep = comma] {data/full_filter_w.csv};
+        \addplot3[orange!100!yellow,no marks,  dotted, thick] table [x=t, y expr=16, z=d, col sep = comma] {data/reduced_filter_w.csv};
+
+        \addplot3[blue!60!red,no marks,  ] table [x=t, y expr=15, z=c, col sep = comma] {data/full_filter_w.csv};
+        \addplot3[orange!60!yellow,no marks,  dotted,thick] table [x=t, y expr=15, z=c, col sep = comma] {data/reduced_filter_w.csv};
+        
+        \addplot3[blue!30!red,no marks, ] table [x=t, y expr=14, z=b, col sep = comma] {data/full_filter_w.csv};
+        \addplot3[orange!30!yellow,no marks,  dotted,thick] table [x=t, y expr=14, z=b, col sep = comma] {data/reduced_filter_w.csv};
+        
+        \addplot3[blue!0!red,no marks, ] table [x=t, y expr=13, z=a, col sep = comma] {data/full_filter_w.csv};
+        \addplot3[orange!0!yellow,no marks,  dotted,thick] table [x=t, y expr=13, z=a, col sep = comma] {data/reduced_filter_w.csv};
+        
+        \addplot3[blue!100!red,no marks, ] table [x=t, y expr=12, z=d, col sep = comma] {data/full_filter_w.csv};
+        \addplot3[orange!100!yellow,no marks,  dotted, thick] table [x=t, y expr=12, z=d, col sep = comma] {data/reduced_filter_w.csv};
+
+        \addplot3[blue!60!red,no marks,  ] table [x=t, y expr=11, z=c, col sep = comma] {data/full_filter_w.csv};
+        \addplot3[orange!60!yellow,no marks,  dotted,thick] table [x=t, y expr=11, z=c, col sep = comma] {data/reduced_filter_w.csv};
+        
+        \addplot3[blue!30!red,no marks, ] table [x=t, y expr=10, z=b, col sep = comma] {data/full_filter_w.csv};
+        \addplot3[orange!30!yellow,no marks,  dotted,thick] table [x=t, y expr=10, z=b, col sep = comma] {data/reduced_filter_w.csv};
+        
+        \addplot3[blue!0!red,no marks, ] table [x=t, y expr=9, z=a, col sep = comma] {data/full_filter_w.csv};
+        \addplot3[orange!0!yellow,no marks,  dotted,thick] table [x=t, y expr=9, z=a, col sep = comma] {data/reduced_filter_w.csv};
+
+        \addplot3[blue!100!red,no marks, ] table [x=t, y expr=8, z=d, col sep = comma] {data/full_filter_w.csv};
+        \addplot3[orange!100!yellow,no marks,  dotted, thick] table [x=t, y expr=8, z=d, col sep = comma] {data/reduced_filter_w.csv};
+
+        \addplot3[blue!60!red,no marks,  ] table [x=t, y expr=7, z=c, col sep = comma] {data/full_filter_w.csv};
+        \addplot3[orange!60!yellow,no marks,  dotted,thick] table [x=t, y expr=7, z=c, col sep = comma] {data/reduced_filter_w.csv};
+        
+        \addplot3[blue!30!red,no marks, ] table [x=t, y expr=6, z=f, col sep = comma] {data/full_filter_w.csv};
+        \addplot3[orange!30!yellow,no marks,  dotted,thick] table [x=t, y expr=6, z=f, col sep = comma] {data/reduced_filter_w.csv};
+        
+        \addplot3[blue!0!red,no marks, ] table [x=t, y expr=5, z=e, col sep = comma] {data/full_filter_w.csv};
+        \addplot3[orange!0!yellow,no marks,  dotted,thick] table [x=t, y expr=5, z=e, col sep = comma] {data/reduced_filter_w.csv};
+
+        \addplot3[blue!100!red,no marks, ] table [x=t, y expr=4, z=d, col sep = comma] {data/full_filter_w.csv};
+        \addplot3[orange!100!yellow,no marks,  dotted, thick] table [x=t, y expr=4, z=d, col sep = comma] {data/reduced_filter_w.csv};
+
+        \addplot3[blue!60!red,no marks,  ] table [x=t, y expr=3, z=c, col sep = comma] {data/full_filter_w.csv};
+        \addplot3[orange!60!yellow,no marks,  dotted,thick] table [x=t, y expr=3, z=c, col sep = comma] {data/reduced_filter_w.csv};
+        
+        \addplot3[blue!30!red,no marks, ] table [x=t, y expr=2, z=b, col sep = comma] {data/full_filter_w.csv};
+        \addplot3[orange!30!yellow,no marks,  dotted,thick] table [x=t, y expr=2, z=b, col sep = comma] {data/reduced_filter_w.csv};
+        
+        \addplot3[blue!0!red,no marks, ] table [x=t, y expr=1, z=a, col sep = comma] {data/full_filter_w.csv};
+        \addplot3[orange!0!yellow,no marks,  dotted,thick] table [x=t, y expr=1, z=a, col sep = comma] {data/reduced_filter_w.csv};
+
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+        % \addplot3[blue!100!red,no marks] table [x=t, y expr=4, z=d, col sep = comma] {data/full_filter_n.csv};
+        % \addplot3[orange!100!yellow,no marks, dotted, thick] table [x=t, y expr=4, z=d, col sep = comma] {data/reduced_filter_n.csv};
+
+        % \addplot3[blue!60!red,no marks, ] table [x=t, y expr=3, z=c, col sep = comma] {data/full_filter_n.csv};
+        % \addplot3[orange!60!yellow,no marks, dotted,thick] table [x=t, y expr=3, z=c, col sep = comma] {data/reduced_filter_n.csv};
+        
+        % \addplot3[blue!30!red,no marks] table [x=t, y expr=2, z=b, col sep = comma] {data/full_filter_n.csv};
+        % \addplot3[orange!30!yellow,no marks, dotted,thick] table [x=t, y expr=2, z=b, col sep = comma] {data/reduced_filter_n.csv};
+        
+        % \addplot3[blue!0!red,no marks,] table [x=t, y expr=1, z=a, col sep = comma] {data/full_filter_n.csv};
+        % \addplot3[orange!0!yellow,no marks,dotted,thick] table [x=t, y expr=1, z=a, col sep = comma] {data/reduced_filter_n.csv};
+        
+        
+
+    \end{axis}
+    \end{tikzpicture}
+
+\end{document}

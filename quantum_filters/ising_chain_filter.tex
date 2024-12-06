@@ -21,28 +21,34 @@
         ]
 
         
-        \addplot3[blue!100!red,no marks, smooth] table [x=t, y expr=4, z=d, col sep = comma] {data/full_filter.csv};
-        \addplot3[orange!100!yellow,no marks, smooth, dotted, thick] table [x=t, y expr=4, z=d, col sep = comma] {data/reduced_filter.csv};
-        \addplot3[blue!60!red,no marks, smooth, ] table [x=t, y expr=3, z=c, col sep = comma] {data/full_filter.csv};
-        \addplot3[orange!60!yellow,no marks, smooth, dotted,thick] table [x=t, y expr=3, z=c, col sep = comma] {data/reduced_filter.csv};
-        \addplot3[blue!30!red,no marks, smooth] table [x=t, y expr=2, z=b, col sep = comma] {data/full_filter.csv};
-        \addplot3[orange!30!yellow,no marks, smooth, dotted,thick] table [x=t, y expr=2, z=b, col sep = comma] {data/reduced_filter.csv};
-        \addplot3[blue!0!red,no marks, smooth] table [x=t, y expr=1, z=a, col sep = comma] {data/full_filter.csv};
-        \addplot3[orange!0!yellow,no marks, smooth, dotted,thick] table [x=t, y expr=1, z=a, col sep = comma] {data/reduced_filter.csv};
-        
-        
-        % \addplot3[blue!20!red, thick, mark=o, mark repeat=5, smooth, only marks] table [y expr= 1, x = {t}, z={z0}] {\dtable};
-        % \addplot3[blue!40!red, thick, mark=o, mark repeat=5, smooth, only marks] table [y expr= 2, x = {t}, z={z1}] {\dtable};
-        % \addplot3[blue!60!red, thick, mark=o, mark repeat=5, smooth, only marks] table [y expr= 3, x = {t}, z={z2}] {\dtable};
-        % \addplot3[blue!80!red, thick, mark=o, mark repeat=5, smooth, only marks] table [y expr= 4, x = {t}, z={z3}] {\dtable};
-        % \addplot3[blue!100!red, thick, mark=o, mark repeat=5, smooth, only marks] table [y expr= 5, x = {t}, z={z4}] {\dtable};
+        % \addplot3[blue!100!red,no marks, ] table [x=t, y expr=4, z=d, col sep = comma] {data/full_filter_mag_w.csv};
+        % \addplot3[orange!100!yellow,no marks,  dotted, thick] table [x=t, y expr=4, z=d, col sep = comma] {data/reduced_filter_mag_w.csv};
 
-        % \addplot3[blue!20!red, thick, smooth] table [y expr= 1, x = {t}, z={z0}] {\dtable};
-        % \addplot3[blue!40!red, very thick, smooth, dashed] table [y expr= 2, x = {t}, z={z1}] {\dtable};
-        % \addplot3[blue!60!red, very thick, smooth, densely dotted] table [y expr= 3, x = {t}, z={z2}] {\dtable};
-        % \addplot3[blue!80!red, very thick, smooth, dashdotted] table [y expr= 4, x = {t}, z={z3}] {\dtable};
-        % \addplot3[blue!100!red, thick, smooth] table [y expr= 5, x = {t}, z={z4}] {\dtable};
-        % \addplot3[orange!50!yellow, mark=o, very thick] coordinates {(5,1,-0.0327) (5,2,-0.0080) (5,3,0.0011) (5,4,0.0079) (5,5,0.0331)};
+        % \addplot3[blue!60!red,no marks,  ] table [x=t, y expr=3, z=c, col sep = comma] {data/full_filter_mag_w.csv};
+        % \addplot3[orange!60!yellow,no marks,  dotted,thick] table [x=t, y expr=3, z=c, col sep = comma] {data/reduced_filter_mag_w.csv};
+        
+        % \addplot3[blue!30!red,no marks, ] table [x=t, y expr=2, z=b, col sep = comma] {data/full_filter_mag_w.csv};
+        % \addplot3[orange!30!yellow,no marks,  dotted,thick] table [x=t, y expr=2, z=b, col sep = comma] {data/reduced_filter_mag_w.csv};
+        
+        % \addplot3[blue!0!red,no marks, ] table [x=t, y expr=1, z=a, col sep = comma] {data/full_filter_mag_w.csv};
+        % \addplot3[orange!0!yellow,no marks,  dotted,thick] table [x=t, y expr=1, z=a, col sep = comma] {data/reduced_filter_mag_w.csv};
+
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+        \addplot3[blue!100!red,no marks] table [x=t, y expr=4, z=d, col sep = comma] {data/full_filter_mag_n.csv};
+        \addplot3[orange!100!yellow,no marks, dotted, thick] table [x=t, y expr=4, z=d, col sep = comma] {data/reduced_filter_mag_n.csv};
+
+        \addplot3[blue!60!red,no marks, ] table [x=t, y expr=3, z=c, col sep = comma] {data/full_filter_mag_n.csv};
+        \addplot3[orange!60!yellow,no marks, dotted,thick] table [x=t, y expr=3, z=c, col sep = comma] {data/reduced_filter_mag_n.csv};
+        
+        \addplot3[blue!30!red,no marks] table [x=t, y expr=2, z=b, col sep = comma] {data/full_filter_mag_n.csv};
+        \addplot3[orange!30!yellow,no marks, dotted,thick] table [x=t, y expr=2, z=b, col sep = comma] {data/reduced_filter_mag_n.csv};
+        
+        \addplot3[blue!0!red,no marks,] table [x=t, y expr=1, z=a, col sep = comma] {data/full_filter_mag_n.csv};
+        \addplot3[orange!0!yellow,no marks,dotted,thick] table [x=t, y expr=1, z=a, col sep = comma] {data/reduced_filter_mag_n.csv};
+        
+        
+
     \end{axis}
     \end{tikzpicture}
 
