@@ -1,0 +1,43 @@
+\documentclass{standalone}
+
+\input{../commands}
+
+\begin{document}
+
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+        	xmin = 0, xmax = 1,
+        	%ymin = 0, ymax = 0.4,
+         %        domain = 0:5,
+        	% xtick distance = .1,
+        	% ytick distance = 5,
+        	grid = both,
+        	% minor tick num = 1,
+        	% major grid style = {lightgray},
+        	% minor grid style = {lightgray!25},
+        	width = 10cm,
+        	height = 6.5cm,
+        	% legend cell align = {left},
+        	% legend pos = north east,
+                xlabel = {$t$},
+                ylabel = {$\Fs(\check{\rho}_t,\check{\rho}_t^e)-\Fs(\rho_t,\rho_t^e)$},
+        ]
+
+        \addplot[blue!50,no marks, smooth, thick, opacity=0.3] table [x=T, y=a, col sep = comma] {data/fidelity_w.csv};
+        \addplot[blue!50,no marks, smooth, thick, opacity=0.3] table [x=T, y=b, col sep = comma] {data/fidelity_w.csv};
+        \addplot[blue!50,no marks, smooth, thick, opacity=0.3] table [x=T, y=c, col sep = comma] {data/fidelity_w.csv};
+        \addplot[blue!50,no marks, smooth, thick, opacity=0.3] table [x=T, y=d, col sep = comma] {data/fidelity_w.csv};
+        \addplot[blue!50,no marks, smooth, thick, opacity=0.3] table [x=T, y=e, col sep = comma] {data/fidelity_w.csv};
+        \addplot[blue!50,no marks, smooth, thick, opacity=0.3] table [x=T, y=f, col sep = comma] {data/fidelity_w.csv};
+        \addplot[blue!50,no marks, smooth, thick, opacity=0.3] table [x=T, y=g, col sep = comma] {data/fidelity_w.csv};
+        \addplot[blue!50,no marks, smooth, thick, opacity=0.3] table [x=T, y=h, col sep = comma] {data/fidelity_w.csv};
+        \addplot[blue!50,no marks, smooth, thick, opacity=0.3] table [x=T, y=i, col sep = comma] {data/fidelity_w.csv};
+        \addplot[blue!50,no marks, smooth, thick, opacity=0.3] table [x=T, y=j, col sep = comma] {data/fidelity_w.csv};
+
+        \addplot[black,no marks, smooth, thick] table [x=T, y=M, col sep = comma] {data/fidelity_w.csv};
+
+        \end{axis}
+        
+    \end{tikzpicture}
+\end{document}

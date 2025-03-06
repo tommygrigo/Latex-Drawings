@@ -1,0 +1,51 @@
+\documentclass{standalone}[12pt]
+
+\input{../../commands}
+
+\usetikzlibrary{shapes,arrows,decorations.markings}
+\usetikzlibrary{calc,patterns,angles,quotes,arrows,automata}
+\usetikzlibrary{positioning}
+
+\usetikzlibrary{positioning}
+\usepackage{bm}
+
+
+
+\begin{document}
+
+\begin{tikzpicture}
+	% save length of g-vector and theta to macros
+	\pgfmathsetmacro{\Gvec}{1.5}
+	\pgfmathsetmacro{\myAngle}{30}
+	
+	\coordinate (centro) at (0,0);
+	
+	\draw[gray,-stealth] (centro) -- ++ (0,3.5) node (mary) [black,below]{$ $};
+	\draw[gray,-stealth] (centro) -- ++ (2,0) node (mary) [black,below]{$ $};
+	\draw[gray,-] (centro) -- ++ (-2,0) node (mary) [black,below]{$ $};
+	\draw[gray,-] (centro) -- ++ (0,-3.5) node (mary) [black,below]{$ $};
+	
+	
+	\coordinate(bobo) at ({3*cos(240)},{3*sin(240)});
+	\coordinate(bobo2) at ({3*cos(-40)},{3*sin(-40)});
+	\draw[thick] (centro) -- node[above right] {$\ell$} ++(270+\myAngle:3) coordinate (bob) ;
+	\draw[-stealth] (bob) -- node[pos=1,below] {$-k\ell\dot{\theta}$} ++(180+\myAngle:1) coordinate (att) ;
+	\draw[dashed] (bob) -- node[pos=1,below] {} ++(270+\myAngle:{\Gvec*cos(30)}) coordinate (pro1);
+	\draw[-stealth] (pro1) -- node[right] {$-mg\sin(\theta)$}++(180+\myAngle:{\Gvec*sin(30)}) coordinate (grav) ;
+	
+	
+	\pic [draw, ->, "$\theta$", angle eccentricity=1.1, angle radius = 2cm] {angle = mary--centro--bob};
+	\pic [draw, ->, angle eccentricity=0.8, angle radius = 3cm] {angle = bobo--centro--bobo2};
+	\node[above left] at (bobo2) {$\dot{\theta}$};
+	
+	\draw [-stealth] (bob) -- ++(0,-\Gvec)
+	coordinate (gg)
+	node[pos=1.2,left] {$-m\vec{g}$};
+	
+	\filldraw [fill=black!40,draw=black] (bob) circle[radius=0.3] node {$m$} ;
+	%\filldraw [fill=none,draw=black!40] (bob_0) circle[radius=0.3];
+	%\filldraw [fill=none,draw=black!40] (bob_1) circle[radius=0.3];
+	
+	\end{tikzpicture}
+
+\end{document}

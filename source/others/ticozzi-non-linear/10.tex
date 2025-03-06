@@ -1,0 +1,23 @@
+\documentclass{standalone}[12pt]
+
+\input{../../commands}
+
+\usetikzlibrary{shapes,arrows,decorations.markings}
+\usetikzlibrary{calc,patterns,angles,quotes,arrows,automata}
+\usetikzlibrary{positioning}
+
+\begin{document}
+
+\begin{tikzpicture}
+    \begin{axis}[axis lines=none,xtick=\empty,ytick=\empty,ztick=\empty,view={30}{30}]
+    \addplot3[mesh,blue!50,samples=10,domain=0:1]{(exp(y)-1)*exp(-2*x)};
+    \addplot3+[mark=none,black,domain=0:2,samples=100,samples y=0,label=]({x},{0},{0});
+    \addplot3+[mark=none,black,domain=0:2,samples=100,samples y=0]({0},{x},{0});
+    \addplot3+[mark=none,black,domain=0:3,samples=100,samples y=0]({0},{0},{x});
+    \node at (axis cs:1.5,0.1,0) {$s$};
+    \node at (axis cs:0,1.8,0.1) {$r$};
+    \node at (axis cs:0.3,0,2.9) {$\beta(r,s)$};
+    \end{axis}
+\end{tikzpicture}
+
+\end{document}

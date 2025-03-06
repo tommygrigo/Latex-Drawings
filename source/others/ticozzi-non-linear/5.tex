@@ -1,0 +1,69 @@
+\documentclass{standalone}[12pt]
+
+\input{../../commands}
+
+\usetikzlibrary{shapes,arrows,decorations.markings}
+\usetikzlibrary{calc,patterns,angles,quotes,arrows,automata}
+\usetikzlibrary{positioning}
+
+\begin{document}
+
+\begin{tikzpicture}[scale = 0.8]
+    \pgfmathsetmacro{\v}{0.1}
+    \pgfmathsetmacro{\w}{60}
+    \pgfmathsetmacro{\xc}{2}
+    \pgfmathsetmacro{\yc}{2}	
+    \begin{axis}[
+    view={30}{30},
+    axis lines=middle,
+    %zmax=60,
+    %height=12cm,
+    xtick=\empty,
+    ytick=\empty,
+    ztick=\empty,
+    xlabel=$x_1$,
+    ]
+    \addplot3+[%,ytick=\empty,yticklabel=\empty,
+    mark=none,
+    thick,
+    blue,
+    domain=1:10,
+    samples=400,
+    samples y=0,
+    ]
+    ({-\v*x*sin(\w*x)+\xc},{11-x},{\v*x*cos(\w*x)+\yc});
+    
+    \addplot3+[
+    mark options={color=black},
+    mark=*
+    ] 
+    coordinates {({\xc},{0},{\yc})};
+    
+    \addplot3+[
+    mark options={color=blue},
+    mark=*
+    ] 
+    coordinates {({-\v*10*sin(\w*10)+\xc},{11-10},{\v*10*cos(\w*10)+\yc})};
+    
+    \addplot3+[
+    mark=none,
+    dashed,
+    domain=0:12,
+    samples=100,
+    samples y=0
+    ]  
+    ({\xc},{x},{\yc});
+    
+    
+    
+    \node at (axis cs:1.9,0,2) {$\bar{x}$};
+    \node at (axis cs:3.1,0,1.7) {$x_0$};
+    \node at (axis cs:1.4,0,2.6) {$x_2$};
+    \node at (axis cs:2.2,0,1.95) {$x_3$};
+    
+    
+    \end{axis}
+
+\end{tikzpicture}
+
+\end{document}

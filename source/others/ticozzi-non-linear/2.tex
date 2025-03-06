@@ -1,0 +1,37 @@
+\documentclass{standalone}[12pt]
+
+\input{../../commands}
+
+\usetikzlibrary{shapes,arrows,decorations.markings}
+\usetikzlibrary{calc,patterns,angles,quotes,arrows,automata}
+\usetikzlibrary{positioning}
+
+\begin{document}
+
+\begin{tikzpicture}
+    \draw[->] (0,0) -- (4.5,0) node[right] {$t$};
+    \draw[->] (0,-2) -- (0,5) node[above] {$x$};
+    \draw[dashed,-] (4.5,1) -- (0,1) node [left]{$1$};
+    \pgfmathsetmacro{\xz}{-0.9}
+    \draw[scale=1,domain=0:4.5,smooth,variable=\x,blue] plot ({\x},{\xz*exp(-\x)/(1-\xz+\xz*exp(-\x))});
+    
+    \pgfmathsetmacro{\xz}{0.9}
+    \draw[scale=1,domain=0:4.5,smooth,variable=\x,blue] plot ({\x},{\xz*exp(-\x)/(1-\xz+\xz*exp(-\x))});
+    
+    \pgfmathsetmacro{\xz}{-0.5}
+    \draw[scale=1,domain=0:4.5,smooth,variable=\x,blue] plot ({\x},{\xz*exp(-\x)/(1-\xz+\xz*exp(-\x))});
+    
+    \pgfmathsetmacro{\xz}{0.5}
+    \draw[scale=1,domain=0:4.5,smooth,variable=\x,blue] plot ({\x},{\xz*exp(-\x)/(1-\xz+\xz*exp(-\x))});
+    
+    \pgfmathsetmacro{\xz}{1.1}
+    \draw[scale=1,domain=0:2.18,smooth,variable=\x,blue] plot ({\x},{\xz*exp(-\x)/(1-\xz+\xz*exp(-\x))});
+    
+    
+    \pgfmathsetmacro{\xz}{1.2}
+    \draw[scale=1,domain=0:1.57,smooth,variable=\x,blue] plot ({\x},{\xz*exp(-\x)/(1-\xz+\xz*exp(-\x))});
+    \draw[dashed,-] (1.7918,0) -- (1.7918,5);
+    \draw[dashed,-] (2.3979,0) -- (2.3979,5);
+\end{tikzpicture}
+
+\end{document}

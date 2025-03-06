@@ -1,0 +1,28 @@
+\documentclass{standalone}[12pt]
+
+\input{../../commands}
+
+\usetikzlibrary{shapes,arrows,decorations.markings}
+\usetikzlibrary{calc,patterns,angles,quotes,arrows,automata}
+\usetikzlibrary{positioning}
+
+\begin{document}
+
+\begin{tikzpicture}
+		
+    \draw[->] (0,0) -- (3,0) node[right] {$x_1$};
+    \draw[->] (0,0) -- (0,3) node[above] {$x_2$};
+    
+    \pgfmathsetmacro{\v}{0.1}
+    \pgfmathsetmacro{\w}{60}
+    \pgfmathsetmacro{\xc}{2}
+    \pgfmathsetmacro{\yc}{2}
+    
+    \draw[,domain=0:10,smooth,variable=\x,blue] plot ({-\v*\x*sin(\w*\x)+\xc},{\v*\x*cos(\w*\x)+\yc});
+    \node at (\xc,\yc)[blue] {\textbullet};
+    \node at ({-\v*10*sin(\w*10)+\xc},{\v*10*cos(\w*10)+\yc})[blue] {\textbullet};
+    \node at (\xc,2.3)[black] {$\bar{x}$};
+    \node at ({-\v*10*sin(\w*10)+\xc+0.3},{\v*10*cos(\w*10)+\yc+0.3})[black] {$x_0$};
+    \end{tikzpicture}	
+
+\end{document}
