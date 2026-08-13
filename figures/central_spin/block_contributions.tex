@@ -1,0 +1,58 @@
+% gallery-title: Blocks evolution
+% gallery-category: Quantum 
+% gallery-tags: model reduction
+% gallery-description: 
+% gallery-order: 10
+% paper: arXiv:2412.05102
+
+\documentclass{standalone}
+
+\input{../commands}
+
+\begin{document}
+
+\pgfplotstableread{data/central_block_contributions.dat}{\dtable}
+
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+        	xmin = 0, xmax = 10,
+        	ymin = 0, ymax = 1,
+        	xtick distance = 1,
+        	ytick distance = .1,
+        	grid = both,
+        	minor tick num = 1,
+        	major grid style = {lightgray},
+        	minor grid style = {lightgray!25},
+        	width = 12cm,
+        	height = 8cm,
+        	%legend cell align = {left},
+        	%legend pos = outer east,
+                legend style={at={(0.5,0.98)},anchor=north, column sep = 10pt, legend columns = 3},
+                xlabel = {$t\overline{\omega}$},
+                ylabel = {$%\expect{\sigma_z^{(1)}},
+                \tr[\check{C}_j\check{\rho}_j]$},
+        ]
+        
+        \addplot[blue!20!red, thick] table [x = {t}, y = {x}] {\dtable};
+        \addplot[blue!40!red, thick] table [x ={t}, y = {y}] {\dtable};
+        \addplot[blue!60!red, thick] table [x ={t}, y = {z}] {\dtable};
+        \addplot[blue!80!red, thick] table [x ={t}, y = {w}] {\dtable};
+        \addplot[blue, thick] table [x ={t}, y = {q}] {\dtable};
+        \addplot[black, thick,] table [x ={t}, y expr = \thisrow{x}+\thisrow{y}+\thisrow{z}+\thisrow{w}+\thisrow{q}] {\dtable};
+        % \addplot[yellow!50!red, thick, only marks, mark=o, mark repeat=5,] table [x ={t}, y expr = \thisrow{x}+\thisrow{y}+\thisrow{z}+\thisrow{w}+\thisrow{q}] {\dtable};
+
+        \legend{
+                $j=\frac{1}{2}$,
+                $j=\frac{3}{2}$,
+        	$j=\frac{5}{2}$,
+                $j=\frac{7}{2}$,
+                $j=\frac{9}{2}$,
+                $\sum_j \tr[\check{C}_j\check{\rho}_j]$,
+                %$\expect{\sigma_z^{(1)}}$,
+        }
+        
+        \end{axis}
+        
+    \end{tikzpicture}
+\end{document}

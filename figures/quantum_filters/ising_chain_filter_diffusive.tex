@@ -1,0 +1,66 @@
+% gallery-title: Spin chain evolution diffusive
+% gallery-category: Quantum 
+% gallery-tags: filtering, quantum
+% gallery-description: Figure from arXiv:2501.13885
+% gallery-order: 10
+% paper: arXiv:2501.13885
+
+\documentclass{standalone}
+
+\input{../commands}
+
+% Define inferno colormap
+\pgfplotsset{%
+    colormap={inferno}{%
+        %rgb255=(0, 0, 4)
+        %rgb255=(12, 8, 38)
+        %rgb255=(36, 12, 79)
+        %rgb255=(66, 10, 104)
+        rgb255=(93, 18, 110)
+        %rgb255=(120, 28, 109)
+        rgb255=(147, 38, 103)
+        %rgb255=(174, 48, 92)
+        %rgb255=(199, 62, 76)
+        %rgb255=(221, 81, 58)
+        rgb255=(237, 105, 37)
+        %rgb255=(248, 133, 15)
+        rgb255=(252, 165, 10)
+        %rgb255=(250, 198, 45)
+        %rgb255=(242, 230, 97)
+        %rgb255=(252, 255, 164)
+    }
+}
+
+
+\begin{document}
+
+\centering
+\begin{tikzpicture}
+    \begin{axis}[
+        width=0.8\textwidth,
+        ymin=1,ymax=4,
+        grid=both,
+        ytick={0,1,2,...,5,6}, 
+        width = 10cm,
+        % xtick={1,2,...,5}, 
+        xlabel={$t$}, ylabel={$j$}, zlabel={$\expect{\sigma_z^{(j)}}$}, 
+        colormap name=inferno,
+        cycle list={[of colormap]},
+        ]
+
+        
+        \addplot3+[no marks] table [x=t, y expr=4, z=d, col sep = comma] {data/full_filter_mag_w.csv};
+        \addplot3+[no marks] table [x=t, y expr=3, z=c, col sep = comma] {data/full_filter_mag_w.csv};
+        \addplot3+[no marks] table [x=t, y expr=2, z=b, col sep = comma] {data/full_filter_mag_w.csv};
+        \addplot3+[no marks] table [x=t, y expr=1, z=a, col sep = comma] {data/full_filter_mag_w.csv};
+
+        \addplot3+[mark=o,thick, mark repeat=20, only marks] table [x=t, y expr=4, z=d, col sep = comma] {data/reduced_filter_mag_w.csv};
+        \addplot3+[mark=o,thick, mark repeat=20, only marks] table [x=t, y expr=3, z=c, col sep = comma] {data/reduced_filter_mag_w.csv};
+        \addplot3+[mark=o,thick, mark repeat=20, only marks] table [x=t, y expr=2, z=b, col sep = comma] {data/reduced_filter_mag_w.csv};
+        \addplot3+[mark=o,thick, mark repeat=20, only marks] table [x=t, y expr=1, z=a, col sep = comma] {data/reduced_filter_mag_w.csv};
+        
+
+    \end{axis}
+    \end{tikzpicture}
+
+\end{document}

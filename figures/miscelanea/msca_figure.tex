@@ -1,0 +1,337 @@
+% gallery-title: Reduced controller idea
+% gallery-category: Quantum 
+% gallery-tags: control
+% gallery-description: 
+% gallery-order: 10
+
+\documentclass{standalone}
+
+\usepackage{amsfonts,amsmath,amssymb}
+\usepackage{cancel}
+\usepackage{amsfonts,amsmath,amssymb}
+\usepackage[english]{babel}
+\usepackage[normalem]{ulem}
+\usepackage{hyperref}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{xfrac}
+\usepackage{subcaption,caption}
+\usepackage{epsfig}
+\usepackage{ulem}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+\usepackage{bbold}  
+\usepackage{soul}
+\definecolor{green}{RGB}{90, 190, 105} 
+\usepackage{pgfplots}
+\usepackage{pgfplotstable} 
+\usepgfplotslibrary{groupplots}
+\pgfplotsset{compat = newest}
+
+\usepackage{bm}
+\usetikzlibrary{shapes,arrows}
+\usetikzlibrary{matrix}
+\usetikzlibrary{3d}
+\usetikzlibrary{calc,patterns,angles,quotes,arrows,automata}
+\graphicspath{ {./imgs/}}
+\usepackage{tikz-3dplot}
+
+\usepackage{csvsimple}
+
+% ---------------------- Calligrapic
+\newcommand{\Ac}{\mathcal{A}}
+\newcommand{\Bc}{\mathcal{B}}
+\newcommand{\Cc}{\mathcal{C}}
+\newcommand{\Dc}{\mathcal{D}}
+\newcommand{\Ec}{\mathcal{E}}
+\newcommand{\Fc}{\mathcal{F}}
+\newcommand{\Gc}{\mathcal{G}}
+\newcommand{\Hc}{\mathcal{H}}
+\newcommand{\Ic}{\mathcal{I}}
+\newcommand{\Jc}{\mathcal{J}}
+\newcommand{\Kc}{\mathcal{K}}
+\newcommand{\Lc}{\mathcal{L}}
+\newcommand{\Mc}{\mathcal{M}}
+\newcommand{\Nc}{\mathcal{N}}
+\newcommand{\Oc}{\mathcal{O}}
+\newcommand{\Pc}{\mathcal{P}}
+\newcommand{\Qc}{\mathcal{Q}}
+\newcommand{\Rc}{\mathcal{R}}
+\newcommand{\Sc}{\mathcal{S}}
+\newcommand{\Tc}{\mathcal{T}}
+\newcommand{\Uc}{\mathcal{U}}
+\newcommand{\Vc}{\mathcal{V}}
+\newcommand{\Wc}{\mathcal{W}}
+\newcommand{\Xc}{\mathcal{X}}
+\newcommand{\Yc}{\mathcal{Y}}
+\newcommand{\Zc}{\mathcal{Z}}
+
+% -------------------------- Script
+\newcommand{\As}{\mathscr{A}}
+\newcommand{\Bs}{\mathscr{B}}
+\newcommand{\Cs}{\mathscr{C}}
+\newcommand{\Ds}{\mathscr{D}}
+\newcommand{\Es}{\mathscr{EL}}
+\newcommand{\Fs}{\mathscr{F}}
+\newcommand{\Gs}{\mathscr{G}}
+\newcommand{\Hs}{\mathscr{H}}
+\newcommand{\Is}{\mathscr{I}}
+\newcommand{\Js}{\mathscr{J}}
+\newcommand{\Ks}{\mathscr{K}}
+\newcommand{\Ls}{\mathscr{L}}
+\newcommand{\Ms}{\mathscr{M}}
+\newcommand{\Ns}{\mathscr{N}}
+\newcommand{\Os}{\mathscr{O}}
+\newcommand{\Ps}{\mathscr{P}}
+\newcommand{\Qs}{\mathscr{Q}}
+\newcommand{\Rs}{\mathscr{R}}
+\newcommand{\Ss}{\mathscr{S}}
+\newcommand{\Ts}{\mathscr{T}}
+\newcommand{\Us}{\mathscr{U}}
+\newcommand{\Vs}{\mathscr{V}}
+\newcommand{\Ws}{\mathscr{W}}
+\newcommand{\Xs}{\mathscr{X}}
+\newcommand{\Ys}{\mathscr{Y}}
+\newcommand{\Zs}{\mathscr{Z}}
+
+% -------------------------- Bold
+\newcommand{\Ab}{\mathbb{A}}
+\newcommand{\Bb}{\mathbb{B}}
+\newcommand{\Cb}{\mathbb{C}}
+\newcommand{\Db}{\mathbb{D}}
+\newcommand{\Eb}{\mathbb{E}}
+\newcommand{\Fb}{\mathbb{F}}
+\newcommand{\Gb}{\mathbb{G}}
+\newcommand{\Hb}{\mathbb{H}}
+\newcommand{\Ib}{\mathbb{I}}
+\newcommand{\Jb}{\mathbb{J}}
+\newcommand{\Kb}{\mathbb{K}}
+\newcommand{\Lb}{\mathbb{L}}
+\newcommand{\Mb}{\mathbb{M}}
+\newcommand{\Nb}{\mathbb{N}}
+\newcommand{\Ob}{\mathbb{O}}
+\newcommand{\Pb}{\mathbb{P}}
+\newcommand{\Qb}{\mathbb{Q}}
+\newcommand{\Rb}{\mathbb{R}}
+\newcommand{\Sb}{\mathbb{S}}
+\newcommand{\Tb}{\mathbb{T}}
+\newcommand{\Ub}{\mathbb{U}}
+\newcommand{\Vb}{\mathbb{V}}
+\newcommand{\Wb}{\mathbb{W}}
+\newcommand{\Xb}{\mathbb{X}}
+\newcommand{\Yb}{\mathbb{Y}}
+\newcommand{\Zb}{\mathbb{Z}}
+
+% ------------------------- Fraktur
+\newcommand{\Af}{\mathfrak{A}}
+\newcommand{\Bf}{\mathfrak{B}}
+\newcommand{\Cf}{\mathfrak{C}}
+\newcommand{\Df}{\mathfrak{D}}
+\newcommand{\Ef}{\mathfrak{E}}
+\newcommand{\Ff}{\mathfrak{F}}
+\newcommand{\Gf}{\mathfrak{G}}
+\newcommand{\Hf}{\mathfrak{H}}
+\newcommand{\Ifr}{\mathfrak{I}}
+\newcommand{\Jf}{\mathfrak{J}}
+\newcommand{\Kf}{\mathfrak{K}}
+\newcommand{\Lf}{\mathfrak{L}}
+\newcommand{\Mf}{\mathfrak{M}}
+\newcommand{\Nf}{\mathfrak{N}}
+\newcommand{\Of}{\mathfrak{O}}
+\newcommand{\Pf}{\mathfrak{P}}
+\newcommand{\Qf}{\mathfrak{Q}}
+\newcommand{\Rf}{\mathfrak{R}}
+\newcommand{\Sf}{\mathfrak{S}}
+\newcommand{\Tf}{\mathfrak{T}}
+\newcommand{\Uf}{\mathfrak{U}}
+\newcommand{\Vf}{\mathfrak{V}}
+\newcommand{\Wf}{\mathfrak{W}}
+\newcommand{\Xf}{\mathfrak{X}}
+\newcommand{\Yf}{\mathfrak{Y}}
+\newcommand{\Zf}{\mathfrak{Z}}
+
+
+% -------------------------- Conditional expectations etc
+\newcommand{\CE}{\mathbb{E}|}
+\newcommand{\SR}{\mathbb{S}|}
+\newcommand{\SE}{\mathbb{J}|}
+
+\newcommand{\cov}{{\mathbb{Cov}}}
+\newcommand{\var}{{\mathbb{Var}}}
+
+% -------------------------- Reduced operators 
+\newcommand{\ro}{\mathcal{R}_0}
+\newcommand{\eo}{\mathcal{J}_0}
+\newcommand{\rs}{\mathcal{R}}
+\newcommand{\es}{\mathcal{J}}
+
+% ------------------------ Numbers
+\newcommand{\um}{\frac{1}{2}}
+\newcommand{\one}{\mathbb{1}}
+\newcommand{\zero}{\mathbb{0}}
+
+\newcommand{\onev}{{\bm 1}}
+\newcommand{\zerov}{{\bm 0}}
+
+% ----------------------- Functions and operations
+\newcommand{\im}{{\rm Im}}
+\newcommand{\id}{{\rm Id}}
+\newcommand{\fix}{{\rm fix}}
+\newcommand{\ad}{{\rm ad}}
+\newcommand{\bin}{{\rm bin}}
+\newcommand{\tr}{{\rm tr}}
+\newcommand{\diag}{{\rm diag}}
+\newcommand{\Span}{{\rm span}}
+\newcommand{\cl}{{\rm cl}}
+\newcommand{\spec}{{\rm spec}}
+\newcommand{\idem}{ {\rm idem}}
+\newcommand{\res}{{\rm res}}
+\newcommand{\supp}{{\rm supp}}
+\newcommand{\lind}{\mathcal{L}}
+\newcommand{\alg}{{\rm alg}}
+\newcommand{\img}{{\rm Im}}
+
+\DeclareMathOperator{\rank}{rank}
+
+\newcommand{\comp}{{\sim}}
+\newcommand{\zentrum}{\mathcal{Z}}
+
+
+% -------------------------- Inner products and co
+\newcommand{\ket}[1]{\left| #1 \right>}
+\newcommand{\bra}[1]{\left< #1 \right|}
+\newcommand{\norm}[1]{\left|\left| #1 \right|\right|}
+\newcommand{\inner}[2]{\left< #1,#2 \right>}
+\newcommand{\Outer}[2]{ \left|#1\right>\left<#2\right| }
+\newcommand{\expect}[1]{\left< #1 \right>}
+\newcommand{\braket}[2]{\left< #1 \middle\vert #2 \right>}
+\newcommand{\ketbra}[2]{\left\vert #1 \middle>\middle< #2 \right\vert}
+\newcommand{\virg}[1]{\lq\lq{} #1\ignorespacesafterend\rq\rq}
+
+% \usepackage{mathabx}
+% \renewcommand{\check}{\widecheck}
+% \renewcommand{\bar}{\overline}
+% \renewcommand{\Tilde}{\widetilde}
+% \renewcommand{\Hat}{\widehat}
+
+% ------------------------ Comments
+\newcommand{\blue}[1]{{\color{blue} #1}}
+\newcommand{\red}[1]{{\color{red} #1}}
+\newcommand{\green}{\color{teal}}
+
+\definecolor{darkviolet}{rgb}{0.58, 0.0, 0.83}
+\definecolor{lavender}{rgb}{0.45, 0.31, 0.59}
+
+\newcommand{\TG}[1]{{\color{OrangeRed}#1}}
+
+
+\usetikzlibrary{positioning}
+
+\definecolor{EUblue}{HTML}{009F93}%004494
+\definecolor{EUyellow}{HTML}{ffd617}
+
+\begin{document}
+
+\pgfmathsetmacro{\a}{2} % Half of Length of the squigly line
+\pgfmathsetmacro{\b}{.5} % Radius of the decodes semicircle
+\pgfmathsetmacro{\r}{0.6} % Radius of the bloch sphere
+\pgfmathsetmacro{\xc}{0} % Center of the bloch sphere
+\pgfmathsetmacro{\yc}{0} % Center of the bloch sphere
+\pgfmathsetmacro{\h}{1.8} % Height of the feedback loop
+\pgfmathsetmacro{\p}{7.5}
+
+    \centering
+    \begin{tikzpicture}[align=center, node distance = 3cm]
+    \node[] (O) {
+    \begin{tikzpicture}[scale = 1,
+                            line cap=round, 
+                            line join=round, 
+                            decoration ={snake,   
+                                        pre length=3pt,post length=7pt,}
+                            ]
+
+        
+        \path[draw=EUblue!80, very thick, decorate, -stealth] (-\a+0.5,0) --  node[below]{} (\a,0);
+    
+	\draw[color=orange,thick,fill=orange!30] (\xc,\yc) circle  (\r cm);
+	\draw [dash pattern=on 3pt off 3pt,color=orange,thick] (\xc,\yc) ellipse (\r cm and 0.45*\r cm);
+	\draw [-stealth, thick] (\xc,\yc)-- (\xc+\r/2*0.70,\yc+\r/2*1.07);
+	\draw (\xc-1.2*\r,\yc+1.2*\r) node[anchor=north] {$\rho_t$};
+
+        \draw[thick] (\a,-\b) -- (\a,\b) arc(90:-90:\b) --cycle;
+        \node[above = 5mm of {(\a+\b/2,0)}] {Detector};
+
+        \path[draw=EUblue!80, very thick, -stealth] (\a+\b,0) --  node[below]{$dY_t$} (2*\a,0) -- (2*\a,-\h) -- (0,-\h) -- (0,-1.1*\r);
+ \end{tikzpicture}
+    };
+    \node[] at (\p,0){
+            \begin{tikzpicture}[scale = 1,
+                            line cap=round, 
+                            line join=round, 
+                            decoration ={snake,   
+                                        pre length=3pt,post length=7pt,}
+                            ]
+
+
+        \path[draw=EUblue!80, very thick, decorate, -stealth] (-\a+.5,0) --  node[below]{} (\a,0);
+    
+	\draw[color=orange,thick,fill=orange!30] (\xc,\yc) circle  (\r cm);
+	\draw [dash pattern=on 3pt off 3pt,color=orange,thick] (\xc,\yc) ellipse (\r cm and 0.45*\r cm);
+	\draw [-stealth, thick] (\xc,\yc)-- (\xc+\r/2*0.70,\yc+\r/2*1.07);
+	\draw (\xc-1.2*\r,\yc+1.2*\r) node[anchor=north] {$\rho_t$};
+
+        \draw[thick] (\a,-\b) -- (\a,\b) arc(90:-90:\b) --cycle;
+        \node[above = 5mm of {(\a+\b/2,0)}] {Detector};
+
+        \node[draw = black] at (\a,-\h) {Low-dimensional dynamical system};
+
+        % \node[draw = black] at (0,-\h) {Controller};
+
+        \path[draw=EUblue!80, very thick, -stealth] (\a+\b,0) --  node[below]{$dY_t$} (2*\a,0) -- (2*\a,-\h+.3);
+
+        % \path[draw=EUblue!80, very thick, -stealth] (2*\a-1.5,-\h) -- node[above]{$\Tilde{\rho}_t$} (.9,-\h);
+
+        \path[draw=EUblue!80, very thick, -stealth] (0,-\h+.3) -- node[right]{$u_t$} (0,-1.1*\r);
+ \end{tikzpicture}
+    };
+
+    \node[] at (2*\p,0){
+            \begin{tikzpicture}[scale = 1,
+                            line cap=round, 
+                            line join=round, 
+                            decoration ={snake,   
+                                        pre length=3pt,post length=7pt,}
+                            ]
+
+        \path[draw=EUblue!80, very thick, decorate, -stealth] (-\a+.5,0) --  node[below]{} (\a,0);
+    
+	\draw[color=orange,thick,fill=orange!30] (\xc,\yc) circle  (\r cm);
+	\draw [dash pattern=on 3pt off 3pt,color=orange,thick] (\xc,\yc) ellipse (\r cm and 0.45*\r cm);
+	\draw [-stealth, thick] (\xc,\yc)-- (\xc+\r/2*0.70,\yc+\r/2*1.07);
+	\draw (\xc-1.2*\r,\yc+1.2*\r) node[anchor=north] {$\rho_t$};
+
+        \draw[thick] (\a,-\b) -- (\a,\b) arc(90:-90:\b) --cycle;
+        \node[above = 5mm of {(\a+\b/2,0)}] {Detector};
+
+        \node[draw = black] at (2*\a,-\h) {Filtering equation};
+
+        \node[draw = black] at (0,-\h) {Controller};
+
+        \path[draw=EUblue!80, very thick, -stealth] (\a+\b,0) --  node[below]{$dY_t$} (2*\a,0) -- (2*\a,-\h+.3);
+
+        \path[draw=EUblue!80, very thick, -stealth] (2*\a-1.5,-\h) -- node[above]{$\hat{\rho}_t$} (.9,-\h);
+
+        \path[draw=EUblue!80, very thick, -stealth] (0,-\h+.3) -- node[right]{$u_t$}(0,-1.1*\r);
+ \end{tikzpicture}
+    };
+
+    \path[draw=black, thick, -stealth] (-3,-1.05*\h) --  (2*\p + 3,-1.05*\h) node[right]{Complexity};
+    \node[] at (0,-1.25*\h) {Markovian feedback QC};
+    \node[] at (\p,-1.25*\h) {Reduced observer feedback QC};
+    \node[] at (2*\p,-1.25*\h) {Full state feedback QC};
+
+    \path[draw=black, thick] (0,-1.05*\h+.1) -- (0,-1.05*\h-.1);
+    \path[draw=black, thick] (\p,-1.05*\h+.1) -- (\p,-1.05*\h-.1);
+    \path[draw=black, thick] (2*\p,-1.05*\h+.1) -- (2*\p,-1.05*\h-.1);
+    \end{tikzpicture}
+\end{document}

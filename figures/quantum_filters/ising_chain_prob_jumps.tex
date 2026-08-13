@@ -1,0 +1,91 @@
+% gallery-title: Spin chain evolution jump
+% gallery-category: Quantum 
+% gallery-tags: filtering, quantum
+% gallery-description: Figure from arXiv:2501.13885
+% gallery-order: 10
+% paper: arXiv:2501.13885
+
+\documentclass{standalone}
+
+\input{../commands}
+
+\begin{document}
+
+%Define inferno colormap
+\pgfplotsset{%
+    colormap={inferno}{%
+        rgb255=(0,0,0)
+        rgb255=(0, 0, 4)
+        rgb255=(12, 8, 38)
+        rgb255=(36, 12, 79)
+        rgb255=(66, 10, 104)
+        rgb255=(93, 18, 110)
+        rgb255=(120, 28, 109)
+        rgb255=(147, 38, 103)
+        rgb255=(174, 48, 92)
+        rgb255=(199, 62, 76)
+        rgb255=(221, 81, 58)
+        rgb255=(237, 105, 37)
+        rgb255=(248, 133, 15)
+        rgb255=(252, 165, 10)
+        rgb255=(250, 198, 45)
+        rgb255=(242, 230, 97)
+        %rgb255=(252, 255, 164)
+    }
+}
+
+\centering
+\begin{tikzpicture}
+    \begin{axis}[
+        width=0.8\textwidth,
+        ymin=1,ymax=16,
+        zmin=0,
+        grid=both,
+        ytick={0,3,5,7,9,11,13,16}, 
+        width = 10cm,
+        % xtick={1,2,...,5}, 
+        xlabel={$t$}, ylabel={$j$}, zlabel={$\expect{O_j(t)}$}, 
+        colormap name=inferno,
+        cycle list={[of colormap]},
+        ]
+
+        \addplot3+[no marks,] table [x=t, y expr=16, z=r, col sep = comma] {data/full_filter_n.csv};
+        \addplot3+[no marks,] table [x=t, y expr=15, z=q, col sep = comma] {data/full_filter_n.csv};
+        \addplot3+[no marks,] table [x=t, y expr=14, z=p, col sep = comma] {data/full_filter_n.csv};
+        \addplot3+[no marks,] table [x=t, y expr=13, z=o, col sep = comma] {data/full_filter_n.csv};
+        \addplot3+[no marks,] table [x=t, y expr=12, z=n, col sep = comma] {data/full_filter_n.csv};
+        \addplot3+[no marks,] table [x=t, y expr=11, z=m, col sep = comma] {data/full_filter_n.csv};
+        \addplot3+[no marks,] table [x=t, y expr=10, z=l, col sep = comma] {data/full_filter_n.csv};
+        \addplot3+[no marks,] table [x=t, y expr=9, z=i, col sep = comma] {data/full_filter_n.csv};
+        \addplot3+[no marks,] table [x=t, y expr=8, z=h, col sep = comma] {data/full_filter_n.csv};
+        \addplot3+[no marks,] table [x=t, y expr=7, z=g, col sep = comma] {data/full_filter_n.csv};
+        \addplot3+[no marks,] table [x=t, y expr=6, z=f, col sep = comma] {data/full_filter_n.csv};
+        \addplot3+[no marks,] table [x=t, y expr=5, z=e, col sep = comma] {data/full_filter_n.csv};
+        \addplot3+[no marks,] table [x=t, y expr=4, z=d, col sep = comma] {data/full_filter_n.csv};
+        \addplot3+[no marks,] table [x=t, y expr=3, z=c, col sep = comma] {data/full_filter_n.csv};
+        \addplot3+[no marks,] table [x=t, y expr=2, z=b, col sep = comma] {data/full_filter_n.csv};
+        \addplot3+[no marks,] table [x=t, y expr=1, z=a, col sep = comma] {data/full_filter_n.csv};
+
+        \addplot3+[no marks,  dotted,very thick] table [x=t, y expr=16, z=r, col sep = comma] {data/reduced_filter_n.csv};
+        \addplot3+[no marks,  dotted,very thick] table [x=t, y expr=15, z=q, col sep = comma] {data/reduced_filter_n.csv};
+        \addplot3+[no marks,  dotted,very thick] table [x=t, y expr=14, z=p, col sep = comma] {data/reduced_filter_n.csv};
+        \addplot3+[no marks,  dotted,very thick] table [x=t, y expr=13, z=o, col sep = comma] {data/reduced_filter_n.csv};
+        \addplot3+[no marks,  dotted,very thick] table [x=t, y expr=12, z=n, col sep = comma] {data/reduced_filter_n.csv};
+        \addplot3+[no marks,  dotted,very thick] table [x=t, y expr=11, z=m, col sep = comma] {data/reduced_filter_n.csv};        
+        \addplot3+[no marks,  dotted,very thick] table [x=t, y expr=10, z=l, col sep = comma] {data/reduced_filter_n.csv};
+        \addplot3+[no marks,  dotted,very thick] table [x=t, y expr=9, z=i, col sep = comma] {data/reduced_filter_n.csv};
+        \addplot3+[no marks,  dotted,very thick] table [x=t, y expr=8, z=h, col sep = comma] {data/reduced_filter_n.csv};        
+        \addplot3+[no marks,  dotted,very thick] table [x=t, y expr=7, z=g, col sep = comma] {data/reduced_filter_n.csv};       
+        \addplot3+[no marks,  dotted,very thick] table [x=t, y expr=6, z=f, col sep = comma] {data/reduced_filter_n.csv};        
+        \addplot3+[no marks,  dotted,very thick] table [x=t, y expr=5, z=e, col sep = comma] {data/reduced_filter_n.csv};        
+        \addplot3+[no marks,  dotted,very thick] table [x=t, y expr=4, z=d, col sep = comma] {data/reduced_filter_n.csv};
+        \addplot3+[no marks,  dotted,very thick] table [x=t, y expr=3, z=c, col sep = comma] {data/reduced_filter_n.csv};        
+        \addplot3+[no marks,  dotted,very thick] table [x=t, y expr=2, z=b, col sep = comma] {data/reduced_filter_n.csv};        
+        \addplot3+[no marks,  dotted,very thick] table [x=t, y expr=1, z=a, col sep = comma] {data/reduced_filter_n.csv};        
+
+        
+
+    \end{axis}
+    \end{tikzpicture}
+
+\end{document}

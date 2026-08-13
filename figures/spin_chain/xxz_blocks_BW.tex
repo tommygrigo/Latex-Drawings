@@ -1,0 +1,227 @@
+% gallery-title: Blocks black and white
+% gallery-category: Quantum 
+% gallery-tags: model reduction
+% gallery-description: 
+% gallery-order: 10
+% paper: arXiv:2412.05102
+
+\documentclass{standalone}
+
+\input{../commands}
+
+\begin{document}
+
+    \centering
+\pgfplotstableread{data/xxz_blocks.dat}{\table}
+\begin{tikzpicture}
+\begin{groupplot}[group style = {
+                    group size = 5 by 3,
+                    horizontal sep = 0.5cm,},
+                    colormap/blackwhite,
+                    %axis lines = none,
+                    enlargelimits=false,
+                    axis on top,
+                    point meta min=-2,
+                    point meta max=2,
+                    width = 0.45\textwidth,
+                    height = 0.45\textwidth,
+                    xmin = -0.5, xmax=31.5,
+                    ymin = -0.5, ymax=31.5
+                    ]
+        \nextgroupplot[title= $U^\dag H U$, axis lines = none,]
+        \addplot[matrix plot,point meta=explicit] table [x = {i}, y={j}, meta={H}] {\table};
+        \addplot[black, thick, domain=-0.5:31.5] (0.5,x);
+        \addplot[black, thick, domain=-0.5:31.5] (5.5,x);
+        \addplot[black, thick, domain=-0.5:31.5] (15.5,x);
+        \addplot[black, thick, domain=-0.5:31.5] (25.5,x);
+        \addplot[black, thick, domain=-0.5:31.5] (30.5,x);
+        \addplot[black, thick, domain=-0.5:31.5] (x,0.5);
+        \addplot[black, thick, domain=-0.5:31.5] (x,5.5);
+        \addplot[black, thick, domain=-0.5:31.5] (x,15.5);
+        \addplot[black, thick, domain=-0.5:31.5] (x,25.5);
+        \addplot[black, thick, domain=-0.5:31.5] (x,30.5);
+        
+        
+        \nextgroupplot[title= $U^\dag L_+^{(1)} U$, axis lines = none,]
+        \addplot[matrix plot,point meta=explicit] table [x = {i}, y={j}, meta={L1}] {\table};
+        \addplot[black, thick, domain=-0.5:31.5] (0.5,x);
+        \addplot[black, thick, domain=-0.5:31.5] (5.5,x);
+        \addplot[black, thick, domain=-0.5:31.5] (15.5,x);
+        \addplot[black, thick, domain=-0.5:31.5] (25.5,x);
+        \addplot[black, thick, domain=-0.5:31.5] (30.5,x);
+        \addplot[black, thick, domain=-0.5:31.5] (x,0.5);
+        \addplot[black, thick, domain=-0.5:31.5] (x,5.5);
+        \addplot[black, thick, domain=-0.5:31.5] (x,15.5);
+        \addplot[black, thick, domain=-0.5:31.5] (x,25.5);
+        \addplot[black, thick, domain=-0.5:31.5] (x,30.5);
+        
+        \nextgroupplot[title= $U^\dag L_+^{(6)} U$, axis lines = none,]
+        \addplot[matrix plot,point meta=explicit] table [x = {i}, y={j}, meta={L2}] {\table};
+        \addplot[black, thick, domain=-0.5:31.5] (0.5,x);
+        \addplot[black, thick, domain=-0.5:31.5] (5.5,x);
+        \addplot[black, thick, domain=-0.5:31.5] (15.5,x);
+        \addplot[black, thick, domain=-0.5:31.5] (25.5,x);
+        \addplot[black, thick, domain=-0.5:31.5] (30.5,x);
+        \addplot[black, thick, domain=-0.5:31.5] (x,0.5);
+        \addplot[black, thick, domain=-0.5:31.5] (x,5.5);
+        \addplot[black, thick, domain=-0.5:31.5] (x,15.5);
+        \addplot[black, thick, domain=-0.5:31.5] (x,25.5);
+        \addplot[black, thick, domain=-0.5:31.5] (x,30.5);
+        
+        \nextgroupplot[title= $U^\dag L_-^{(1)} U$, axis lines = none,]
+        \addplot[matrix plot,point meta=explicit] table [x = {j}, y={i}, meta={L1}] {\table};
+        \addplot[black, thick, domain=-0.5:31.5] (0.5,x);
+        \addplot[black, thick, domain=-0.5:31.5] (5.5,x);
+        \addplot[black, thick, domain=-0.5:31.5] (15.5,x);
+        \addplot[black, thick, domain=-0.5:31.5] (25.5,x);
+        \addplot[black, thick, domain=-0.5:31.5] (30.5,x);
+        \addplot[black, thick, domain=-0.5:31.5] (x,0.5);
+        \addplot[black, thick, domain=-0.5:31.5] (x,5.5);
+        \addplot[black, thick, domain=-0.5:31.5] (x,15.5);
+        \addplot[black, thick, domain=-0.5:31.5] (x,25.5);
+        \addplot[black, thick, domain=-0.5:31.5] (x,30.5);
+        
+        \nextgroupplot[title= $U^\dag L_-^{(6)} U$, 
+        colorbar, 
+        axis lines*=left, 
+        hide y axis, 
+        hide x axis,
+               colorbar style={
+               ytick={-2,-1,0,1,2},
+                    yticklabel style={
+                        /pgf/number format/.cd,
+                            fixed,
+                            fixed zerofill
+                    }
+               },]
+        \addplot[matrix plot,point meta=explicit] table [x = {j}, y={i}, meta={L2}] {\table};
+        \addplot[black, thick, domain=-0.5:31.5] (0.5,x);
+        \addplot[black, thick, domain=-0.5:31.5] (5.5,x);
+        \addplot[black, thick, domain=-0.5:31.5] (15.5,x);
+        \addplot[black, thick, domain=-0.5:31.5] (25.5,x);
+        \addplot[black, thick, domain=-0.5:31.5] (30.5,x);
+        \addplot[black, thick, domain=-0.5:31.5] (x,0.5);
+        \addplot[black, thick, domain=-0.5:31.5] (x,5.5);
+        \addplot[black, thick, domain=-0.5:31.5] (x,15.5);
+        \addplot[black, thick, domain=-0.5:31.5] (x,25.5);
+        \addplot[black, thick, domain=-0.5:31.5] (x,30.5);
+
+        % \nextgroupplot[title= $U^\dag \sigma_z{(0)} U$]
+        % \addplot[matrix plot,point meta=explicit] table [x = {i}, y={j}, meta={Z0}] {\table};
+        % \addplot[black, thick, domain=-0.5:31.5] (0.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (5.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (15.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (25.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (30.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,0.5);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,5.5);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,15.5);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,25.5);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,30.5);
+
+        % \nextgroupplot[title= $U^\dag \sigma_z{(1)} U$]
+        % \addplot[matrix plot,point meta=explicit] table [x = {i}, y={j}, meta={Z1}] {\table};
+        % \addplot[black, thick, domain=-0.5:31.5] (0.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (5.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (15.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (25.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (30.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,0.5);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,5.5);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,15.5);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,25.5);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,30.5);
+
+        % \nextgroupplot[title= $U^\dag \sigma_z{(2)} U$]
+        % \addplot[matrix plot,point meta=explicit] table [x = {i}, y={j}, meta={Z2}] {\table};
+        % \addplot[black, thick, domain=-0.5:31.5] (0.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (5.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (15.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (25.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (30.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,0.5);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,5.5);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,15.5);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,25.5);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,30.5);
+
+        % \nextgroupplot[title= $U^\dag \sigma_z{(3)} U$]
+        % \addplot[matrix plot,point meta=explicit] table [x = {i}, y={j}, meta={Z3}] {\table};
+        % \addplot[black, thick, domain=-0.5:31.5] (0.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (5.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (15.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (25.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (30.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,0.5);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,5.5);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,15.5);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,25.5);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,30.5);
+
+        % \nextgroupplot[title= $U^\dag \sigma_z{(4)} U$]
+        % \addplot[matrix plot,point meta=explicit] table [x = {j}, y={i}, meta={Z4}] {\table};
+        % \addplot[black, thick, domain=-0.5:31.5] (0.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (5.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (15.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (25.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (30.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,0.5);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,5.5);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,15.5);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,25.5);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,30.5);
+
+        % \nextgroupplot[title= $-i U^\dag J_0 U$]
+        % \addplot[matrix plot,point meta=explicit] table [x = {j}, y={i}, meta={J0}] {\table};
+        % \addplot[black, thick, domain=-0.5:31.5] (0.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (5.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (15.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (25.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (30.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,0.5);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,5.5);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,15.5);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,25.5);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,30.5);
+
+        % \nextgroupplot[title= $-i U^\dag J_1 U$]
+        % \addplot[matrix plot,point meta=explicit] table [x = {j}, y={i}, meta={J1}] {\table};
+        % \addplot[black, thick, domain=-0.5:31.5] (0.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (5.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (15.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (25.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (30.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,0.5);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,5.5);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,15.5);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,25.5);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,30.5);
+
+        % \nextgroupplot[title= $-i U^\dag J_2 U$]
+        % \addplot[matrix plot,point meta=explicit] table [x = {j}, y={i}, meta={J2}] {\table};
+        % \addplot[black, thick, domain=-0.5:31.5] (0.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (5.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (15.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (25.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (30.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,0.5);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,5.5);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,15.5);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,25.5);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,30.5);
+
+        % \nextgroupplot[title= $-i U^\dag J_3 U$]
+        % \addplot[matrix plot,point meta=explicit] table [x = {j}, y={i}, meta={J3}] {\table};
+        % \addplot[black, thick, domain=-0.5:31.5] (0.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (5.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (15.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (25.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (30.5,x);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,0.5);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,5.5);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,15.5);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,25.5);
+        % \addplot[black, thick, domain=-0.5:31.5] (x,30.5);
+\end{groupplot}
+\end{tikzpicture}
+\end{document}
