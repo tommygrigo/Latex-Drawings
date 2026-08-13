@@ -1,0 +1,32 @@
+% gallery-title: Gate teleportation
+% gallery-category: Quantum 
+% gallery-tags: magic states, fault tolerance, MSD, quantum circuits
+% gallery-description: test
+% gallery-order: 10
+
+\documentclass[border=4pt]{standalone}
+
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage{quantikz}
+
+\begin{document}
+
+\begin{quantikz}[
+    row sep=0.50cm,
+    column sep=0.45cm
+]
+\lstick{$\ket{\psi}$}
+    & \ctrl{1}
+    & \qw
+    & \gate{S}
+    & \rstick{$T\ket{\psi}$}\qw
+\\
+\lstick{$\ket{T}$}
+    & \targ{}
+    & \meter{}
+    & \setwiretype{n}\vcw{-1}\cw
+    &\setwiretype{n}
+\end{quantikz}
+
+\end{document}

@@ -1,0 +1,1529 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+>
+
+<title>LaTeX Figure Gallery</title>
+
+<style>
+
+:root {
+    --background: #f8f9fa;
+    --card-background: #ffffff;
+    --text: #1f2937;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --accent: #2563eb;
+    --accent-light: #eff6ff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    background: var(--background);
+    color: var(--text);
+}
+
+header {
+    max-width: 1500px;
+    margin: auto;
+
+    padding:
+        60px
+        32px
+        25px;
+}
+
+header h1 {
+    margin: 0 0 10px;
+
+    font-size: clamp(
+        2rem,
+        5vw,
+        3rem
+    );
+
+    letter-spacing: -0.03em;
+}
+
+.subtitle {
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 1.05rem;
+}
+
+.repository-link {
+    display: inline-block;
+
+    margin-top: 14px;
+
+    color: var(--accent);
+
+    text-decoration: none;
+}
+
+.repository-link:hover {
+    text-decoration: underline;
+}
+
+.controls {
+    max-width: 1500px;
+    margin: auto;
+
+    padding:
+        10px
+        32px
+        25px;
+}
+
+.search {
+    width: 100%;
+    max-width: 650px;
+
+    padding:
+        13px
+        16px;
+
+    font-size: 1rem;
+
+    color: var(--text);
+
+    background: white;
+
+    border:
+        1px
+        solid
+        var(--border);
+
+    border-radius: 8px;
+
+    outline: none;
+}
+
+.search:focus {
+    border-color: var(--accent);
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 15px;
+}
+
+.filter-button {
+    padding:
+        8px
+        13px;
+
+    cursor: pointer;
+
+    background: white;
+
+    border:
+        1px
+        solid
+        var(--border);
+
+    border-radius: 20px;
+
+    color: var(--text);
+
+    font-size: 0.9rem;
+}
+
+.filter-button:hover,
+.filter-button.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+}
+
+.gallery {
+    max-width: 1500px;
+    margin: auto;
+
+    padding:
+        10px
+        32px
+        80px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fill,
+            minmax(300px, 1fr)
+        );
+
+    gap: 24px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+
+    background: var(--card-background);
+
+    border:
+        1px
+        solid
+        var(--border);
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0
+        6px
+        20px
+        rgb(0 0 0 / 7%);
+}
+
+.card.hidden {
+    display: none;
+}
+
+.preview-link {
+    text-decoration: none;
+}
+
+.preview {
+    height: 300px;
+
+    padding: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: white;
+
+    border-bottom:
+        1px
+        solid
+        var(--border);
+}
+
+.preview img {
+    max-width: 100%;
+    max-height: 100%;
+
+    object-fit: contain;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.category {
+    margin-bottom: 7px;
+
+    color: var(--accent);
+
+    font-size: 0.78rem;
+
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.04em;
+}
+
+.card h2 {
+    margin:
+        0
+        0
+        10px;
+
+    font-size: 1.15rem;
+}
+
+.description {
+    margin:
+        0
+        0
+        15px;
+
+    color: var(--muted);
+
+    line-height: 1.5;
+
+    font-size: 0.92rem;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 6px;
+
+    margin-bottom: 17px;
+}
+
+.tag {
+    padding:
+        4px
+        8px;
+
+    background: var(--accent-light);
+
+    color: var(--accent);
+
+    border-radius: 5px;
+
+    font-size: 0.75rem;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 13px;
+
+    margin-top: 5px;
+}
+
+.button {
+    color: var(--accent);
+
+    text-decoration: none;
+
+    font-size: 0.88rem;
+
+    font-weight: 500;
+}
+
+.button:hover {
+    text-decoration: underline;
+}
+
+.no-results {
+    display: none;
+
+    max-width: 1500px;
+    margin: auto;
+
+    padding:
+        20px
+        32px
+        80px;
+
+    color: var(--muted);
+}
+
+footer {
+    padding:
+        30px
+        20px;
+
+    text-align: center;
+
+    color: var(--muted);
+
+    font-size: 0.8rem;
+}
+
+@media (max-width: 600px) {
+
+    header,
+    .controls,
+    .gallery {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .preview {
+        height: 260px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>
+        LaTeX Figure Gallery
+    </h1>
+
+    <p class="subtitle">
+        13 figures made with LaTeX, TikZ and related packages.
+    </p>
+
+    
+        <a
+            class="repository-link"
+            href="https://github.com/tommygrigo/Latex-Drawings"
+            target="_blank"
+            rel="noopener"
+        >
+            View repository on GitHub
+        </a>
+        
+
+</header>
+
+
+<section class="controls">
+
+    <input
+        id="search"
+        class="search"
+        type="search"
+        placeholder="Search figures..."
+        autocomplete="off"
+    >
+
+    <div class="filters">
+
+        <button
+            class="filter-button active"
+            data-category="all"
+        >
+            All
+        </button>
+
+        
+        <button
+            class="filter-button"
+            data-category="Non-linear"
+        >
+            Non-linear
+        </button>
+        
+
+        <button
+            class="filter-button"
+            data-category="Other"
+        >
+            Other
+        </button>
+        
+
+        <button
+            class="filter-button"
+            data-category="Quantum"
+        >
+            Quantum
+        </button>
+        
+
+    </div>
+
+</section>
+
+
+<main
+    id="gallery"
+    class="gallery"
+>
+
+    
+    <article
+        class="card"
+        data-category="Non-linear"
+        data-search="pendulum non-linear "
+    >
+
+        <a
+            class="preview-link"
+            href="pdf/ticozzi-non-linear-10.pdf"
+            target="_blank"
+        >
+            <div class="preview">
+
+                <img
+                    src="images/ticozzi-non-linear-10.png"
+                    alt="Pendulum"
+                    loading="lazy"
+                >
+
+            </div>
+        </a>
+
+        <div class="card-body">
+
+            <div class="category">
+                Non-linear
+            </div>
+
+            <h2>
+                Pendulum
+            </h2>
+
+            
+
+            
+
+            <div class="buttons">
+
+                
+            <a
+                class="button"
+                href="https://github.com/tommygrigo/Latex-Drawings/blob/main/figures/ticozzi-non-linear/10.tex"
+                target="_blank"
+                rel="noopener"
+            >
+                LaTeX source
+            </a>
+        
+
+                <a
+                    class="button"
+                    href="pdf/ticozzi-non-linear-10.pdf"
+                    target="_blank"
+                >
+                    PDF
+                </a>
+
+                <a
+                    class="button"
+                    href="images/ticozzi-non-linear-10.png"
+                    target="_blank"
+                >
+                    PNG
+                </a>
+
+            </div>
+
+        </div>
+
+    </article>
+    
+
+    <article
+        class="card"
+        data-category="Non-linear"
+        data-search="pendulum non-linear "
+    >
+
+        <a
+            class="preview-link"
+            href="pdf/ticozzi-non-linear-1.pdf"
+            target="_blank"
+        >
+            <div class="preview">
+
+                <img
+                    src="images/ticozzi-non-linear-1.png"
+                    alt="Pendulum"
+                    loading="lazy"
+                >
+
+            </div>
+        </a>
+
+        <div class="card-body">
+
+            <div class="category">
+                Non-linear
+            </div>
+
+            <h2>
+                Pendulum
+            </h2>
+
+            
+
+            
+
+            <div class="buttons">
+
+                
+            <a
+                class="button"
+                href="https://github.com/tommygrigo/Latex-Drawings/blob/main/figures/ticozzi-non-linear/1.tex"
+                target="_blank"
+                rel="noopener"
+            >
+                LaTeX source
+            </a>
+        
+
+                <a
+                    class="button"
+                    href="pdf/ticozzi-non-linear-1.pdf"
+                    target="_blank"
+                >
+                    PDF
+                </a>
+
+                <a
+                    class="button"
+                    href="images/ticozzi-non-linear-1.png"
+                    target="_blank"
+                >
+                    PNG
+                </a>
+
+            </div>
+
+        </div>
+
+    </article>
+    
+
+    <article
+        class="card"
+        data-category="Non-linear"
+        data-search="pendulum non-linear "
+    >
+
+        <a
+            class="preview-link"
+            href="pdf/ticozzi-non-linear-11.pdf"
+            target="_blank"
+        >
+            <div class="preview">
+
+                <img
+                    src="images/ticozzi-non-linear-11.png"
+                    alt="Pendulum"
+                    loading="lazy"
+                >
+
+            </div>
+        </a>
+
+        <div class="card-body">
+
+            <div class="category">
+                Non-linear
+            </div>
+
+            <h2>
+                Pendulum
+            </h2>
+
+            
+
+            
+
+            <div class="buttons">
+
+                
+            <a
+                class="button"
+                href="https://github.com/tommygrigo/Latex-Drawings/blob/main/figures/ticozzi-non-linear/11.tex"
+                target="_blank"
+                rel="noopener"
+            >
+                LaTeX source
+            </a>
+        
+
+                <a
+                    class="button"
+                    href="pdf/ticozzi-non-linear-11.pdf"
+                    target="_blank"
+                >
+                    PDF
+                </a>
+
+                <a
+                    class="button"
+                    href="images/ticozzi-non-linear-11.png"
+                    target="_blank"
+                >
+                    PNG
+                </a>
+
+            </div>
+
+        </div>
+
+    </article>
+    
+
+    <article
+        class="card"
+        data-category="Non-linear"
+        data-search="pendulum non-linear "
+    >
+
+        <a
+            class="preview-link"
+            href="pdf/ticozzi-non-linear-2.pdf"
+            target="_blank"
+        >
+            <div class="preview">
+
+                <img
+                    src="images/ticozzi-non-linear-2.png"
+                    alt="Pendulum"
+                    loading="lazy"
+                >
+
+            </div>
+        </a>
+
+        <div class="card-body">
+
+            <div class="category">
+                Non-linear
+            </div>
+
+            <h2>
+                Pendulum
+            </h2>
+
+            
+
+            
+
+            <div class="buttons">
+
+                
+            <a
+                class="button"
+                href="https://github.com/tommygrigo/Latex-Drawings/blob/main/figures/ticozzi-non-linear/2.tex"
+                target="_blank"
+                rel="noopener"
+            >
+                LaTeX source
+            </a>
+        
+
+                <a
+                    class="button"
+                    href="pdf/ticozzi-non-linear-2.pdf"
+                    target="_blank"
+                >
+                    PDF
+                </a>
+
+                <a
+                    class="button"
+                    href="images/ticozzi-non-linear-2.png"
+                    target="_blank"
+                >
+                    PNG
+                </a>
+
+            </div>
+
+        </div>
+
+    </article>
+    
+
+    <article
+        class="card"
+        data-category="Non-linear"
+        data-search="pendulum non-linear "
+    >
+
+        <a
+            class="preview-link"
+            href="pdf/ticozzi-non-linear-4.pdf"
+            target="_blank"
+        >
+            <div class="preview">
+
+                <img
+                    src="images/ticozzi-non-linear-4.png"
+                    alt="Pendulum"
+                    loading="lazy"
+                >
+
+            </div>
+        </a>
+
+        <div class="card-body">
+
+            <div class="category">
+                Non-linear
+            </div>
+
+            <h2>
+                Pendulum
+            </h2>
+
+            
+
+            
+
+            <div class="buttons">
+
+                
+            <a
+                class="button"
+                href="https://github.com/tommygrigo/Latex-Drawings/blob/main/figures/ticozzi-non-linear/4.tex"
+                target="_blank"
+                rel="noopener"
+            >
+                LaTeX source
+            </a>
+        
+
+                <a
+                    class="button"
+                    href="pdf/ticozzi-non-linear-4.pdf"
+                    target="_blank"
+                >
+                    PDF
+                </a>
+
+                <a
+                    class="button"
+                    href="images/ticozzi-non-linear-4.png"
+                    target="_blank"
+                >
+                    PNG
+                </a>
+
+            </div>
+
+        </div>
+
+    </article>
+    
+
+    <article
+        class="card"
+        data-category="Non-linear"
+        data-search="pendulum non-linear "
+    >
+
+        <a
+            class="preview-link"
+            href="pdf/ticozzi-non-linear-5.pdf"
+            target="_blank"
+        >
+            <div class="preview">
+
+                <img
+                    src="images/ticozzi-non-linear-5.png"
+                    alt="Pendulum"
+                    loading="lazy"
+                >
+
+            </div>
+        </a>
+
+        <div class="card-body">
+
+            <div class="category">
+                Non-linear
+            </div>
+
+            <h2>
+                Pendulum
+            </h2>
+
+            
+
+            
+
+            <div class="buttons">
+
+                
+            <a
+                class="button"
+                href="https://github.com/tommygrigo/Latex-Drawings/blob/main/figures/ticozzi-non-linear/5.tex"
+                target="_blank"
+                rel="noopener"
+            >
+                LaTeX source
+            </a>
+        
+
+                <a
+                    class="button"
+                    href="pdf/ticozzi-non-linear-5.pdf"
+                    target="_blank"
+                >
+                    PDF
+                </a>
+
+                <a
+                    class="button"
+                    href="images/ticozzi-non-linear-5.png"
+                    target="_blank"
+                >
+                    PNG
+                </a>
+
+            </div>
+
+        </div>
+
+    </article>
+    
+
+    <article
+        class="card"
+        data-category="Non-linear"
+        data-search="pendulum non-linear "
+    >
+
+        <a
+            class="preview-link"
+            href="pdf/ticozzi-non-linear-6.pdf"
+            target="_blank"
+        >
+            <div class="preview">
+
+                <img
+                    src="images/ticozzi-non-linear-6.png"
+                    alt="Pendulum"
+                    loading="lazy"
+                >
+
+            </div>
+        </a>
+
+        <div class="card-body">
+
+            <div class="category">
+                Non-linear
+            </div>
+
+            <h2>
+                Pendulum
+            </h2>
+
+            
+
+            
+
+            <div class="buttons">
+
+                
+            <a
+                class="button"
+                href="https://github.com/tommygrigo/Latex-Drawings/blob/main/figures/ticozzi-non-linear/6.tex"
+                target="_blank"
+                rel="noopener"
+            >
+                LaTeX source
+            </a>
+        
+
+                <a
+                    class="button"
+                    href="pdf/ticozzi-non-linear-6.pdf"
+                    target="_blank"
+                >
+                    PDF
+                </a>
+
+                <a
+                    class="button"
+                    href="images/ticozzi-non-linear-6.png"
+                    target="_blank"
+                >
+                    PNG
+                </a>
+
+            </div>
+
+        </div>
+
+    </article>
+    
+
+    <article
+        class="card"
+        data-category="Non-linear"
+        data-search="pendulum non-linear "
+    >
+
+        <a
+            class="preview-link"
+            href="pdf/ticozzi-non-linear-7.pdf"
+            target="_blank"
+        >
+            <div class="preview">
+
+                <img
+                    src="images/ticozzi-non-linear-7.png"
+                    alt="Pendulum"
+                    loading="lazy"
+                >
+
+            </div>
+        </a>
+
+        <div class="card-body">
+
+            <div class="category">
+                Non-linear
+            </div>
+
+            <h2>
+                Pendulum
+            </h2>
+
+            
+
+            
+
+            <div class="buttons">
+
+                
+            <a
+                class="button"
+                href="https://github.com/tommygrigo/Latex-Drawings/blob/main/figures/ticozzi-non-linear/7.tex"
+                target="_blank"
+                rel="noopener"
+            >
+                LaTeX source
+            </a>
+        
+
+                <a
+                    class="button"
+                    href="pdf/ticozzi-non-linear-7.pdf"
+                    target="_blank"
+                >
+                    PDF
+                </a>
+
+                <a
+                    class="button"
+                    href="images/ticozzi-non-linear-7.png"
+                    target="_blank"
+                >
+                    PNG
+                </a>
+
+            </div>
+
+        </div>
+
+    </article>
+    
+
+    <article
+        class="card"
+        data-category="Non-linear"
+        data-search="pendulum non-linear "
+    >
+
+        <a
+            class="preview-link"
+            href="pdf/ticozzi-non-linear-8.pdf"
+            target="_blank"
+        >
+            <div class="preview">
+
+                <img
+                    src="images/ticozzi-non-linear-8.png"
+                    alt="Pendulum"
+                    loading="lazy"
+                >
+
+            </div>
+        </a>
+
+        <div class="card-body">
+
+            <div class="category">
+                Non-linear
+            </div>
+
+            <h2>
+                Pendulum
+            </h2>
+
+            
+
+            
+
+            <div class="buttons">
+
+                
+            <a
+                class="button"
+                href="https://github.com/tommygrigo/Latex-Drawings/blob/main/figures/ticozzi-non-linear/8.tex"
+                target="_blank"
+                rel="noopener"
+            >
+                LaTeX source
+            </a>
+        
+
+                <a
+                    class="button"
+                    href="pdf/ticozzi-non-linear-8.pdf"
+                    target="_blank"
+                >
+                    PDF
+                </a>
+
+                <a
+                    class="button"
+                    href="images/ticozzi-non-linear-8.png"
+                    target="_blank"
+                >
+                    PNG
+                </a>
+
+            </div>
+
+        </div>
+
+    </article>
+    
+
+    <article
+        class="card"
+        data-category="Non-linear"
+        data-search="pendulum non-linear "
+    >
+
+        <a
+            class="preview-link"
+            href="pdf/ticozzi-non-linear-9.pdf"
+            target="_blank"
+        >
+            <div class="preview">
+
+                <img
+                    src="images/ticozzi-non-linear-9.png"
+                    alt="Pendulum"
+                    loading="lazy"
+                >
+
+            </div>
+        </a>
+
+        <div class="card-body">
+
+            <div class="category">
+                Non-linear
+            </div>
+
+            <h2>
+                Pendulum
+            </h2>
+
+            
+
+            
+
+            <div class="buttons">
+
+                
+            <a
+                class="button"
+                href="https://github.com/tommygrigo/Latex-Drawings/blob/main/figures/ticozzi-non-linear/9.tex"
+                target="_blank"
+                rel="noopener"
+            >
+                LaTeX source
+            </a>
+        
+
+                <a
+                    class="button"
+                    href="pdf/ticozzi-non-linear-9.pdf"
+                    target="_blank"
+                >
+                    PDF
+                </a>
+
+                <a
+                    class="button"
+                    href="images/ticozzi-non-linear-9.png"
+                    target="_blank"
+                >
+                    PNG
+                </a>
+
+            </div>
+
+        </div>
+
+    </article>
+    
+
+    <article
+        class="card"
+        data-category="Quantum"
+        data-search="gate teleportation quantum test magic states fault tolerance msd quantum circuits"
+    >
+
+        <a
+            class="preview-link"
+            href="pdf/miscelanea-gate_teleportation.pdf"
+            target="_blank"
+        >
+            <div class="preview">
+
+                <img
+                    src="images/miscelanea-gate_teleportation.png"
+                    alt="Gate teleportation"
+                    loading="lazy"
+                >
+
+            </div>
+        </a>
+
+        <div class="card-body">
+
+            <div class="category">
+                Quantum
+            </div>
+
+            <h2>
+                Gate teleportation
+            </h2>
+
+            
+            <p class="description">
+                test
+            </p>
+        
+
+            
+            <div class="tags">
+                <span class="tag">magic states</span><span class="tag">fault tolerance</span><span class="tag">MSD</span><span class="tag">quantum circuits</span>
+            </div>
+        
+
+            <div class="buttons">
+
+                
+            <a
+                class="button"
+                href="https://github.com/tommygrigo/Latex-Drawings/blob/main/figures/miscelanea/gate_teleportation.tex"
+                target="_blank"
+                rel="noopener"
+            >
+                LaTeX source
+            </a>
+        
+
+                <a
+                    class="button"
+                    href="pdf/miscelanea-gate_teleportation.pdf"
+                    target="_blank"
+                >
+                    PDF
+                </a>
+
+                <a
+                    class="button"
+                    href="images/miscelanea-gate_teleportation.png"
+                    target="_blank"
+                >
+                    PNG
+                </a>
+
+            </div>
+
+        </div>
+
+    </article>
+    
+
+    <article
+        class="card"
+        data-category="Quantum"
+        data-search="random qubit calculation quantum graphical representation of a calculation made at dartmouth qubit"
+    >
+
+        <a
+            class="preview-link"
+            href="pdf/miscelanea-bloch_sphere_calculations.pdf"
+            target="_blank"
+        >
+            <div class="preview">
+
+                <img
+                    src="images/miscelanea-bloch_sphere_calculations.png"
+                    alt="Random qubit calculation"
+                    loading="lazy"
+                >
+
+            </div>
+        </a>
+
+        <div class="card-body">
+
+            <div class="category">
+                Quantum
+            </div>
+
+            <h2>
+                Random qubit calculation
+            </h2>
+
+            
+            <p class="description">
+                Graphical representation of a calculation made at Dartmouth
+            </p>
+        
+
+            
+            <div class="tags">
+                <span class="tag">qubit</span>
+            </div>
+        
+
+            <div class="buttons">
+
+                
+            <a
+                class="button"
+                href="https://github.com/tommygrigo/Latex-Drawings/blob/main/figures/miscelanea/bloch_sphere_calculations.tex"
+                target="_blank"
+                rel="noopener"
+            >
+                LaTeX source
+            </a>
+        
+
+                <a
+                    class="button"
+                    href="pdf/miscelanea-bloch_sphere_calculations.pdf"
+                    target="_blank"
+                >
+                    PDF
+                </a>
+
+                <a
+                    class="button"
+                    href="images/miscelanea-bloch_sphere_calculations.png"
+                    target="_blank"
+                >
+                    PNG
+                </a>
+
+            </div>
+
+        </div>
+
+    </article>
+    
+
+    <article
+        class="card"
+        data-category="Other"
+        data-search="3 other "
+    >
+
+        <a
+            class="preview-link"
+            href="pdf/ticozzi-non-linear-3.pdf"
+            target="_blank"
+        >
+            <div class="preview">
+
+                <img
+                    src="images/ticozzi-non-linear-3.png"
+                    alt="3"
+                    loading="lazy"
+                >
+
+            </div>
+        </a>
+
+        <div class="card-body">
+
+            <div class="category">
+                Other
+            </div>
+
+            <h2>
+                3
+            </h2>
+
+            
+
+            
+
+            <div class="buttons">
+
+                
+            <a
+                class="button"
+                href="https://github.com/tommygrigo/Latex-Drawings/blob/main/figures/ticozzi-non-linear/3.tex"
+                target="_blank"
+                rel="noopener"
+            >
+                LaTeX source
+            </a>
+        
+
+                <a
+                    class="button"
+                    href="pdf/ticozzi-non-linear-3.pdf"
+                    target="_blank"
+                >
+                    PDF
+                </a>
+
+                <a
+                    class="button"
+                    href="images/ticozzi-non-linear-3.png"
+                    target="_blank"
+                >
+                    PNG
+                </a>
+
+            </div>
+
+        </div>
+
+    </article>
+    
+
+</main>
+
+
+<div
+    id="no-results"
+    class="no-results"
+>
+    No figures found.
+</div>
+
+
+<footer>
+    Generated automatically from the LaTeX source files.
+</footer>
+
+
+<script>
+
+const cards =
+    Array.from(
+        document.querySelectorAll(".card")
+    );
+
+const searchInput =
+    document.getElementById("search");
+
+const filterButtons =
+    document.querySelectorAll(".filter-button");
+
+const noResults =
+    document.getElementById("no-results");
+
+let activeCategory = "all";
+
+
+function updateGallery() {
+
+    const query =
+        searchInput.value
+            .trim()
+            .toLowerCase();
+
+    let visible = 0;
+
+    cards.forEach(card => {
+
+        const category =
+            card.dataset.category;
+
+        const searchText =
+            card.dataset.search;
+
+        const matchesCategory =
+            activeCategory === "all"
+            || category === activeCategory;
+
+        const matchesSearch =
+            searchText.includes(query);
+
+        const show =
+            matchesCategory
+            && matchesSearch;
+
+        card.classList.toggle(
+            "hidden",
+            !show
+        );
+
+        if (show) {
+            visible += 1;
+        }
+
+    });
+
+    noResults.style.display =
+        visible === 0
+            ? "block"
+            : "none";
+}
+
+
+searchInput.addEventListener(
+    "input",
+    updateGallery
+);
+
+
+filterButtons.forEach(button => {
+
+    button.addEventListener(
+        "click",
+        () => {
+
+            activeCategory =
+                button.dataset.category;
+
+            filterButtons.forEach(b =>
+                b.classList.remove("active")
+            );
+
+            button.classList.add("active");
+
+            updateGallery();
+
+        }
+    );
+
+});
+
+</script>
+
+</body>
+
+</html>
