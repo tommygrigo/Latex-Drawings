@@ -1,0 +1,77 @@
+% gallery-title: Matrix
+% gallery-category: Quantum 
+% gallery-tags: model reduction
+% gallery-description: 
+% gallery-order: 10
+% paper: arXiv:2510.20675
+
+\documentclass{standalone}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable} 
+\usepgfplotslibrary{groupplots}
+\pgfplotsset{compat = newest}
+
+\newcommand{\Fc}{\mathcal{F}}
+\newcommand{\Lc}{\mathcal{L}}
+\newcommand{\norm}[1]{\left|\left| #1 \right|\right|}
+
+% Define inferno colormap
+\pgfplotsset{%
+    colormap={inferno}{%
+        rgb255=(0, 0, 4)
+        rgb255=(12, 8, 38)
+        rgb255=(36, 12, 79)
+        rgb255=(66, 10, 104)
+        rgb255=(93, 18, 110)
+        rgb255=(120, 28, 109)
+        rgb255=(147, 38, 103)
+        rgb255=(174, 48, 92)
+        rgb255=(199, 62, 76)
+        rgb255=(221, 81, 58)
+        rgb255=(237, 105, 37)
+        rgb255=(248, 133, 15)
+        rgb255=(252, 165, 10)
+        rgb255=(250, 198, 45)
+        rgb255=(242, 230, 97)
+        rgb255=(252, 255, 164)
+    }
+}
+
+\pgfplotstableread{data/matrix.dat}{\table}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+    colormap/viridis,
+    enlargelimits=false,
+    axis on top,
+    point meta min=-.6,
+    point meta max=.2,
+    width = 6cm,
+    height = 6cm,
+    xmin = -0.5, xmax=15.5,
+    ymin = -0.5, ymax=15.5,
+    %axis lines = none,
+    y dir=reverse,
+    colorbar, 
+    % axis lines*=left, 
+    % hide y axis, 
+    % hide x axis,
+    colorbar style={
+        ytick={-0.6,-.4,-.2,0,0.2},
+            yticklabel style={
+                /pgf/number format/.cd,
+                    fixed,
+                    fixed zerofill,
+                    precision=1,
+            }
+    },
+]
+                    
+
+\addplot[matrix plot*,point meta=explicit] table [x = {i}, y={j}, meta={v}, col sep=comma] {\table};
+
+\end{axis}
+\end{tikzpicture}
+\end{document}

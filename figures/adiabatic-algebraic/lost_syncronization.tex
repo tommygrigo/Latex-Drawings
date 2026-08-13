@@ -1,0 +1,112 @@
+% gallery-title: Syncronization
+% gallery-category: Quantum 
+% gallery-tags: model reduction
+% gallery-description: 
+% gallery-order: 10
+% paper: arXiv:2603.11982
+
+\documentclass{standalone}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable} 
+\usepgfplotslibrary{groupplots}
+\pgfplotsset{compat = newest}
+\usepgfplotslibrary{fillbetween}
+
+\usepackage{filecontents}
+
+
+\newcommand{\Fc}{\mathcal{F}}
+\newcommand{\Lc}{\mathcal{L}}
+\newcommand{\norm}[1]{\left|\left| #1 \right|\right|}
+
+% Define inferno colormap
+\pgfplotsset{%
+    colormap={inferno}{%
+        rgb255=(0, 0, 4)
+        rgb255=(12, 8, 38)
+        rgb255=(36, 12, 79)
+        rgb255=(66, 10, 104)
+        rgb255=(93, 18, 110)
+        rgb255=(120, 28, 109)
+        rgb255=(147, 38, 103)
+        rgb255=(174, 48, 92)
+        rgb255=(199, 62, 76)
+        rgb255=(221, 81, 58)
+        rgb255=(237, 105, 37)
+        rgb255=(248, 133, 15)
+        rgb255=(252, 165, 10)
+        rgb255=(250, 198, 45)
+        rgb255=(242, 230, 97)
+        rgb255=(252, 255, 164) 
+    }
+}
+
+\pgfplotsset{
+    discard if smaller/.style n args={2}{
+        x filter/.code={
+            \edef\tempa{\thisrow{#1}}
+            \edef\tempb{#2}
+                \ifnum\tempa<\tempb
+                    \def\pgfmathresult{inf}
+                \else
+                \fi
+        }
+    }
+    }
+
+
+\begin{document}
+
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    name = bigone,
+xmin = 0, xmax = 60,
+ymin = 0, ymax = .75,
+%ymajorticks=false,
+%ytick=\empty,
+xtick distance = 10,
+xmajorgrids=true,
+minor tick num = 1,
+major grid style = {lightgray},
+minor grid style = {lightgray!25},
+width = 11cm,
+height = 6.5cm,
+smooth,
+xlabel = {$\omega t$},
+ylabel = {$\langle X^{\otimes N}(t) \rangle$, $\langle \mathcal{J}^\dag[X^{\otimes N}(t)] \rangle$},
+legend pos = north east,
+%ymode=log,
+colormap name=inferno,
+cycle list={[of colormap]},
+legend style={at={(1,1)},anchor=north east, column sep = 6pt, legend columns = 1},
+legend cell align={left},
+%                 title style={at={(0.5,0.84)},anchor=north,yshift=-0.1},
+]
+
+\addplot+[color={black},no marks, opacity=1, forget plot] table [x=t, y expr={0.1/2}, col sep=comma]{data/lost_syncronization.csv};
+\addplot+[color={black},no marks, opacity=1, forget plot] table [x=t, y expr={0.5/2}, col sep=comma]{data/lost_syncronization.csv};
+\addplot+[color={black},no marks, opacity=1, forget plot] table [x=t, y expr={0.9/2}, col sep=comma]{data/lost_syncronization.csv};
+
+
+\addplot+[color of colormap={250 of inferno},no marks, opacity=.7, very thick] table [x=t, y expr={\thisrow{a1} + 0.1/2}, col sep=comma]{data/lost_syncronization.csv};
+
+\addplot+[color of colormap={500 of inferno},no marks, opacity=.7, very thick] table [x=t, y expr={\thisrow{a2} + 0.5/2}, col sep=comma]{data/lost_syncronization.csv};
+
+\addplot+[color of colormap={750 of inferno},no marks, opacity=.7, very thick] table [x=t, y expr={\thisrow{a3} + 0.9/2}, col sep=comma]{data/lost_syncronization.csv};
+
+
+
+\addplot+[color of colormap={250 of inferno},no marks, opacity=.9, very thick, densely dotted] table [x=t, y expr={\thisrow{b1} + 0.1/2}, col sep=comma]{data/lost_syncronization.csv};
+
+\addplot+[color of colormap={500 of inferno},no marks, opacity=.9, very thick, densely dotted] table [x=t, y expr={\thisrow{b2} + 0.5/2}, col sep=comma]{data/lost_syncronization.csv};
+
+\addplot+[color of colormap={750 of inferno},no marks, opacity=.9, very thick, densely dotted] table [x=t, y expr={\thisrow{b3} + 0.9/2}, col sep=comma]{data/lost_syncronization.csv};
+
+
+
+\legend{$\varepsilon=0.1$,$\varepsilon=0.5$,$\varepsilon=0.9$}
+\end{axis}
+\end{tikzpicture}
+\end{document}

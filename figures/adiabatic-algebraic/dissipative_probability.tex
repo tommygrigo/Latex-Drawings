@@ -1,0 +1,93 @@
+% gallery-title: Probability
+% gallery-category: Quantum 
+% gallery-tags: model reduction
+% gallery-description: 
+% gallery-order: 10
+% paper: arXiv:2603.11982
+
+\documentclass{standalone}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable} 
+\usepgfplotslibrary{groupplots}
+\pgfplotsset{compat = newest}
+
+
+\newcommand{\Fc}{\mathcal{F}}
+\newcommand{\Lc}{\mathcal{L}}
+\newcommand{\norm}[1]{\left|\left| #1 \right|\right|}
+
+% Define inferno colormap
+\pgfplotsset{%
+    colormap={inferno}{%
+        %rgb255=(0, 0, 4)
+        rgb255=(12, 8, 38)
+        %rgb255=(36, 12, 79)
+        %rgb255=(66, 10, 104)
+        rgb255=(93, 18, 110)
+        %rgb255=(120, 28, 109)
+        %rgb255=(147, 38, 103)
+        rgb255=(174, 48, 92)
+        %rgb255=(199, 62, 76)
+        %rgb255=(221, 81, 58)
+        rgb255=(237, 105, 37)
+        %rgb255=(248, 133, 15)
+        %rgb255=(252, 165, 10)
+        rgb255=(250, 198, 45) 
+        %rgb255=(242, 230, 97)
+        %rgb255=(252, 255, 164)
+    }
+}
+
+
+\begin{document}
+
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+xmin = 0, xmax = 10,
+%ymin = 1e-15, ymax = 10,
+xtick distance = 2,
+grid = both,
+minor tick num = 1,
+major grid style = {lightgray},
+minor grid style = {lightgray!25},
+width = 11cm,
+height = 6.5cm,
+smooth,
+xlabel = {$A_z t$},
+ylabel = {$\langle0|\rho(t)|0\rangle, \langle0|{\bf p}(t)$},
+legend pos = south east,
+%ymode=log,
+colormap name=inferno,
+cycle list={[of colormap]},
+legend cell align={left},
+% legend style={at={(0.5,0.22)},anchor=north, column sep = 6pt, legend columns = 1},
+%                 title style={at={(0.5,0.84)},anchor=north,yshift=-0.1},
+]
+
+
+
+\addplot+[no marks, opacity=.8, thick] table [x=t, y=r0, col sep=comma]{data/probability_dissipative.csv};
+\addplot+[no marks, opacity=.8, thick] table [x=t, y=r1, col sep=comma]{data/probability_dissipative.csv};
+\addplot+[no marks, opacity=.8, thick] table [x=t, y=r2, col sep=comma]{data/probability_dissipative.csv};
+\addplot+[no marks, opacity=.8, thick] table [x=t, y=r3, col sep=comma]{data/probability_dissipative.csv};
+\addplot+[no marks, opacity=.8, thick] table [x=t, y=r4, col sep=comma]{data/probability_dissipative.csv};
+
+\addplot+[mark=o, opacity=1, thick, mark repeat=50, only marks] table [x=t, y=c0, col sep=comma]{data/probability_dissipative.csv};
+\addplot+[mark=o, opacity=1, thick, mark repeat=50, only marks] table [x=t, y=c1, col sep=comma]{data/probability_dissipative.csv};
+\addplot+[mark=o, opacity=1, thick, mark repeat=50, only marks] table [x=t, y=c2, col sep=comma]{data/probability_dissipative.csv};
+\addplot+[mark=o, opacity=1, thick, mark repeat=50, only marks] table [x=t, y=c3, col sep=comma]{data/probability_dissipative.csv};
+\addplot+[mark=o, opacity=1, thick, mark repeat=50, only marks] table [x=t, y=c4, col sep=comma]{data/probability_dissipative.csv};
+
+
+\legend{
+$\varepsilon=0.01$,
+$\varepsilon=0.05$,
+$\varepsilon=0.1$,
+$\varepsilon=0.5$,
+$\varepsilon=1$,
+}
+\end{axis}
+\end{tikzpicture}
+\end{document}

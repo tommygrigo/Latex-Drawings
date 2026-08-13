@@ -1,0 +1,559 @@
+{
+  "figures": {
+    "figures/adiabatic-algebraic/dissipative_probability.tex": {
+      "dependencies": {
+        "figures/adiabatic-algebraic/data/probability_dissipative.csv": "7977e8c6e62bf65a7f29648d98713e5978e003208aef8d77b3cc61d3d57abc25"
+      },
+      "render_hash": "0b2f67a0302198f856b418460a7bc535aeea2f4c6cbbb11064c29a252e4550d7"
+    },
+    "figures/adiabatic-algebraic/errors_dissipative.tex": {
+      "dependencies": {
+        "figures/adiabatic-algebraic/data/errors_dissipative.csv": "88bf3b74e9e33fb46dd5ad186121ef2c3be63729770844a531aabdc99379dede"
+      },
+      "render_hash": "57bc88712b716d6350887879a31bc9d25a60d6a19bd608705a67becd6e972678"
+    },
+    "figures/adiabatic-algebraic/gauge_choice.tex": {
+      "dependencies": {
+        "figures/adiabatic-algebraic/data/gauge_choice.csv": "cf07a1fb92e8b588e041e0a275fd5c8c7fd8ef50c46a6e794dd7c5efd7be22e9"
+      },
+      "render_hash": "37ac0dcf2f2803a1f3fb10f656605f9c669b733ef8ba26a79fc3649eb2773507"
+    },
+    "figures/adiabatic-algebraic/lost_syncronization.tex": {
+      "dependencies": {
+        "figures/adiabatic-algebraic/data/lost_syncronization.csv": "fa0c3ecfbdffa2092983ea0bbea1828ad73d276d4ce2dfc38763dcc193196eb1"
+      },
+      "render_hash": "5294da09d0aea76d2cf014d0cef892a526df733436176a5dc63ee50198ef40c3"
+    },
+    "figures/adiabatic-algebraic/tr_norm_convergence.tex": {
+      "dependencies": {
+        "figures/adiabatic-algebraic/data/xxz_unperturbed_error.csv": "ad34a9fa2e0dd6f7870e735e8a917ee2837e085afdb9d055706aac2fb9d7556f"
+      },
+      "render_hash": "5eb8625d7c736dcc68688d2b1f0eed925cdcedc5f17d6d9ac772ebc7d2a54971"
+    },
+    "figures/adiabatic-algebraic/xxz_perturbed_invariant.tex": {
+      "dependencies": {
+        "figures/adiabatic-algebraic/data/xxz_perturbed_invariant2.csv": "f9985a217407b066e4eab75eb414815089f6b05d8ddf1f0e273198fdd87ad9c4",
+        "figures/adiabatic-algebraic/data/xxz_perturbed_invariant2_eps.csv": "1aa772afdba6cb09643541efbb4c1f8c91eb3166003a36eb2181844176eabcf8"
+      },
+      "render_hash": "0b74639491e31802a21f18e304ef3d2f37f1e1791aff251ac1f7f4e37fe11c0d"
+    },
+    "figures/adiabatic-algebraic/xxz_perturbed_invariant_projected.tex": {
+      "dependencies": {
+        "figures/adiabatic-algebraic/data/xxz_perturbed_invariant2_proj.csv": "06386af8f298d4e710af32c197b869142cd2f44e36bccda9a8a08500330cad59",
+        "figures/adiabatic-algebraic/data/xxz_perturbed_invariant2_proj_eps.csv": "a4d19c3408916176c730bbafaa9f6d616b8f00203df42c224cfb17dd04b8731a"
+      },
+      "render_hash": "00cb5231fce4b0c7dd1ee7d86ed3e8a6f352ecf5798a4e44e9787bad3ccffe0c"
+    },
+    "figures/adiabatic-algebraic/xxz_unperturbed_observable.tex": {
+      "dependencies": {
+        "figures/adiabatic-algebraic/data/xxz_unperturbed_observable.csv": "31bfc04b5c1cbb084473d687f1bc402124722441b6fedfc6a97ae7cec0f3bdd0"
+      },
+      "render_hash": "6e965194ef8b02dc1f4fc9583413331b1fb853896d7dc175833d58d766f18f5a"
+    },
+    "figures/central_spin/block_contributions.tex": {
+      "dependencies": {
+        "figures/central_spin/data/central_block_contributions.dat": "c8b02ea640f0adb645d8fb6a8d4701bd925da0be98a9747e8ae75d82a7444221",
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083"
+      },
+      "render_hash": "40419c0c63e9c5769e96c803a1c46036c7c0ab824e0a8b28d9464a56ff7e501b"
+    },
+    "figures/central_spin/central_spin_block_contribution_new.tex": {
+      "dependencies": {
+        "figures/central_spin/data/central_block_contributions_10_0.75.dat": "6fffb08e98e766da796c40e8fb9e65ef60f0478ea56356779bc386c7932d7dda",
+        "figures/central_spin/data/central_block_contributions_9_0.75.dat": "137026b31e9393798c01a11ba4a998570452b8e96581bcc3b704598127210582",
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083"
+      },
+      "render_hash": "5e6ebf079e69b27ba9702734ff98a2c30d2b50d69269eff6096c42a0c5972d55"
+    },
+    "figures/central_spin/central_spin_block_new.tex": {
+      "dependencies": {
+        "figures/central_spin/data/central_spin_blocks.dat": "598c09b9ce1053c615eae08a5c00de6ce2eb17a3cce32ff42b1b1fcce4c7b681",
+        "figures/central_spin/data/central_spin_blocks_reduced.dat": "59311be3ba1b119d416056e23329e66f12c5c2185dc962d25153b69c2b25b7db",
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083"
+      },
+      "render_hash": "291a80afb0f52832db85f16c6db096734b0310426a40ff71ebd0b90739d58bd5"
+    },
+    "figures/central_spin/central_spin_block_reduced.tex": {
+      "dependencies": {
+        "figures/central_spin/data/central_spin_blocks_reduced.dat": "59311be3ba1b119d416056e23329e66f12c5c2185dc962d25153b69c2b25b7db",
+        "figures/central_spin/data/collective_spin_blocks_reduced.dat": "7c3c0ad66fa1b29792fab5b91034a7d0ccf7aa9f391bea7c3e09837f352296f1",
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083"
+      },
+      "render_hash": "1d32088ba87e2f225cded36df872c9d704fc53c5c942e4306157cf92cd879514"
+    },
+    "figures/central_spin/central_spin_blocks.tex": {
+      "dependencies": {
+        "figures/central_spin/data/central_spin_blocks.dat": "598c09b9ce1053c615eae08a5c00de6ce2eb17a3cce32ff42b1b1fcce4c7b681",
+        "figures/central_spin/data/collective_spin_blocks.dat": "1bea40beaee9ce8056f85958a91592e875a18926d57e7cc35b7436251cc8df90",
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083"
+      },
+      "render_hash": "d1dbd99b9ec8da3aab14f1fcaf8ed4e03a0312add78f2c25dbe5dc0c946e4cb1"
+    },
+    "figures/central_spin/central_spin_dimensions.tex": {
+      "dependencies": {
+        "figures/central_spin/data/central_spin_dimensions.dat": "d83b1a8e563bffe68a390daa4250ee3bd3908dd5b5e63fdda7c1a1b8de9010cc",
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083"
+      },
+      "render_hash": "c7e821903efe299d8f377b4dcacecdd1d3ff9cf177eee79774c701b1342d5a9b"
+    },
+    "figures/central_spin/central_spin_figure.tex": {
+      "dependencies": {
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083"
+      },
+      "render_hash": "7eca3bb6a17f48b785f31199004304113a4558bf0408bde14bf9847d81d81225"
+    },
+    "figures/central_spin/central_spin_ising.tex": {
+      "dependencies": {
+        "figures/central_spin/data/central16_eta_ising.dat": "7dfec0abd9fcd0e382e68474d5b47e12d1ea0dea88e1ebfa06b4164fc3b491b4",
+        "figures/central_spin/data/central17_eta_ising.dat": "a0441585a0098b769b3d0970031f2a70cc2ba67ab10b3e54ae5b4ef0af1e232e",
+        "figures/central_spin/data/central6_eta_ising.dat": "3985540ca11ab5d2f7868cd61f7ebf7420f2d012c56671eedf6265751492c92e",
+        "figures/central_spin/data/central7_eta_ising.dat": "cf23487faacbefdd0b55611f2e9ee47ba1186ed52e1bfb0fef1f85a928e25976",
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083"
+      },
+      "render_hash": "709d15f9ee5a9c073ae46540f42c40fbe3daee3762ba0871cef7c0d633e100ef"
+    },
+    "figures/central_spin/central_spin_ising_big.tex": {
+      "dependencies": {
+        "figures/central_spin/data/central7_eta_ising.dat": "cf23487faacbefdd0b55611f2e9ee47ba1186ed52e1bfb0fef1f85a928e25976",
+        "figures/central_spin/data/central7_eta_ising_entropy.dat": "bca4492808a65a02ed334ffe23823d91bb63cd70107055bfee747ad3d9bdb1da",
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083"
+      },
+      "render_hash": "14d1fab2d074a33179966952e332777ae90ada08ae2556e912d12598eaf4038d"
+    },
+    "figures/central_spin/central_spin_ising_entropy.tex": {
+      "dependencies": {
+        "figures/central_spin/data/central16_eta_ising_entropy.dat": "a387949c0f8fa011924b4b09f2fb0d80eb6b1dfd96fcab53980a14ea5f67afa4",
+        "figures/central_spin/data/central17_eta_ising_entropy.dat": "bbfb60406adb3dd2b7d3f237e310fbe5fd41308f72a95b521207e9c52713af10",
+        "figures/central_spin/data/central6_eta_ising_entropy.dat": "29347a76434219c155ac0782d3b5a0b03e9a231de26dd626375bec124649a360",
+        "figures/central_spin/data/central7_eta_ising_entropy.dat": "bca4492808a65a02ed334ffe23823d91bb63cd70107055bfee747ad3d9bdb1da",
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083"
+      },
+      "render_hash": "abf4603d0edef9ffcf18882ef77073f7e758c6ca556c09aa1c20da8bc08debc6"
+    },
+    "figures/central_spin/collectiive_blocks.tex": {
+      "dependencies": {
+        "figures/central_spin/data/collective_spin_blocks.dat": "1bea40beaee9ce8056f85958a91592e875a18926d57e7cc35b7436251cc8df90",
+        "figures/central_spin/data/collective_spin_blocks_reduced.dat": "7c3c0ad66fa1b29792fab5b91034a7d0ccf7aa9f391bea7c3e09837f352296f1",
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083"
+      },
+      "render_hash": "2cb47ead529508422c8578060eb6d3daafcff4525ebb35a6ab9e34209a1824c6"
+    },
+    "figures/central_spin/collective.tex": {
+      "dependencies": {
+        "figures/central_spin/data/collective.dat": "789429876f11506349a44a5390fc197361486f3c3e6d3c453518e5d30ba3fc5a",
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083"
+      },
+      "render_hash": "cb862fe3fd15d5fd5e81a3582de27a88aeadd61354a98dad569b8ef880b51f9c"
+    },
+    "figures/central_spin/reachable_dimensions.tex": {
+      "dependencies": {
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083"
+      },
+      "render_hash": "e418859c6ccb6043102711ce32fe550c239dd01eea951961ad371d26e5e459ac"
+    },
+    "figures/central_spin/setling_time.tex": {
+      "dependencies": {
+        "figures/central_spin/data/settling_time2.dat": "14714b2db7b4b9279d2ffa86841c57cdd3bd00c255a3959c85a067455d3438da",
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083"
+      },
+      "render_hash": "153b488a1b374626cc86b0303610609248389c20a210c724ebcc81a11eeb0250"
+    },
+    "figures/central_spin/tessieri.tex": {
+      "dependencies": {
+        "figures/central_spin/data/tessieri_multiple_N_even.dat": "e314cb5f35e160b55f0520e5bbfae3ecf35c28efaeda813da57b761edf9962ae",
+        "figures/central_spin/data/tessieri_multiple_N_odd.dat": "0fb03b522102124121d29f46ecf4cc6828d9a001631d1dbbb8a5e2e81b4e5566",
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083"
+      },
+      "render_hash": "49c1b54008370e9802838e728760a23e2731c7377dc4247d591f821f411e0ea7"
+    },
+    "figures/central_spin/tessieri_2.tex": {
+      "dependencies": {
+        "figures/central_spin/data/tessieri_multiple_N_even.dat": "e314cb5f35e160b55f0520e5bbfae3ecf35c28efaeda813da57b761edf9962ae",
+        "figures/central_spin/data/tessieri_multiple_N_odd.dat": "0fb03b522102124121d29f46ecf4cc6828d9a001631d1dbbb8a5e2e81b4e5566",
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083"
+      },
+      "render_hash": "b049c371949f7ed4c261b57974d7ca78278f5168caa6b11a78b7f9bbf6eac327"
+    },
+    "figures/code/encoding_1.tex": {
+      "dependencies": {
+        "figures/code/data/encoding1.dat": "01f8c10bdade79a456c0e79b72f979372c77d1ddbefcb17f6d993b3618e0ef52",
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083"
+      },
+      "render_hash": "371099702704127373ca35eec9dbb354a740c1511d2aeaa56d00086e28311293"
+    },
+    "figures/code/encoding_2.tex": {
+      "dependencies": {
+        "figures/code/data/encoding2.dat": "291cee3ca56ad28be12bf0cb4496994dfcaaa686e2d4124251058ba06ba7dae3",
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083"
+      },
+      "render_hash": "46ad82e721e6ebe297d7dbd86918e44d13e286cb612af07c2ebd9b64fc707d83"
+    },
+    "figures/code/encoding_3.tex": {
+      "dependencies": {
+        "figures/code/data/encoding3.dat": "5b10d7172c6826c59ce752df85a240c1aa5bb8bcc746fe5828c96c8eeeb37e25",
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083"
+      },
+      "render_hash": "b07190648f998ab76667eaab23054e43d31dd32f741d471becc3951993298ce7"
+    },
+    "figures/code/encoding_4.tex": {
+      "dependencies": {
+        "figures/code/data/encoding4.dat": "2f32069c9bcc978a9be7c884d18d2875f4f2bb063d679e50d91d754c7c1c3d0c",
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083"
+      },
+      "render_hash": "a0c8716aaf1047c3b30117566ae18bcbecedd57d013a9a83049b77170a0b2f20"
+    },
+    "figures/code/encoding_5.tex": {
+      "dependencies": {
+        "figures/code/data/encoding5.dat": "3dd8358a08f1093df0e85f5c224bb0a5fae2de3dbc887b7496a95abc13aab29b",
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083"
+      },
+      "render_hash": "94b9ee27ec239f766813e6458c713a8cdd07db8db93248d8ceaad95bb90d234c"
+    },
+    "figures/code/encoding_6.tex": {
+      "dependencies": {
+        "figures/code/data/encoding6.dat": "2d6ca61a59c0b9a0548499cf4e0d1f24a1549256bdbeeed5123823acc0ae3de6",
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083"
+      },
+      "render_hash": "b492f949b05f79c1ec6aaeba5637a34ecd75ea8c4d312dc30252157aec88e8aa"
+    },
+    "figures/miscelanea/bloch_sphere_calculations.tex": {
+      "dependencies": {},
+      "render_hash": "e97c07ae64584812eca00a9971119b34fb60f43b310d7b28e2d43b232076cdff"
+    },
+    "figures/miscelanea/block_figure.tex": {
+      "dependencies": {
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083"
+      },
+      "render_hash": "b19b7d5d405595aae70b8bb299cb2c01e08d96d76d0d10f7c440aa6a38c1ed03"
+    },
+    "figures/miscelanea/gate_teleportation.tex": {
+      "dependencies": {},
+      "render_hash": "4010cc41ddfc0416104c3e8019c26091bc3ccf6b60f0ecaae8fc7d7b051bc76b"
+    },
+    "figures/miscelanea/msca_figure.tex": {
+      "dependencies": {},
+      "render_hash": "2de2943b2bd1185f3b36b457c18f5c9fb100e0769c960df1b471fa6e89699d75"
+    },
+    "figures/miscelanea/spin_grid.tex": {
+      "dependencies": {
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083"
+      },
+      "render_hash": "0924e0f8ca0d729c6f77319d9a3cb2cfc664a1f2989956a829353fa5cd2eaf71"
+    },
+    "figures/quantum_filters/algebra_invariance.tex": {
+      "dependencies": {
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083",
+        "figures/quantum_filters/data/algebra_invariance.dat": "9f9fcae44230f05e9b30517b923c0ad3488ded3dc129a4bdae8f74b3351d1b68"
+      },
+      "render_hash": "ace3b27269f0f5bf3e3da927bb0c449080246552a92a5a1ec4fcbbd27548b4c1"
+    },
+    "figures/quantum_filters/algebra_invariance_2.tex": {
+      "dependencies": {
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083",
+        "figures/quantum_filters/data/algebra_invariance.dat": "9f9fcae44230f05e9b30517b923c0ad3488ded3dc129a4bdae8f74b3351d1b68"
+      },
+      "render_hash": "ed65759b233a7efd895260c57a45517f849ae7363678bd7f286a0d523cdd7e6c"
+    },
+    "figures/quantum_filters/diagonals.tex": {
+      "dependencies": {
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083"
+      },
+      "render_hash": "7f9139d958455fc4f2098d6915e9bc60fc7f3ca683d36e9bb07d5e74bcb35782"
+    },
+    "figures/quantum_filters/discrete_spin_chain.tex": {
+      "dependencies": {
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083"
+      },
+      "render_hash": "28026c1080439203c3dea823192c712d2b4ef0642ba7441119a9b349b97ecdbb"
+    },
+    "figures/quantum_filters/fidelity_diffusive.tex": {
+      "dependencies": {
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083",
+        "figures/quantum_filters/data/fidelity_w.csv": "0d972151f6588896c1bbc4964af84789572b14e0785b270c111752f2dfab3598"
+      },
+      "render_hash": "1fdfceaf82c0f0cf01c50fa3ca7ab138480e2c72ec22f1d90f442e4394f45976"
+    },
+    "figures/quantum_filters/fidelity_jump.tex": {
+      "dependencies": {
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083",
+        "figures/quantum_filters/data/fidelity_n.csv": "5aade73f64b69b7411072a706382153d7d40fed1c652bb6253170a54a3f60d0d"
+      },
+      "render_hash": "8f287f870bd8fffe3c528154ebabab79cba52ed5eb5eae1c998cf316331d68e7"
+    },
+    "figures/quantum_filters/ising_chain_filter_diffusive.tex": {
+      "dependencies": {
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083",
+        "figures/quantum_filters/data/full_filter_mag_w.csv": "bd20adf2621009637f37752daa0bc559c0d01606c41687867c0378530b07368e",
+        "figures/quantum_filters/data/reduced_filter_mag_w.csv": "bd20adf2621009637f37752daa0bc559c0d01606c41687867c0378530b07368e"
+      },
+      "render_hash": "fe01a0dec539787f10134c75fc8a9ee57297edaa014dfe15cc6b2c17f88163e9"
+    },
+    "figures/quantum_filters/ising_chain_filter_jumps.tex": {
+      "dependencies": {
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083",
+        "figures/quantum_filters/data/full_filter_mag_n.csv": "e137a31477e2c2f0f1a6954930406f0f58c595f629c1ab32bb7e42d68556023f",
+        "figures/quantum_filters/data/reduced_filter_mag_n.csv": "e137a31477e2c2f0f1a6954930406f0f58c595f629c1ab32bb7e42d68556023f"
+      },
+      "render_hash": "0696c93cdc0fa17a0aa5721d01d2f2c4d34e867824fa77aabb609687b8000343"
+    },
+    "figures/quantum_filters/ising_chain_prob_diffusive.tex": {
+      "dependencies": {
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083",
+        "figures/quantum_filters/data/full_filter_w.csv": "0127a254b94213570393b488bbd767ae1a4dba082a3f1acf7240c8313a7b13a2",
+        "figures/quantum_filters/data/reduced_filter_w.csv": "0127a254b94213570393b488bbd767ae1a4dba082a3f1acf7240c8313a7b13a2"
+      },
+      "render_hash": "712c427d9033cb380a60c6698623fe15e78388512a1c9210d9804d01f8a238dd"
+    },
+    "figures/quantum_filters/ising_chain_prob_jumps.tex": {
+      "dependencies": {
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083",
+        "figures/quantum_filters/data/full_filter_n.csv": "0c174ae14473ac3b0ec06a4cd5d5ed6d9a25ad6fe4889ce1b2a0db86fc37fc84",
+        "figures/quantum_filters/data/reduced_filter_n.csv": "0c174ae14473ac3b0ec06a4cd5d5ed6d9a25ad6fe4889ce1b2a0db86fc37fc84"
+      },
+      "render_hash": "21bab732b275db85d9c8052fdbc15dfb80a328019d349c4b6029a1f0bf16353e"
+    },
+    "figures/quantum_filters/measured_spin_chain.tex": {
+      "dependencies": {
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083"
+      },
+      "render_hash": "defdde47851850f8e0d9e2b502a0485ad0803b7af16d330ab211c3092d3329f6"
+    },
+    "figures/spin_chain/xxz_blocks.tex": {
+      "dependencies": {
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083",
+        "figures/spin_chain/data/xxz_blocks.dat": "2380b62a0b71d4395b4eb958bdddee1dc3c85b98b24b5203328b2d2c54a58ecb"
+      },
+      "render_hash": "d9225f1a11ab95a234c007e5135e6d61be1039a483c766d964174edc51b7f731"
+    },
+    "figures/spin_chain/xxz_blocks_BW.tex": {
+      "dependencies": {
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083",
+        "figures/spin_chain/data/xxz_blocks.dat": "2380b62a0b71d4395b4eb958bdddee1dc3c85b98b24b5203328b2d2c54a58ecb"
+      },
+      "render_hash": "0a2bb0df6b2d86888643e9b9b8bae4785a2e73318871d60e757e6227642cdcbd"
+    },
+    "figures/spin_chain/xxz_currents.tex": {
+      "dependencies": {
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083",
+        "figures/spin_chain/data/xxz_magnetization.dat": "3d8ecdb2bfd92fcfae141c5d755cd5e3bde300f5de54d3e3a7b9eddfe589d486"
+      },
+      "render_hash": "ca1604216483e2417eb8f7a5ddbf7e76a082cf5611d00a912041cdb904e95a9e"
+    },
+    "figures/spin_chain/xxz_dimensions.tex": {
+      "dependencies": {
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083",
+        "figures/spin_chain/data/xxz_dimensions.dat": "94c05fbae23a0a6bc3c563df2412ac55050d88594272d55fb94d088b97dbdaac"
+      },
+      "render_hash": "22db87a2c416c589a1692a3284c381bac5ed046d06cf216e15f46a2c8b29104a"
+    },
+    "figures/spin_chain/xxz_drawing.tex": {
+      "dependencies": {
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083"
+      },
+      "render_hash": "b1a02775f2a18e265a1ba8c99dbd9ac42ca29d5eb57c26b9982a9d8cb60d8371"
+    },
+    "figures/spin_chain/xxz_magnetization.tex": {
+      "dependencies": {
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083",
+        "figures/spin_chain/data/xxz_magnetization.dat": "3d8ecdb2bfd92fcfae141c5d755cd5e3bde300f5de54d3e3a7b9eddfe589d486"
+      },
+      "render_hash": "c3fc1e6060107b66ce7ee5bd9f20633d4d4545cb731bb6e1b038b1b9594ae938"
+    },
+    "figures/ticozzi-non-linear/1.tex": {
+      "dependencies": {},
+      "render_hash": "0dbb3329588103c111d284e1d92d445f2bca898e176bdc6e8d7332f0f8c6af1c"
+    },
+    "figures/ticozzi-non-linear/10.tex": {
+      "dependencies": {
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083"
+      },
+      "render_hash": "d234de2600da383be1375e976b2ba7b12652ea5e1505a7cc29355202bfe10f64"
+    },
+    "figures/ticozzi-non-linear/11.tex": {
+      "dependencies": {
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083"
+      },
+      "render_hash": "306fa718dc1ede33914b38c97b178ca38a57b10b51d9fad75d4435b662e42a67"
+    },
+    "figures/ticozzi-non-linear/2.tex": {
+      "dependencies": {
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083"
+      },
+      "render_hash": "cf4bf66663f30919c12544fe35ddddb11aa75fdbf74482ced1b4c5c7523a9ed8"
+    },
+    "figures/ticozzi-non-linear/3.tex": {
+      "dependencies": {
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083"
+      },
+      "render_hash": "41446a5b3cc17415aeae3bc95a8fe885c943c92c3fa69d4913b7dd7dec0f19cb"
+    },
+    "figures/ticozzi-non-linear/4.tex": {
+      "dependencies": {
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083"
+      },
+      "render_hash": "e2e69164eb1ab129ac667b672b5f356aaef94194bfaafaa3ab2f43d8285b5954"
+    },
+    "figures/ticozzi-non-linear/5.tex": {
+      "dependencies": {
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083"
+      },
+      "render_hash": "fc4008ef467310e882b043e0ddc21cb532092370d74b37f39664845a77a6685c"
+    },
+    "figures/ticozzi-non-linear/6.tex": {
+      "dependencies": {
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083"
+      },
+      "render_hash": "fc450de2b948c802c82fa809ef29074060f03fbfe688337f5f4f38b328d56696"
+    },
+    "figures/ticozzi-non-linear/7.tex": {
+      "dependencies": {
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083"
+      },
+      "render_hash": "73f73d1e0a80be86058ff2f923f71517e837087077443c71b7b7f46e0f860c65"
+    },
+    "figures/ticozzi-non-linear/8.tex": {
+      "dependencies": {
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083"
+      },
+      "render_hash": "98f3e077a5758b34bffc6e542c6625fe37e7364c6b919d0df9b967b04e723646"
+    },
+    "figures/ticozzi-non-linear/9.tex": {
+      "dependencies": {
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083"
+      },
+      "render_hash": "28a182ec46c36e4e5e936c5e127d0d519d921b61acf38d252d081d80bc951fb6"
+    },
+    "figures/time_ordered_expansion/E_norm_bound.tex": {
+      "dependencies": {
+        "figures/time_ordered_expansion/data/E_norm.csv": "9bdbbbf3f7d07ff2fbe42c6f6160abae4e0ddb3d1a3839d00119803907e8da11"
+      },
+      "render_hash": "a6b0328d67ecdb6193048940a7b1775281bfe209100d54817b96c3ae2926fa82"
+    },
+    "figures/time_ordered_expansion/central_spin_bloch.tex": {
+      "dependencies": {
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083",
+        "figures/time_ordered_expansion/data/central_spin_final_points.csv": "a70b81b1e83a0b73647715de14517518117b9f89cd91180f25f9b0eccc37b147",
+        "figures/time_ordered_expansion/data/traj_central_spin_1.csv": "a2e2ea12c38e699e7dfff1f3f3569c0e1de5aeaebef779219fae0a63804380fc",
+        "figures/time_ordered_expansion/data/traj_central_spin_10.csv": "1fcf14fea711071961e8c821cb251e6b5edf454c759c6822d116ea3ff14da119",
+        "figures/time_ordered_expansion/data/traj_central_spin_2.csv": "cbe86deb09dc88acf4207ced7873fb67f56961d69018e2b38ff421df46341aa5",
+        "figures/time_ordered_expansion/data/traj_central_spin_20.csv": "1f749854c79ed79e839a061260d2f4f07f9b8077f7ed3b6fd3f7c6c2ce2831eb",
+        "figures/time_ordered_expansion/data/traj_central_spin_3.csv": "2393d78400670b70d89c3146a66635292acc6753368d834bb2725ab6a76a7253",
+        "figures/time_ordered_expansion/data/traj_central_spin_4.csv": "9705930e13a78d41c299c4f7b5f8fb2d14b54a649defa920a0fb89b1b4e7baa8",
+        "figures/time_ordered_expansion/data/traj_central_spin_exact.csv": "e45b03e045b1a3aa44a017ccf55a033a9dbbc48aab6de70aeab5c27f9e9487a5"
+      },
+      "render_hash": "3607e0d9a764a43ae91ba5ef8f73dbd975dd181387464c5ea66bb6696713433f"
+    },
+    "figures/time_ordered_expansion/central_spin_figure.tex": {
+      "dependencies": {
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083"
+      },
+      "render_hash": "d143e0020863f5ed958658a8aa51f3b17e62f234a83e6ea3fa53d2f60b23261b"
+    },
+    "figures/time_ordered_expansion/dissipative_central_spin_bloch.tex": {
+      "dependencies": {
+        "figures/commands.tex": "e1f4e9e0e96d809d8d415de9b23fe44f54840aecf3a06dbce62f6d0b7f5cf083",
+        "figures/time_ordered_expansion/data/dissipative_central_spin_final_points.csv": "ea28daaa7e4f94b19bea8a2c2cec6c6d83e6f29cbeb40b8d4d6da11e458e6268",
+        "figures/time_ordered_expansion/data/traj_dissipative_central_spin_1.csv": "1d5701b491b7caac5b7d1db70efab9311004270fd4be03edcbced0687878760a",
+        "figures/time_ordered_expansion/data/traj_dissipative_central_spin_10.csv": "a21bdb739a56790baa18cddf8d1e8df5f18ac1f591b3c334e4d28e7f024f10b9",
+        "figures/time_ordered_expansion/data/traj_dissipative_central_spin_2.csv": "4f179c7c9f4a7081299db01a66cc47d2d16aae524a0ec8dc875e4656d1fa7fdc",
+        "figures/time_ordered_expansion/data/traj_dissipative_central_spin_20.csv": "e71056bac563c50f66a10d383722e653b38dd45f2267332202696fadf7daaaa7",
+        "figures/time_ordered_expansion/data/traj_dissipative_central_spin_3.csv": "9d2adf83ab01b20c7e1bec5b69dfc92346ce7330c1cade1fa36b402f325693a3",
+        "figures/time_ordered_expansion/data/traj_dissipative_central_spin_4.csv": "d2e8dc53a082fa17d580f15b16d2a7f85134941a1ad95001e90b6c1e1ed706c4",
+        "figures/time_ordered_expansion/data/traj_dissipative_central_spin_exact.csv": "f9c265aa04af6a7a96d3d6cd079d5d81a2dc238b0363e8a0543160bb619262d7"
+      },
+      "render_hash": "d130abb5710645d2e909a5f37b05eec73e1084e106139361adcff3b7d5ad339b"
+    },
+    "figures/time_ordered_expansion/error_central_spin.tex": {
+      "dependencies": {
+        "figures/time_ordered_expansion/data/errors_central_spin.csv": "9b1f32eb160791a99feb85f45be61698860dc7dbbe42f5204940aaea2e304de4"
+      },
+      "render_hash": "1153a0bb053c598ecf58a43093f92ec05302296265d67aa3b8a68206d7f4e809"
+    },
+    "figures/time_ordered_expansion/error_dissipative_central_spin.tex": {
+      "dependencies": {
+        "figures/time_ordered_expansion/data/errors_dissipative_central_spin.csv": "e217a976de383f2f2e1ff175da185d4581a1b9a5c9d221879ebf412b6d299740"
+      },
+      "render_hash": "a400acc5060749e945201d25da0f0992c4056a0d342c3be07c2ac7fd17f67de7"
+    },
+    "figures/time_ordered_expansion/error_linear.tex": {
+      "dependencies": {
+        "figures/time_ordered_expansion/data/errors.csv": "f2ce92cd2fd58ebf3bfb5bc82b0c3dbc54a3df4b49da2b8b16977ce86ba4af0b"
+      },
+      "render_hash": "ac57bf127e558cea196c7aa75c5ba0f32901c76f848d89756dfc3cde538aa97d"
+    },
+    "figures/time_ordered_expansion/error_spin_boson.tex": {
+      "dependencies": {
+        "figures/time_ordered_expansion/data/error_dephasing_spin_boson.csv": "4c1d9f48e964fb51453c7d5159cd40b23f605136072c6e270fce2ed9fdcc32fb"
+      },
+      "render_hash": "da37e026fa2f7ffda9f31c9be517de0a7fd177a1e142b0f9afa1ef857f402b30"
+    },
+    "figures/time_ordered_expansion/error_spin_chain.tex": {
+      "dependencies": {
+        "figures/time_ordered_expansion/data/errors_spin_chain.csv": "bc67ae46bd2054b787db15d4972cf045e5bdb7556e5275a6039f141f69a2150e"
+      },
+      "render_hash": "9df751b743d42b12a1d43d27485cef24e70fc35dbfb56952b9fcc86c18c90319"
+    },
+    "figures/time_ordered_expansion/matrix.tex": {
+      "dependencies": {
+        "figures/time_ordered_expansion/data/matrix.dat": "0f505dcd6bb5d067ca62c6ed133a8d76f800f41aa07e66f15aed9b8b7a3e5aee"
+      },
+      "render_hash": "537ca809d7c07a566b8cfb2a90c03fca61ada3aca7c0bdb650d8eca1e2de1e47"
+    },
+    "figures/time_ordered_expansion/norm_bound.tex": {
+      "dependencies": {
+        "figures/time_ordered_expansion/data/norm.csv": "d12c79d4029a4ffcda7fb60369296fbdfc5972ed1242c9e7f43e5dcdbf6d7a2a"
+      },
+      "render_hash": "52214070e8cf0b24b8320f1a46717056bbdb5fadf6c7ef5846b9937fdf448e31"
+    },
+    "figures/time_ordered_expansion/schematic.tex": {
+      "dependencies": {
+        "figures/time_ordered_expansion/data/lil_example.dat": "71a75ce45ffe04f25da0cbdb602575c5417a29aea0b54918310c9313ed2de1b9"
+      },
+      "render_hash": "df5b628c5bbd944bf4f5168b78de7c3f69f1add04fe19ad2f9f30a8e3b7e1a53"
+    },
+    "figures/time_ordered_expansion/trajectory_central_spin.tex": {
+      "dependencies": {
+        "figures/time_ordered_expansion/data/central_spin_final_points.csv": "a70b81b1e83a0b73647715de14517518117b9f89cd91180f25f9b0eccc37b147",
+        "figures/time_ordered_expansion/data/traj_central_spin_1.csv": "a2e2ea12c38e699e7dfff1f3f3569c0e1de5aeaebef779219fae0a63804380fc",
+        "figures/time_ordered_expansion/data/traj_central_spin_10.csv": "1fcf14fea711071961e8c821cb251e6b5edf454c759c6822d116ea3ff14da119",
+        "figures/time_ordered_expansion/data/traj_central_spin_2.csv": "cbe86deb09dc88acf4207ced7873fb67f56961d69018e2b38ff421df46341aa5",
+        "figures/time_ordered_expansion/data/traj_central_spin_20.csv": "1f749854c79ed79e839a061260d2f4f07f9b8077f7ed3b6fd3f7c6c2ce2831eb",
+        "figures/time_ordered_expansion/data/traj_central_spin_3.csv": "2393d78400670b70d89c3146a66635292acc6753368d834bb2725ab6a76a7253",
+        "figures/time_ordered_expansion/data/traj_central_spin_4.csv": "9705930e13a78d41c299c4f7b5f8fb2d14b54a649defa920a0fb89b1b4e7baa8",
+        "figures/time_ordered_expansion/data/traj_central_spin_exact.csv": "e45b03e045b1a3aa44a017ccf55a033a9dbbc48aab6de70aeab5c27f9e9487a5"
+      },
+      "render_hash": "d567dce399e0cd2a8adc10d93ce3452dc6bdf118ac3cdf1067f47bf590df31cd"
+    },
+    "figures/time_ordered_expansion/trajectory_dissipative_central_spin.tex": {
+      "dependencies": {
+        "figures/time_ordered_expansion/data/dissipative_central_spin_final_points.csv": "ea28daaa7e4f94b19bea8a2c2cec6c6d83e6f29cbeb40b8d4d6da11e458e6268",
+        "figures/time_ordered_expansion/data/traj_dissipative_central_spin_1.csv": "1d5701b491b7caac5b7d1db70efab9311004270fd4be03edcbced0687878760a",
+        "figures/time_ordered_expansion/data/traj_dissipative_central_spin_10.csv": "a21bdb739a56790baa18cddf8d1e8df5f18ac1f591b3c334e4d28e7f024f10b9",
+        "figures/time_ordered_expansion/data/traj_dissipative_central_spin_2.csv": "4f179c7c9f4a7081299db01a66cc47d2d16aae524a0ec8dc875e4656d1fa7fdc",
+        "figures/time_ordered_expansion/data/traj_dissipative_central_spin_20.csv": "e71056bac563c50f66a10d383722e653b38dd45f2267332202696fadf7daaaa7",
+        "figures/time_ordered_expansion/data/traj_dissipative_central_spin_3.csv": "9d2adf83ab01b20c7e1bec5b69dfc92346ce7330c1cade1fa36b402f325693a3",
+        "figures/time_ordered_expansion/data/traj_dissipative_central_spin_4.csv": "d2e8dc53a082fa17d580f15b16d2a7f85134941a1ad95001e90b6c1e1ed706c4",
+        "figures/time_ordered_expansion/data/traj_dissipative_central_spin_exact.csv": "f9c265aa04af6a7a96d3d6cd079d5d81a2dc238b0363e8a0543160bb619262d7"
+      },
+      "render_hash": "2cd925d4809a56225f00ca604e065b81e51582da236bd7bf2a54a3c3837f0669"
+    },
+    "figures/time_ordered_expansion/trajectory_spin_boson.tex": {
+      "dependencies": {
+        "figures/time_ordered_expansion/data/dephasing_spin_boson.csv": "1170611a8667f8e1b97f78fc0a7c21498ba0c4493a880691168de0cdd41d0905"
+      },
+      "render_hash": "25f2bd729faf8eda0c56f95e827a060e48b529bdfaa792235c52b4037f947a43"
+    },
+    "figures/time_ordered_expansion/trajectory_spin_chain.tex": {
+      "dependencies": {
+        "figures/time_ordered_expansion/data/spin_chain_final_points.csv": "9a061505ba5414d741f77886238e59b3c5251fd38127f74c586be5b4e7ece036",
+        "figures/time_ordered_expansion/data/traj_spin_chain10.csv": "724f8f89c0c980f62eabc045b1647d6cd3bbab720ce8646cee2b28b0efaf305a",
+        "figures/time_ordered_expansion/data/traj_spin_chain2.csv": "d7d937341e7163b99cd2df9fc3bc0ac03f4add41efce2ee20296394c42807891",
+        "figures/time_ordered_expansion/data/traj_spin_chain20.csv": "4d11ba3728f8d1ca2037b4149f75e2aa02b4adc7caf42df8aa83caa46e1a53fc",
+        "figures/time_ordered_expansion/data/traj_spin_chain4.csv": "ea6041925b3cb4032f48b7c32c850583bf0137e4da8a4bf2da43ce5295ef305f",
+        "figures/time_ordered_expansion/data/traj_spin_chain_exact.csv": "ebf63c308fd3ef4786ee6d2cd2878dbee6e0d546b0e54f785711bed759456613"
+      },
+      "render_hash": "00d9426ded8b39e9dadc7d9790c2c3bacd8a71e41b2987e0410a60bf2f3bf235"
+    }
+  },
+  "version": 1
+}

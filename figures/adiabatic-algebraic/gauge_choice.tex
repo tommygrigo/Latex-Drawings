@@ -1,0 +1,135 @@
+% gallery-title: Gauge choice
+% gallery-category: Quantum 
+% gallery-tags: model reduction
+% gallery-description: 
+% gallery-order: 10
+% paper: arXiv:2603.11982
+
+\documentclass{standalone}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable} 
+\usepgfplotslibrary{groupplots}
+\pgfplotsset{compat = newest}
+\usepgfplotslibrary{fillbetween}
+
+\usepackage{filecontents}
+
+
+\newcommand{\Fc}{\mathcal{F}}
+\newcommand{\Lc}{\mathcal{L}}
+\newcommand{\norm}[1]{\left|\left| #1 \right|\right|}
+
+% Define inferno colormap
+\pgfplotsset{%
+    colormap={inferno}{%
+        rgb255=(0, 0, 4)
+        rgb255=(12, 8, 38)
+        rgb255=(36, 12, 79)
+        rgb255=(66, 10, 104)
+        rgb255=(93, 18, 110)
+        rgb255=(120, 28, 109)
+        rgb255=(147, 38, 103)
+        rgb255=(174, 48, 92)
+        rgb255=(199, 62, 76)
+        rgb255=(221, 81, 58)
+        rgb255=(237, 105, 37)
+        rgb255=(248, 133, 15)
+        rgb255=(252, 165, 10)
+        rgb255=(250, 198, 45)
+        rgb255=(242, 230, 97)
+        rgb255=(252, 255, 164) 
+    }
+}
+
+\pgfplotsset{
+    discard if smaller/.style n args={2}{
+        x filter/.code={
+            \edef\tempa{\thisrow{#1}}
+            \edef\tempb{#2}
+                \ifnum\tempa<\tempb
+                    \def\pgfmathresult{inf}
+                \else
+                \fi
+        }
+    }
+    }
+
+
+\begin{document}
+
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    name = bigone,
+xmin = 0, xmax = 25,
+%ymin = 1e-15, ymax = 10,
+xtick distance = 10,
+grid = both,
+minor tick num = 1,
+major grid style = {lightgray},
+minor grid style = {lightgray!25},
+width = 11cm,
+height = 6.5cm,
+smooth,
+xlabel = {$\omega t$},
+ylabel = {$\left|\left|\rho(t)-\mathcal{J}\check{\rho}(t)\right|\right|_{\rm tr}$},
+legend pos = north east,
+ymode=log,
+colormap name=inferno,
+cycle list={[of colormap]},
+legend style={at={(1,1)},anchor=north east, column sep = 6pt, legend columns = 1},
+legend cell align={left},
+%                 title style={at={(0.5,0.84)},anchor=north,yshift=-0.1},
+]
+
+
+\addplot+[color of colormap={250 of inferno},no marks, opacity=.8, very thick] table [x=t, y=alg, col sep=comma]{data/gauge_choice.csv};
+
+\addplot+[color of colormap={500 of inferno},no marks, opacity=.8, very thick,] table [x=t, y=rand, col sep=comma]{data/gauge_choice.csv};
+
+\addplot+[color of colormap={750 of inferno},no marks, opacity=.8, very thick,] table [x=t, y=randcom, col sep=comma]{data/gauge_choice.csv};
+
+
+\addplot[name path=A,color of colormap={500 of inferno},no marks, opacity=.4, thick, forget plot] table [x=t, y=rps, col sep=comma]{data/gauge_choice.csv};
+\addplot[name path=B,color of colormap={500 of inferno},no marks, opacity=.4, thick, forget plot] table [x=t, y=rms, col sep=comma]{data/gauge_choice.csv}; 
+
+\addplot[name path=C,color of colormap={750 of inferno},no marks, opacity=.4, thick, forget plot] table [x=t, y=rcps, col sep=comma]{data/gauge_choice.csv};
+\addplot[name path=D,color of colormap={750 of inferno},no marks, opacity=.4, thick, forget plot] table [x=t, y=rcms, col sep=comma]{data/gauge_choice.csv}; 
+
+
+% \addplot+[color of colormap={375 of inferno},no marks, opacity=.8, thick, densely dashed] table [x=t, y=z, col sep=comma]{../data/gauge_choice.csv};
+% \addplot+[color of colormap={625 of inferno},mark = triangle, opacity=.8, thick, mark repeat=21, only marks ] table [x=t, y=s, col sep=comma]{../data/gauge_choice.csv};
+% \addplot+[color of colormap={750 of inferno},mark = x, opacity=.8, thick, mark repeat=23, only marks, ] table [x=t, y=q, col sep=comma]{../data/gauge_choice.csv};
+% \addplot+[color of colormap={875 of inferno},mark = o, opacity=.8, thick, mark repeat=20, only marks] table [x=t, y=v, col sep=comma]{../data/gauge_choice.csv};
+
+\addplot [opacity=.2, color of colormap={500 of inferno}] fill between[ of = A and B, ];
+
+\addplot [opacity=.2, color of colormap={750 of inferno}] fill between[ of = C and D, ];
+
+\legend{
+Algebraic,
+$\mathcal{R}_{(0)}\mathcal{J}_{(1)}$ Random,
+$\mathcal{R}_{(0)}\mathcal{J}_{(1)}$ Random commuting
+}
+\end{axis}
+% \begin{axis}[tiny,
+%     xmin = 40, xmax = 50,
+%     anchor=south west,
+%     %at={(12,0.3)},
+%     at={(4.5,0.05)},
+%     ymode=log,
+%     colormap name=inferno,
+%     cycle list={[of colormap]},
+%     axis background/.style={fill=white}
+%     %ymin = 1e-15, ymax = 10,
+%     ]
+
+%     \addplot+[domain=50:60, color of colormap={375 of inferno},no marks, opacity=.8, thick, densely dashed] table [x=t, y=z, col sep=comma]{../data/gauge_choice.csv};
+%     \addplot+[color of colormap={625 of inferno},mark = triangle, opacity=.8, thick, mark repeat=11, only marks ] table [x=t, y=s, col sep=comma]{../data/gauge_choice.csv};
+%     \addplot+[domain=50:60, color of colormap={750 of inferno},mark = x, opacity=.8, thick, mark repeat=23, only marks, ] table [x=t, y=q, col sep=comma]{../data/gauge_choice.csv};
+%     \addplot+[domain=50:60, color of colormap={875 of inferno},mark = o, opacity=.8, thick, mark repeat=20, only marks] table [x=t, y=q, col sep=comma]{../data/gauge_choice.csv};
+
+% \end{axis}
+\end{tikzpicture}
+\end{document}

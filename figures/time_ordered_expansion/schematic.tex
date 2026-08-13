@@ -1,0 +1,81 @@
+% gallery-title: Schematic
+% gallery-category: Quantum 
+% gallery-tags: model reduction
+% gallery-description: 
+% gallery-order: 10
+% paper: arXiv:2510.20675
+
+\documentclass{standalone}
+\usepackage{amsfonts,amsmath,amssymb}
+\usepackage{cancel}
+\usepackage{amsfonts,amsmath,amssymb}
+\usepackage[english]{babel}
+\usepackage[normalem]{ulem}
+\usepackage{hyperref}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{xfrac}
+\usepackage{subcaption,caption}
+\usepackage{epsfig}
+\usepackage{ulem}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+
+\usepackage{pgfplots}
+\usepackage{pgfplotstable} 
+\usepgfplotslibrary{groupplots}
+\pgfplotsset{compat = newest}
+
+\usepackage{bm}
+\usetikzlibrary{shapes,arrows}
+\usetikzlibrary{matrix}
+\usetikzlibrary{3d}
+\usetikzlibrary{calc,patterns,angles,quotes,arrows,automata}
+\graphicspath{ {./imgs/}}
+\usepackage{tikz-3dplot}
+
+\usepackage{csvsimple}
+
+
+\begin{document}
+\centering
+\pgfplotstableread{data/lil_example.dat}{\dtable}
+\begin{tikzpicture}
+\begin{axis}[
+width=0.8\textwidth,
+axis line style={draw=none},
+tick style={draw=none},
+ticks={none},
+view={60}{30},
+xmin=-.2, xmax=.85,
+ymin=-.2, ymax=.85,
+zmin=0, zmax=.6,
+]
+
+\begin{scope}[canvas is xy plane at z=0,transform shape]
+\fill[blue!10,opacity=0.5,draw=black] (-.2,-.2,0) rectangle (.85,.85,0);
+\end{scope}
+
+
+\addplot3[blue!20!red, smooth, thick] table [x={x}, y={y}, z={z}] {\dtable};
+\addplot3[blue!80!red, smooth, thick] table [x={x}, y={y}, z expr = 0] {\dtable};
+\addplot3[orange!80!red, smooth, thick] table [x={v}, y={w}, z expr = 0] {\dtable};
+
+\addplot3[dashed,black,thick] coordinates {(0.6380, 0.5094, 0.5861) (0.6380, 0.5094, 0)};
+\addplot3[dashed,black,thick] coordinates {(0.6380, 0.5094, 0) (0.8041, 0.1411, 0)};
+
+\addplot3[mark=*,blue!20!red,point meta=explicit symbolic,nodes near coords] coordinates {(0,0,0)[$x_0$]};
+
+%\addplot3[mark=*,orange!80!red,point meta=explicit symbolic,nodes near coords] 
+%coordinates {(1,1,0)[$\mathcal{R}_\mathscr{A}(\rho_0)$]};
+
+\addplot3[mark=*,blue!20!red,point meta=explicit symbolic,nodes near coords] coordinates {(0.6380, 0.5094, 0.5861)[$x_t$]};
+\addplot3[mark=*,blue!80!red,point meta=explicit symbolic,nodes near coords] coordinates {(0.6380, 0.5094, 0)[]};
+\addplot3[mark=*,orange!80!red,point meta=explicit symbolic,nodes near coords] coordinates {(0.8041, 0.1411, 0)[$Jz_t$]};
+\node[fill=none,anchor=north east, blue] at (.6,.75,0) {$Px_t$};
+
+\node[fill=none,anchor=north east] at (.1,.68,0) {$\mathscr{V}$};
+
+\end{axis}
+\end{tikzpicture}
+\end{document}

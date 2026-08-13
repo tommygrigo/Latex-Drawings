@@ -1,0 +1,96 @@
+% gallery-title: Convergence
+% gallery-category: Quantum 
+% gallery-tags: model reduction
+% gallery-description: 
+% gallery-order: 10
+% paper: arXiv:2603.11982
+\documentclass{standalone}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable} 
+\usepgfplotslibrary{groupplots}
+\pgfplotsset{compat = newest}
+
+
+\newcommand{\Fc}{\mathcal{F}}
+\newcommand{\Lc}{\mathcal{L}}
+\newcommand{\norm}[1]{\left|\left| #1 \right|\right|}
+
+% Define inferno colormap
+% \pgfplotsset{%
+%     colormap={inferno}{%
+%         %rgb255=(0, 0, 4)
+%         %rgb255=(12, 8, 38)
+%         %rgb255=(36, 12, 79)
+%         %rgb255=(66, 10, 104)
+%         %rgb255=(93, 18, 110)
+%         rgb255=(120, 28, 109)
+%         %rgb255=(147, 38, 103)
+%         %rgb255=(174, 48, 92)
+%         %rgb255=(199, 62, 76)
+%         %rgb255=(221, 81, 58)
+%         %rgb255=(237, 105, 37)
+%         %rgb255=(248, 133, 15)
+%         %rgb255=(252, 165, 10)
+%         %rgb255=(250, 198, 45)
+%         %rgb255=(242, 230, 97)
+%         %rgb255=(252, 255, 164)
+%     }
+% }
+
+% Style to select only points from #1 to #2 (inclusive)
+\pgfplotsset{select coords between index/.style 2 args={
+    x filter/.code={
+        \ifnum\coordindex<#1\def\pgfmathresult{}\fi
+        \ifnum\coordindex>#2\def\pgfmathresult{}\fi
+    }
+}}
+
+\begin{document} 
+
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+xmin = 0, xmax = 6,
+%ymin = 1e-6, 
+ymax = 1,
+xtick distance = 2,
+grid = both,
+minor tick num = 1,
+major grid style = {lightgray},
+minor grid style = {lightgray!25},
+width = 11cm,
+height = 6.5cm,
+smooth,
+xlabel = {$\omega t$},
+ylabel = {$\left|\left|\rho(t)-\mathcal{J}\check{\rho}(t)\right|\right|_{\rm tr}$},
+legend pos = south west,
+ymode=log,
+legend cell align={left},
+% colormap name=inferno,
+% cycle list={[of colormap]},
+% legend style={at={(0.5,0.22)},anchor=north, column sep = 6pt, legend columns = 1},
+%                 title style={at={(0.5,0.84)},anchor=north,yshift=-0.1},
+]
+
+
+
+\addplot+[no marks, opacity=.8, thick, color=orange] table [x=t, y=e, col sep=comma]{data/xxz_unperturbed_error.csv};
+
+
+\addplot+[no marks, opacity=.8, thick, densely dotted, color=orange] table [x=t, y=b, col sep=comma]{data/xxz_unperturbed_error.csv};
+
+\addplot+[no marks, select coords between index={750}{2000} , opacity=.8, thick, densely dashed, color=black] table [x=t, y=l, col sep=comma,]{data/xxz_unperturbed_error.csv};
+
+
+
+% \legend{
+% $\varepsilon=0.01$,
+% $\varepsilon=0.05$,
+% $\varepsilon=0.1$,
+% $\varepsilon=0.5$,
+% % $\varepsilon=1$,
+% }
+\end{axis}
+\end{tikzpicture}
+\end{document}

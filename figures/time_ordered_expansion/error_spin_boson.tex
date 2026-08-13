@@ -1,0 +1,106 @@
+% gallery-title: Error spin boson
+% gallery-category: Quantum 
+% gallery-tags: model reduction
+% gallery-description: 
+% gallery-order: 10
+% paper: arXiv:2510.20675
+
+\documentclass{standalone}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable} 
+\usepackage{siunitx}
+\usepgfplotslibrary{groupplots}
+\pgfplotsset{compat = newest}
+
+
+\newcommand{\Fc}{\mathcal{F}}
+\newcommand{\Lc}{\mathcal{L}}
+\newcommand{\norm}[1]{\left|\left| #1 \right|\right|}
+
+% Define inferno colormap
+\pgfplotsset{%
+    colormap={inferno}{%
+        %rgb255=(0, 0, 4)
+        %rgb255=(12, 8, 38)
+        %rgb255=(36, 12, 79)
+        rgb255=(66, 10, 104)
+        %rgb255=(93, 18, 110)
+        %rgb255=(120, 28, 109)
+        %rgb255=(147, 38, 103)
+        %rgb255=(174, 48, 92)
+        rgb255=(199, 62, 76)
+        %rgb255=(221, 81, 58)
+        %rgb255=(237, 105, 37)
+        %rgb255=(248, 133, 15)
+        %rgb255=(252, 165, 10)
+        rgb255=(250, 198, 45)
+        %rgb255=(242, 230, 97)
+        %rgb255=(252, 255, 164)
+    }
+}
+
+
+\begin{document}
+
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+xmin = 0, xmax = 5,
+ymin = 1e-7, ymax = 1,
+xtick distance = 1,
+grid = both,
+minor tick num = 1,
+major grid style = {lightgray},
+minor grid style = {lightgray!25},
+width = 11cm,
+height = 6.5cm,
+smooth,
+xlabel = {$t$},
+ylabel = {$\norm{\rho_{S,t}-\cdot}_{\rm tr}$},
+legend pos = south west,
+ymode=log,
+colormap name=inferno,
+cycle list={[of colormap]},
+legend style={at={(0.39,0.12)},anchor=north, column sep = 10pt, legend columns = 3},
+                title style={at={(0.75,0.94)},anchor=north,yshift=-0.1},
+]
+
+
+% \addlegendimage{color = black, densely dotted, very thick} \addlegendentry{$c$}
+
+\addplot+[thick, no marks] table [x=t, y=eto0, col sep=comma]{data/error_dephasing_spin_boson.csv};
+\addplot+[thick, no marks] table [x=t, y=eto1, col sep=comma]{data/error_dephasing_spin_boson.csv};
+\addplot+[thick, no marks] table [x=t, y=eto2, col sep=comma]{data/error_dephasing_spin_boson.csv};
+
+\addplot+[thick, no marks, densely dashed] table [x=t, y=ecg0, col sep=comma]{data/error_dephasing_spin_boson.csv};
+\addplot+[thick, no marks, densely dashed] table [x=t, y=ecg1, col sep=comma]{data/error_dephasing_spin_boson.csv};
+\addplot+[thick, no marks, densely dashed] table [x=t, y=ecg2, col sep=comma]{data/error_dephasing_spin_boson.csv};
+
+\legend{
+$s=0.5$,
+$s=1$,
+$s=1.5$
+}
+
+\end{axis}
+
+\begin{axis}[%
+hide axis,
+xmin=10,
+xmax=50,
+ymin=0,
+ymax=0.4,
+%legend pos= east,
+legend style={ at={(0.515,0.22)}, draw=white!15!black,legend cell align=left, anchor=north, column sep = 10pt, legend columns=2}
+]
+
+\addlegendimage{color = black, solid, thick} \addlegendentry{$\norm{\rho_{S,t}-\mu_t}_{\rm tr}$}
+\addlegendimage{color = black, densely dashed, thick} \addlegendentry{$\norm{\rho_{S,t}-\tilde{\rho}_{S,t}}_{\rm tr}$}
+
+%\addlegendimage{color = red!80!blue, no marks, very thick} \addlegendentry{a)}
+
+\end{axis}
+
+\end{tikzpicture}
+\end{document}
